@@ -73,6 +73,12 @@
       <DependentUpon>CFisicoControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Funcionalidades\C.Fisico\ClienteFGerenciadorFormulario.cs" />
+    <Compile Include="Funcionalidades\ClienteJuridico\CadastroClientesJuridicos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Funcionalidades\ClienteJuridico\CadastroClientesJuridicos.Designer.cs">
+      <DependentUpon>CadastroClientesJuridicos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="telaPrincipal.cs">
@@ -86,6 +92,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Funcionalidades\C.Fisico\CFisicoControl.resx">
       <DependentUpon>CFisicoControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Funcionalidades\ClienteJuridico\CadastroClientesJuridicos.resx">
+      <DependentUpon>CadastroClientesJuridicos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -115,7 +124,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Funcionalidades\ClienteJuridico\" />
     <Folder Include="Funcionalidades\Conta\" />
     <Folder Include="Funcionalidades\Empresa\" />
     <Folder Include="Funcionalidades\Endereco\" />
