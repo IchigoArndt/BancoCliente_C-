@@ -33,15 +33,19 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Infragistics4.Documents.IO.v15.1, Version=15.1.20151.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb" />
     <Reference Include="Infragistics4.Shared.v15.1, Version=15.1.20151.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb" />
     <Reference Include="Infragistics4.Win.Misc.v15.1, Version=15.1.20151.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb" />
     <Reference Include="Infragistics4.Win.UltraWinEditors.v15.1, Version=15.1.20151.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb" />
+    <Reference Include="Infragistics4.Win.UltraWinFormattedText.WordWriter.v15.1, Version=15.1.20151.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL" />
+    <Reference Include="Infragistics4.Win.UltraWinGrid.v15.1, Version=15.1.20151.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL" />
     <Reference Include="Infragistics4.Win.UltraWinListView.v15.1, Version=15.1.20151.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL" />
     <Reference Include="Infragistics4.Win.UltraWinRadialMenu.v15.1, Version=15.1.20151.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL" />
     <Reference Include="Infragistics4.Win.UltraWinStatusBar.v15.1, Version=15.1.20151.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb" />
     <Reference Include="Infragistics4.Win.UltraWinTabControl.v15.1, Version=15.1.20151.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb" />
     <Reference Include="Infragistics4.Win.UltraWinToolbars.v15.1, Version=15.1.20151.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL" />
     <Reference Include="Infragistics4.Win.v15.1, Version=15.1.20151.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb" />
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Numerics" />
@@ -79,6 +83,37 @@
     <Compile Include="Funcionalidades\ClienteJuridico\CadastroClientesJuridicos.Designer.cs">
       <DependentUpon>CadastroClientesJuridicos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Funcionalidades\ClienteJuridico\CJuridicoControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Funcionalidades\ClienteJuridico\CJuridicoControl.Designer.cs">
+      <DependentUpon>CJuridicoControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Funcionalidades\ClienteJuridico\GerenciadorFormularioCJ.cs" />
+    <Compile Include="Funcionalidades\Conta\CadastroConta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Funcionalidades\Conta\CadastroConta.Designer.cs">
+      <DependentUpon>CadastroConta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Funcionalidades\Conta\ContaControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Funcionalidades\Conta\ContaControl.Designer.cs">
+      <DependentUpon>ContaControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Funcionalidades\Empresa\CadastroEmpresa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Funcionalidades\Empresa\CadastroEmpresa.Designer.cs">
+      <DependentUpon>CadastroEmpresa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Funcionalidades\Funcionario\CadastroFuncionario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Funcionalidades\Funcionario\CadastroFuncionario.Designer.cs">
+      <DependentUpon>CadastroFuncionario.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="telaPrincipal.cs">
@@ -95,6 +130,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Funcionalidades\ClienteJuridico\CadastroClientesJuridicos.resx">
       <DependentUpon>CadastroClientesJuridicos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Funcionalidades\ClienteJuridico\CJuridicoControl.resx">
+      <DependentUpon>CJuridicoControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Funcionalidades\Conta\CadastroConta.resx">
+      <DependentUpon>CadastroConta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Funcionalidades\Conta\ContaControl.resx">
+      <DependentUpon>ContaControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Funcionalidades\Empresa\CadastroEmpresa.resx">
+      <DependentUpon>CadastroEmpresa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Funcionalidades\Funcionario\CadastroFuncionario.resx">
+      <DependentUpon>CadastroFuncionario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -123,12 +173,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Funcionalidades\Conta\" />
-    <Folder Include="Funcionalidades\Empresa\" />
-    <Folder Include="Funcionalidades\Endereco\" />
-    <Folder Include="Funcionalidades\Funcionario\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\bancoCliente.Dominio\bancoCliente.Dominio.csproj">
       <Project>{4a181f52-f54e-415b-9935-db5c7f07e29c}</Project>

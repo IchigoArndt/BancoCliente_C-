@@ -8,19 +8,10 @@ namespace bancoCliente.Dominio.Base
 {
     public abstract class Cliente : Pessoa
     {
-        private int tipoConta;
         private float limite;
         private Boolean direitoCheque;
         private Boolean cartaoCredito;
         #region Geters and Seters
-        public int getTipoConta()
-        {
-            return tipoConta;
-        }
-        public void setTipoConta(int tipoConta)
-        {
-            this.tipoConta = tipoConta;
-        }
         public float getLimite()
         {
             return limite;

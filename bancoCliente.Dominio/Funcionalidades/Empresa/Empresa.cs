@@ -1,4 +1,5 @@
 ﻿using bancoCliente.Dominio.Base;
+using bancoCliente.Dominio.Funcionalidades.Funcionarios;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -18,7 +19,7 @@ namespace bancoCliente.Dominio.Funcionalidades.Empresa
         private String telefone;
         private String email;
         private Endereco endereco;
-        //private List<Funcionario> listaFuncionario;
+        private List<Funcionario> listaFuncionario;
 
         #region Getters and Setters
         //Geters

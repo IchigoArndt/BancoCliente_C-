@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace bancoCliente.Dominio.Funcionalidades.Funcionario
+namespace bancoCliente.Dominio.Funcionalidades.Funcionarios
 {
     public class Funcionario : Pessoa
     {
