@@ -9,6 +9,9 @@ namespace bancoCliente.Dominio.Funcionalidades.Clientes
 {
     public class ClienteJuridico : Cliente
     {
-       
+        public override void Validar()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using bancoCliente.Dominio.Base;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace bancoCliente.Dominio.Funcionalidades.Conta
 {
-   public class Conta
+   public class Conta : Entidade
     {
         public static readonly int TIPO_CONTA_POUPANCA = 0;
         public static readonly int TIPO_CONTA_CORRENTE = 1;
@@ -26,5 +27,9 @@ namespace bancoCliente.Dominio.Funcionalidades.Conta
         private String agencia;
         private int tipoConta;
 
+        public override void Validar()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

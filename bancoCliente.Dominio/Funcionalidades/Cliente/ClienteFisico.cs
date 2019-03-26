@@ -37,6 +37,11 @@ namespace bancoCliente.Dominio.Funcionalidades.Clientes
         {
             this.limitePagamento = limitePagamento;
         }
+
+        public override void Validar()
+        {
+            throw new NotImplementedException();
+        }
         #endregion
     }
 }

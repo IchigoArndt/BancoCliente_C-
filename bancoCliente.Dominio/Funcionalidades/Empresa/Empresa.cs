@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace bancoCliente.Dominio.Funcionalidades.Empresa
 {
-    public class Empresa
+    public class Empresa : Entidade
     {
         private static int Id;
         private String razaoSocial;
@@ -89,6 +89,11 @@ namespace bancoCliente.Dominio.Funcionalidades.Empresa
         public Endereco setEndereco(Endereco endereco2)
         {
             return endereco = endereco2;
+        }
+
+        public override void Validar()
+        {
+            throw new NotImplementedException();
         }
         #endregion
     }

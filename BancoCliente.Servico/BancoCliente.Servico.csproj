@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{4A181F52-F54E-415B-9935-DB5C7F07E29C}</ProjectGuid>
+    <ProjectGuid>{C6BFA6F8-FE61-43F6-8D87-9A6FE646DABC}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>bancoCliente.Dominio</RootNamespace>
-    <AssemblyName>bancoCliente.Dominio</AssemblyName>
+    <RootNamespace>BancoCliente.Servico</RootNamespace>
+    <AssemblyName>BancoCliente.Servico</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -33,7 +33,6 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Numerics" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -42,21 +41,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Base\Cliente.cs" />
-    <Compile Include="Base\Endreco.cs" />
-    <Compile Include="Base\Entidade.cs" />
-    <Compile Include="Base\Pessoa.cs" />
-    <Compile Include="Enums\EnumUfs.cs" />
-    <Compile Include="Funcionalidades\Cliente\ClienteFisico.cs" />
-    <Compile Include="Funcionalidades\Cliente\ClienteJuridico.cs" />
-    <Compile Include="Funcionalidades\Conta\Conta.cs" />
-    <Compile Include="Funcionalidades\Empresa\Empresa.cs" />
-    <Compile Include="Funcionalidades\Funcionario\Funcionario.cs" />
+    <Compile Include="Funcionalidade\Clientes\Fisico\ClienteFisicoServico.cs" />
+    <Compile Include="Funcionalidade\Clientes\Fisico\IClienteFisicoServico.cs" />
+    <Compile Include="Base\IServico.cs" />
+    <Compile Include="Funcionalidade\Clientes\Jurudico\ClienteJuridicoServico.cs" />
+    <Compile Include="Funcionalidade\Clientes\Jurudico\IClienteJuridicoServico.cs" />
+    <Compile Include="Funcionalidade\Contas\ContaServico.cs" />
+    <Compile Include="Funcionalidade\Contas\IContaServico.cs" />
+    <Compile Include="Funcionalidade\Empresas\EmpresaServico.cs" />
+    <Compile Include="Funcionalidade\Empresas\IEmpresaServico.cs" />
+    <Compile Include="Funcionalidade\Funcionarios\FuncionarioServico.cs" />
+    <Compile Include="Funcionalidade\Funcionarios\IFuncionarioServico.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <None Include="packages.config" />
+    <ProjectReference Include="..\bancoCliente.Dominio\bancoCliente.Dominio.csproj">
+      <Project>{4A181F52-F54E-415B-9935-DB5C7F07E29C}</Project>
+      <Name>bancoCliente.Dominio</Name>
+    </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

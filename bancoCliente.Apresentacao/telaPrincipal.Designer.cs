@@ -32,6 +32,7 @@
             Infragistics.Win.UltraWinToolbars.PopupMenuTool popupMenuTool7 = new Infragistics.Win.UltraWinToolbars.PopupMenuTool("Cliente");
             Infragistics.Win.UltraWinToolbars.PopupMenuTool popupMenuTool8 = new Infragistics.Win.UltraWinToolbars.PopupMenuTool("funcionario");
             Infragistics.Win.UltraWinToolbars.PopupMenuTool popupMenuTool9 = new Infragistics.Win.UltraWinToolbars.PopupMenuTool("contas");
+            Infragistics.Win.UltraWinToolbars.PopupMenuTool popupMenuTool1 = new Infragistics.Win.UltraWinToolbars.PopupMenuTool("Empresas");
             Infragistics.Win.UltraWinToolbars.UltraToolbar ultraToolbar1 = new Infragistics.Win.UltraWinToolbars.UltraToolbar("ultraBarraMenu");
             Infragistics.Win.UltraWinToolbars.ButtonTool buttonTool9 = new Infragistics.Win.UltraWinToolbars.ButtonTool("Adicionar");
             Infragistics.Win.UltraWinToolbars.ButtonTool buttonTool11 = new Infragistics.Win.UltraWinToolbars.ButtonTool("Alterar");
@@ -52,8 +53,12 @@
             Infragistics.Win.UltraWinToolbars.ButtonTool buttonTool14 = new Infragistics.Win.UltraWinToolbars.ButtonTool("Adicionar");
             Infragistics.Win.UltraWinToolbars.ButtonTool buttonTool17 = new Infragistics.Win.UltraWinToolbars.ButtonTool("Alterar");
             Infragistics.Win.UltraWinToolbars.ButtonTool buttonTool18 = new Infragistics.Win.UltraWinToolbars.ButtonTool("Excluir");
+            Infragistics.Win.UltraWinToolbars.PopupMenuTool popupMenuTool3 = new Infragistics.Win.UltraWinToolbars.PopupMenuTool("Empresas");
+            Infragistics.Win.UltraWinToolbars.ButtonTool buttonTool19 = new Infragistics.Win.UltraWinToolbars.ButtonTool("Empresa");
+            Infragistics.Win.UltraWinToolbars.ButtonTool buttonTool20 = new Infragistics.Win.UltraWinToolbars.ButtonTool("Empresa");
             this.ultraFormManager1 = new Infragistics.Win.UltraWinForm.UltraFormManager(this.components);
             this.ultraPanelTelaPrincipal = new Infragistics.Win.Misc.UltraPanel();
+            this.PanelPrincipal = new Infragistics.Win.Misc.UltraPanel();
             this.ClientArea_Fill_Panel = new Infragistics.Win.Misc.UltraPanel();
             this._ClientArea_Toolbars_Dock_Area_Left = new Infragistics.Win.UltraWinToolbars.UltraToolbarsDockArea();
             this.ultraToolbarsManager1 = new Infragistics.Win.UltraWinToolbars.UltraToolbarsManager(this.components);
@@ -64,13 +69,12 @@
             this._telaPrincipal_UltraFormManager_Dock_Area_Right = new Infragistics.Win.UltraWinForm.UltraFormDockArea();
             this._telaPrincipal_UltraFormManager_Dock_Area_Top = new Infragistics.Win.UltraWinForm.UltraFormDockArea();
             this._telaPrincipal_UltraFormManager_Dock_Area_Bottom = new Infragistics.Win.UltraWinForm.UltraFormDockArea();
-            this.PanelPrincipal = new Infragistics.Win.Misc.UltraPanel();
             ((System.ComponentModel.ISupportInitialize)(this.ultraFormManager1)).BeginInit();
             this.ultraPanelTelaPrincipal.ClientArea.SuspendLayout();
             this.ultraPanelTelaPrincipal.SuspendLayout();
+            this.PanelPrincipal.SuspendLayout();
             this.ClientArea_Fill_Panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ultraToolbarsManager1)).BeginInit();
-            this.PanelPrincipal.SuspendLayout();
             this.SuspendLayout();
             // 
             // ultraFormManager1
@@ -94,6 +98,13 @@
             this.ultraPanelTelaPrincipal.Name = "ultraPanelTelaPrincipal";
             this.ultraPanelTelaPrincipal.Size = new System.Drawing.Size(784, 410);
             this.ultraPanelTelaPrincipal.TabIndex = 0;
+            // 
+            // PanelPrincipal
+            // 
+            this.PanelPrincipal.Location = new System.Drawing.Point(0, 78);
+            this.PanelPrincipal.Name = "PanelPrincipal";
+            this.PanelPrincipal.Size = new System.Drawing.Size(784, 332);
+            this.PanelPrincipal.TabIndex = 0;
             // 
             // ClientArea_Fill_Panel
             // 
@@ -124,7 +135,8 @@
             this.ultraToolbarsManager1.Ribbon.ApplicationMenu.ToolAreaLeft.NonInheritedTools.AddRange(new Infragistics.Win.UltraWinToolbars.ToolBase[] {
             popupMenuTool7,
             popupMenuTool8,
-            popupMenuTool9});
+            popupMenuTool9,
+            popupMenuTool1});
             this.ultraToolbarsManager1.Ribbon.Visible = true;
             this.ultraToolbarsManager1.RuntimeCustomizationOptions = Infragistics.Win.UltraWinToolbars.RuntimeCustomizationOptions.None;
             this.ultraToolbarsManager1.Style = Infragistics.Win.UltraWinToolbars.ToolbarStyle.ScenicRibbon;
@@ -162,6 +174,10 @@
             buttonTool17.SharedPropsInternal.DisplayStyle = Infragistics.Win.UltraWinToolbars.ToolDisplayStyle.TextOnlyAlways;
             buttonTool18.SharedPropsInternal.Caption = "Excluir";
             buttonTool18.SharedPropsInternal.DisplayStyle = Infragistics.Win.UltraWinToolbars.ToolDisplayStyle.TextOnlyAlways;
+            popupMenuTool3.SharedPropsInternal.Caption = "Empresas";
+            popupMenuTool3.Tools.AddRange(new Infragistics.Win.UltraWinToolbars.ToolBase[] {
+            buttonTool19});
+            buttonTool20.SharedPropsInternal.Caption = "Empresa";
             this.ultraToolbarsManager1.Tools.AddRange(new Infragistics.Win.UltraWinToolbars.ToolBase[] {
             popupMenuTool2,
             buttonTool4,
@@ -174,7 +190,9 @@
             buttonTool12,
             buttonTool14,
             buttonTool17,
-            buttonTool18});
+            buttonTool18,
+            popupMenuTool3,
+            buttonTool20});
             this.ultraToolbarsManager1.ToolClick += new Infragistics.Win.UltraWinToolbars.ToolClickEventHandler(this.ultraToolbarsManager1_ToolClick);
             // 
             // _ClientArea_Toolbars_Dock_Area_Right
@@ -257,13 +275,6 @@
             this._telaPrincipal_UltraFormManager_Dock_Area_Bottom.Name = "_telaPrincipal_UltraFormManager_Dock_Area_Bottom";
             this._telaPrincipal_UltraFormManager_Dock_Area_Bottom.Size = new System.Drawing.Size(800, 8);
             // 
-            // PanelPrincipal
-            // 
-            this.PanelPrincipal.Location = new System.Drawing.Point(0, 78);
-            this.PanelPrincipal.Name = "PanelPrincipal";
-            this.PanelPrincipal.Size = new System.Drawing.Size(784, 332);
-            this.PanelPrincipal.TabIndex = 0;
-            // 
             // telaPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -279,9 +290,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.ultraFormManager1)).EndInit();
             this.ultraPanelTelaPrincipal.ClientArea.ResumeLayout(false);
             this.ultraPanelTelaPrincipal.ResumeLayout(false);
+            this.PanelPrincipal.ResumeLayout(false);
             this.ClientArea_Fill_Panel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ultraToolbarsManager1)).EndInit();
-            this.PanelPrincipal.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

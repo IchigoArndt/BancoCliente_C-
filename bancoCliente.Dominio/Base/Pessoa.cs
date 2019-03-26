@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace bancoCliente.Dominio.Base
 {
 
-    public abstract class Pessoa
+    public abstract class Pessoa : Entidade
     {
         public int id;
         public String nome;

@@ -1,4 +1,8 @@
 ﻿using bancoCliente.Apresentacao.Funcionalidades.C.Fisico;
+using bancoCliente.Apresentacao.Funcionalidades.ClienteJuridico;
+using bancoCliente.Apresentacao.Funcionalidades.Conta;
+using bancoCliente.Apresentacao.Funcionalidades.Empresa;
+using bancoCliente.Apresentacao.Funcionalidades.Funcionario;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,6 +24,10 @@ namespace bancoCliente.Apresentacao
         }
 
         private static ClienteFGerenciadorFormulario CFG;
+        private static GerenciadorFormularioCJ CJ;
+        private static GerenciadorFormularioConta CONTA;
+        private static GeenciadorFormularioEmpresa EMPRESA;
+        private static GerenciadorFormularioFuncionario FUNCIONARIO;
         private GerenciadorFormulario _gerenciador;
 
 
@@ -27,16 +35,56 @@ namespace bancoCliente.Apresentacao
         {
 
         }
-
+        //Procurar um jeito de refatorar 
         private void ultraToolbarsManager1_ToolClick(object sender, Infragistics.Win.UltraWinToolbars.ToolClickEventArgs e)
         {
-            if (e.Tool.Key == "Fisico")
+            switch (e.Tool.Key)
             {
-                if(CFG == null)
-                {
-                    CFG = new ClienteFGerenciadorFormulario();
-                }
-                CarregarCadastro(CFG);
+                case "Fisico":
+                 {
+                  if(CFG == null)
+                    {
+                            CFG = new ClienteFGerenciadorFormulario();
+                            CarregarCadastro(CFG);
+                    }
+                  break;
+                 }
+                case "Juridico":
+                    {
+                        if (CJ == null)
+                        {
+                            CJ = new GerenciadorFormularioCJ();
+                            CarregarCadastro(CJ);
+                        }
+                        break;
+                    }
+                case "Conta":
+                    {
+                        if (CONTA == null)
+                        {
+                            CONTA = new GerenciadorFormularioConta();
+                            CarregarCadastro(CONTA);
+                        }
+                        break;
+                    }
+                case "Empresa":
+                    {
+                        if (EMPRESA == null)
+                        {
+                            EMPRESA = new GeenciadorFormularioEmpresa();
+                            CarregarCadastro(EMPRESA);
+                        }
+                        break;
+                    }
+                case "Funcionarios":
+                    {
+                        if (FUNCIONARIO == null)
+                        {
+                            FUNCIONARIO = new GerenciadorFormularioFuncionario();
+                            CarregarCadastro(FUNCIONARIO);
+                        }
+                        break;
+                    }
             }
             if (e.Tool.Key == "Adicionar")
             {

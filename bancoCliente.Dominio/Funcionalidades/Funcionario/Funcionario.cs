@@ -12,5 +12,10 @@ namespace bancoCliente.Dominio.Funcionalidades.Funcionarios
         private String cpf;
         private float salario;
         private String cargo;
+
+        public override void Validar()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
