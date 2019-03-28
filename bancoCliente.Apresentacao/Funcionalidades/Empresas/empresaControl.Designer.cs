@@ -1,4 +1,4 @@
-﻿namespace bancoCliente.Apresentacao.Funcionalidades.Empresa
+﻿namespace bancoCliente.Apresentacao.Funcionalidades.Empresas
 {
     partial class empresaControl
     {

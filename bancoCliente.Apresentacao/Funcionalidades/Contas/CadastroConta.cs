@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace bancoCliente.Apresentacao.Funcionalidades.Funcionario
+namespace bancoCliente.Apresentacao.Funcionalidades.Contas
 {
-    public partial class CadastroFuncionario : Form
+    public partial class CadastroConta : Form
     {
-        public CadastroFuncionario()
+        public CadastroConta()
         {
             InitializeComponent();
         }

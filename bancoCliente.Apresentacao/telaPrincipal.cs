@@ -1,16 +1,8 @@
 ﻿using bancoCliente.Apresentacao.Funcionalidades.C.Fisico;
-using bancoCliente.Apresentacao.Funcionalidades.ClienteJuridico;
-using bancoCliente.Apresentacao.Funcionalidades.Conta;
-using bancoCliente.Apresentacao.Funcionalidades.Empresa;
-using bancoCliente.Apresentacao.Funcionalidades.Funcionario;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using bancoCliente.Apresentacao.Funcionalidades.ClientesJuridicos;
+using bancoCliente.Apresentacao.Funcionalidades.Contas;
+using bancoCliente.Apresentacao.Funcionalidades.Empresas;
+using bancoCliente.Apresentacao.Funcionalidades.Funcionarios;
 using System.Windows.Forms;
 
 namespace bancoCliente.Apresentacao

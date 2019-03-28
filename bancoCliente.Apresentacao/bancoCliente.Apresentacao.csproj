@@ -77,58 +77,58 @@
       <DependentUpon>CFisicoControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Funcionalidades\C.Fisico\ClienteFGerenciadorFormulario.cs" />
-    <Compile Include="Funcionalidades\ClienteJuridico\CadastroClientesJuridicos.cs">
+    <Compile Include="Funcionalidades\C.Juridicos\CadastroClientesJuridicos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Funcionalidades\ClienteJuridico\CadastroClientesJuridicos.Designer.cs">
+    <Compile Include="Funcionalidades\C.Juridicos\CadastroClientesJuridicos.Designer.cs">
       <DependentUpon>CadastroClientesJuridicos.cs</DependentUpon>
     </Compile>
-    <Compile Include="Funcionalidades\ClienteJuridico\CJuridicoControl.cs">
+    <Compile Include="Funcionalidades\C.Juridicos\CJControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Funcionalidades\ClienteJuridico\CJuridicoControl.Designer.cs">
-      <DependentUpon>CJuridicoControl.cs</DependentUpon>
+    <Compile Include="Funcionalidades\C.Juridicos\CJControl.Designer.cs">
+      <DependentUpon>CJControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Funcionalidades\ClienteJuridico\GerenciadorFormularioCJ.cs" />
-    <Compile Include="Funcionalidades\Conta\CadastroConta.cs">
+    <Compile Include="Funcionalidades\C.Juridicos\GerenciadorFormularioCJ.cs" />
+    <Compile Include="Funcionalidades\Contas\CadastroConta.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Funcionalidades\Conta\CadastroConta.Designer.cs">
+    <Compile Include="Funcionalidades\Contas\CadastroConta.Designer.cs">
       <DependentUpon>CadastroConta.cs</DependentUpon>
     </Compile>
-    <Compile Include="Funcionalidades\Conta\ContaControl.cs">
+    <Compile Include="Funcionalidades\Contas\ContaControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Funcionalidades\Conta\ContaControl.Designer.cs">
+    <Compile Include="Funcionalidades\Contas\ContaControl.Designer.cs">
       <DependentUpon>ContaControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Funcionalidades\Conta\GerenciadorFormularioConta.cs" />
-    <Compile Include="Funcionalidades\Empresa\CadastroEmpresa.cs">
+    <Compile Include="Funcionalidades\Contas\GerenciadorFormularioConta.cs" />
+    <Compile Include="Funcionalidades\Empresas\CadastroEmpresa.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Funcionalidades\Empresa\CadastroEmpresa.Designer.cs">
+    <Compile Include="Funcionalidades\Empresas\CadastroEmpresa.Designer.cs">
       <DependentUpon>CadastroEmpresa.cs</DependentUpon>
     </Compile>
-    <Compile Include="Funcionalidades\Empresa\empresaControl.cs">
+    <Compile Include="Funcionalidades\Empresas\empresaControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Funcionalidades\Empresa\empresaControl.Designer.cs">
+    <Compile Include="Funcionalidades\Empresas\empresaControl.Designer.cs">
       <DependentUpon>empresaControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Funcionalidades\Empresa\GeenciadorFormularioEmpresa.cs" />
-    <Compile Include="Funcionalidades\Funcionario\CadastroFuncionario.cs">
+    <Compile Include="Funcionalidades\Empresas\GeenciadorFormularioEmpresa.cs" />
+    <Compile Include="Funcionalidades\Funcionarios\CadastroFuncionario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Funcionalidades\Funcionario\CadastroFuncionario.Designer.cs">
+    <Compile Include="Funcionalidades\Funcionarios\CadastroFuncionario.Designer.cs">
       <DependentUpon>CadastroFuncionario.cs</DependentUpon>
     </Compile>
-    <Compile Include="Funcionalidades\Funcionario\funcionarioControl.cs">
+    <Compile Include="Funcionalidades\Funcionarios\funcionarioControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Funcionalidades\Funcionario\funcionarioControl.Designer.cs">
+    <Compile Include="Funcionalidades\Funcionarios\funcionarioControl.Designer.cs">
       <DependentUpon>funcionarioControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Funcionalidades\Funcionario\GerenciadorFormularioFuncionario.cs" />
+    <Compile Include="Funcionalidades\Funcionarios\GerenciadorFormularioFuncionario.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="telaPrincipal.cs">
@@ -143,28 +143,28 @@
     <EmbeddedResource Include="Funcionalidades\C.Fisico\CFisicoControl.resx">
       <DependentUpon>CFisicoControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Funcionalidades\ClienteJuridico\CadastroClientesJuridicos.resx">
+    <EmbeddedResource Include="Funcionalidades\C.Juridicos\CadastroClientesJuridicos.resx">
       <DependentUpon>CadastroClientesJuridicos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Funcionalidades\ClienteJuridico\CJuridicoControl.resx">
-      <DependentUpon>CJuridicoControl.cs</DependentUpon>
+    <EmbeddedResource Include="Funcionalidades\C.Juridicos\CJControl.resx">
+      <DependentUpon>CJControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Funcionalidades\Conta\CadastroConta.resx">
+    <EmbeddedResource Include="Funcionalidades\Contas\CadastroConta.resx">
       <DependentUpon>CadastroConta.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Funcionalidades\Conta\ContaControl.resx">
+    <EmbeddedResource Include="Funcionalidades\Contas\ContaControl.resx">
       <DependentUpon>ContaControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Funcionalidades\Empresa\CadastroEmpresa.resx">
+    <EmbeddedResource Include="Funcionalidades\Empresas\CadastroEmpresa.resx">
       <DependentUpon>CadastroEmpresa.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Funcionalidades\Empresa\empresaControl.resx">
+    <EmbeddedResource Include="Funcionalidades\Empresas\empresaControl.resx">
       <DependentUpon>empresaControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Funcionalidades\Funcionario\CadastroFuncionario.resx">
+    <EmbeddedResource Include="Funcionalidades\Funcionarios\CadastroFuncionario.resx">
       <DependentUpon>CadastroFuncionario.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Funcionalidades\Funcionario\funcionarioControl.resx">
+    <EmbeddedResource Include="Funcionalidades\Funcionarios\funcionarioControl.resx">
       <DependentUpon>funcionarioControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />

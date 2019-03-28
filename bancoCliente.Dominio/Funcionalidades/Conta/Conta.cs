@@ -24,7 +24,7 @@ namespace bancoCliente.Dominio.Funcionalidades.Conta
 
         private int id;
         private float taxaManutencao;
-        private String agencia;
+        private string agencia;
         private int tipoConta;
 
         public override void Validar()

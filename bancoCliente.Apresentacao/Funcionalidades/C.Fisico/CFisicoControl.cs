@@ -17,7 +17,7 @@ namespace bancoCliente.Apresentacao.Funcionalidades.C.Fisico
         {
             InitializeComponent();
         }
-        public void PopularListagemLivros(IList<ClienteFisico> Clientes)
+        public void PopularListagem(IList<ClienteFisico> Clientes)
         {
             lbCFisicoControl.Items.Clear();
 

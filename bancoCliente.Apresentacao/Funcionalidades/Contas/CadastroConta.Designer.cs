@@ -1,4 +1,4 @@
-﻿namespace bancoCliente.Apresentacao.Funcionalidades.Conta
+﻿namespace bancoCliente.Apresentacao.Funcionalidades.Contas
 {
     partial class CadastroConta
     {

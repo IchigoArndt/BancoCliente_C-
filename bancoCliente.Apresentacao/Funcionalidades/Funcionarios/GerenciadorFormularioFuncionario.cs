@@ -5,19 +5,19 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace bancoCliente.Apresentacao.Funcionalidades.Empresa
+namespace bancoCliente.Apresentacao.Funcionalidades.Funcionarios
 {
-    class GeenciadorFormularioEmpresa : GerenciadorFormulario
+    public class GerenciadorFormularioFuncionario : GerenciadorFormulario
     {
         public override void Adicionar()
         {
-            CadastroEmpresa Empresa = new CadastroEmpresa();
-            DialogResult result = Empresa.ShowDialog();
+            CadastroFuncionario Conta = new CadastroFuncionario();
+            DialogResult result = Conta.ShowDialog();
             if (result == DialogResult.OK)
             {
                 try
                 {
-                    MessageBox.Show("Chegou a tela de Empresa");
+                    MessageBox.Show("Chegou a tela de Funcionario");
                 }
                 catch (Exception)
                 {

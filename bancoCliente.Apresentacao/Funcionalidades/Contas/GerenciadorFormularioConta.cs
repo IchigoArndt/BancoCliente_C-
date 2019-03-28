@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace bancoCliente.Apresentacao.Funcionalidades.Conta
+namespace bancoCliente.Apresentacao.Funcionalidades.Contas
 {
     public class GerenciadorFormularioConta : GerenciadorFormulario
     {

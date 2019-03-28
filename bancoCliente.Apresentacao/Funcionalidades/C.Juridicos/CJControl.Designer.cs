@@ -1,6 +1,6 @@
-﻿namespace bancoCliente.Apresentacao.Funcionalidades.ClienteJuridico
+﻿namespace bancoCliente.Apresentacao.Funcionalidades.ClientesJuridicos
 {
-    partial class CJuridicoControl
+    partial class CJControl
     {
         /// <summary> 
         /// Variável de designer necessária.
@@ -28,30 +28,30 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lbCJuridico = new System.Windows.Forms.ListBox();
+            this.lbCJ = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
-            // lbCJuridico
+            // lbCJ
             // 
-            this.lbCJuridico.FormattingEnabled = true;
-            this.lbCJuridico.Location = new System.Drawing.Point(0, 3);
-            this.lbCJuridico.Name = "lbCJuridico";
-            this.lbCJuridico.Size = new System.Drawing.Size(372, 329);
-            this.lbCJuridico.TabIndex = 0;
+            this.lbCJ.FormattingEnabled = true;
+            this.lbCJ.Location = new System.Drawing.Point(0, 0);
+            this.lbCJ.Name = "lbCJ";
+            this.lbCJ.Size = new System.Drawing.Size(283, 277);
+            this.lbCJ.TabIndex = 0;
             // 
-            // CJuridicoControl
+            // CJControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.lbCJuridico);
-            this.Name = "CJuridicoControl";
-            this.Size = new System.Drawing.Size(372, 332);
+            this.Controls.Add(this.lbCJ);
+            this.Name = "CJControl";
+            this.Size = new System.Drawing.Size(283, 276);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.ListBox lbCJuridico;
+        private System.Windows.Forms.ListBox lbCJ;
     }
 }

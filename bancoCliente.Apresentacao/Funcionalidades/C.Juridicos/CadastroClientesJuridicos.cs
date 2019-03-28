@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace bancoCliente.Apresentacao.Funcionalidades.ClienteJuridico
+namespace bancoCliente.Apresentacao.Funcionalidades.ClientesJuridicos
 {
     public partial class CadastroClientesJuridicos : Form
     {

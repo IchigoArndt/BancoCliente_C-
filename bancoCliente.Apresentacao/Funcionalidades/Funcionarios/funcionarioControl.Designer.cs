@@ -1,6 +1,6 @@
-﻿namespace bancoCliente.Apresentacao.Funcionalidades.Conta
+﻿namespace bancoCliente.Apresentacao.Funcionalidades.Funcionarios
 {
-    partial class ContaControl
+    partial class funcionarioControl
     {
         /// <summary> 
         /// Variável de designer necessária.
@@ -28,30 +28,30 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lbConta = new System.Windows.Forms.ListBox();
+            this.lbFuncionario = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
-            // lbConta
+            // lbFuncionario
             // 
-            this.lbConta.FormattingEnabled = true;
-            this.lbConta.Location = new System.Drawing.Point(4, 4);
-            this.lbConta.Name = "lbConta";
-            this.lbConta.Size = new System.Drawing.Size(413, 329);
-            this.lbConta.TabIndex = 0;
+            this.lbFuncionario.FormattingEnabled = true;
+            this.lbFuncionario.Location = new System.Drawing.Point(0, -2);
+            this.lbFuncionario.Name = "lbFuncionario";
+            this.lbFuncionario.Size = new System.Drawing.Size(340, 355);
+            this.lbFuncionario.TabIndex = 0;
             // 
-            // ContaControl
+            // funcionarioControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.lbConta);
-            this.Name = "ContaControl";
-            this.Size = new System.Drawing.Size(420, 331);
+            this.Controls.Add(this.lbFuncionario);
+            this.Name = "funcionarioControl";
+            this.Size = new System.Drawing.Size(343, 350);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.ListBox lbConta;
+        private System.Windows.Forms.ListBox lbFuncionario;
     }
 }
