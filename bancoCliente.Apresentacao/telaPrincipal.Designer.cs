@@ -33,7 +33,7 @@
             Infragistics.Win.UltraWinToolbars.PopupMenuTool popupMenuTool8 = new Infragistics.Win.UltraWinToolbars.PopupMenuTool("funcionario");
             Infragistics.Win.UltraWinToolbars.PopupMenuTool popupMenuTool9 = new Infragistics.Win.UltraWinToolbars.PopupMenuTool("contas");
             Infragistics.Win.UltraWinToolbars.PopupMenuTool popupMenuTool1 = new Infragistics.Win.UltraWinToolbars.PopupMenuTool("Empresas");
-            Infragistics.Win.UltraWinToolbars.UltraToolbar ultraToolbar1 = new Infragistics.Win.UltraWinToolbars.UltraToolbar("ultraBarraMenu");
+            Infragistics.Win.UltraWinToolbars.UltraToolbar ultraToolbar2 = new Infragistics.Win.UltraWinToolbars.UltraToolbar("ultraBarraMenu");
             Infragistics.Win.UltraWinToolbars.ButtonTool buttonTool9 = new Infragistics.Win.UltraWinToolbars.ButtonTool("Adicionar");
             Infragistics.Win.UltraWinToolbars.ButtonTool buttonTool11 = new Infragistics.Win.UltraWinToolbars.ButtonTool("Alterar");
             Infragistics.Win.UltraWinToolbars.ButtonTool buttonTool13 = new Infragistics.Win.UltraWinToolbars.ButtonTool("Excluir");
@@ -58,7 +58,6 @@
             Infragistics.Win.UltraWinToolbars.ButtonTool buttonTool20 = new Infragistics.Win.UltraWinToolbars.ButtonTool("Empresa");
             this.ultraFormManager1 = new Infragistics.Win.UltraWinForm.UltraFormManager(this.components);
             this.ultraPanelTelaPrincipal = new Infragistics.Win.Misc.UltraPanel();
-            this.PanelPrincipal = new Infragistics.Win.Misc.UltraPanel();
             this.ClientArea_Fill_Panel = new Infragistics.Win.Misc.UltraPanel();
             this._ClientArea_Toolbars_Dock_Area_Left = new Infragistics.Win.UltraWinToolbars.UltraToolbarsDockArea();
             this.ultraToolbarsManager1 = new Infragistics.Win.UltraWinToolbars.UltraToolbarsManager(this.components);
@@ -69,10 +68,11 @@
             this._telaPrincipal_UltraFormManager_Dock_Area_Right = new Infragistics.Win.UltraWinForm.UltraFormDockArea();
             this._telaPrincipal_UltraFormManager_Dock_Area_Top = new Infragistics.Win.UltraWinForm.UltraFormDockArea();
             this._telaPrincipal_UltraFormManager_Dock_Area_Bottom = new Infragistics.Win.UltraWinForm.UltraFormDockArea();
+            this.PanelPrincipal = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.ultraFormManager1)).BeginInit();
             this.ultraPanelTelaPrincipal.ClientArea.SuspendLayout();
             this.ultraPanelTelaPrincipal.SuspendLayout();
-            this.PanelPrincipal.SuspendLayout();
+            this.ClientArea_Fill_Panel.ClientArea.SuspendLayout();
             this.ClientArea_Fill_Panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ultraToolbarsManager1)).BeginInit();
             this.SuspendLayout();
@@ -86,7 +86,6 @@
             // 
             // ultraPanelTelaPrincipal.ClientArea
             // 
-            this.ultraPanelTelaPrincipal.ClientArea.Controls.Add(this.PanelPrincipal);
             this.ultraPanelTelaPrincipal.ClientArea.Controls.Add(this.ClientArea_Fill_Panel);
             this.ultraPanelTelaPrincipal.ClientArea.Controls.Add(this._ClientArea_Toolbars_Dock_Area_Left);
             this.ultraPanelTelaPrincipal.ClientArea.Controls.Add(this._ClientArea_Toolbars_Dock_Area_Right);
@@ -96,23 +95,20 @@
             this.ultraPanelTelaPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ultraPanelTelaPrincipal.Location = new System.Drawing.Point(8, 32);
             this.ultraPanelTelaPrincipal.Name = "ultraPanelTelaPrincipal";
-            this.ultraPanelTelaPrincipal.Size = new System.Drawing.Size(784, 410);
+            this.ultraPanelTelaPrincipal.Size = new System.Drawing.Size(691, 410);
             this.ultraPanelTelaPrincipal.TabIndex = 0;
-            // 
-            // PanelPrincipal
-            // 
-            this.PanelPrincipal.Location = new System.Drawing.Point(0, 78);
-            this.PanelPrincipal.Name = "PanelPrincipal";
-            this.PanelPrincipal.Size = new System.Drawing.Size(784, 332);
-            this.PanelPrincipal.TabIndex = 0;
             // 
             // ClientArea_Fill_Panel
             // 
+            // 
+            // ClientArea_Fill_Panel.ClientArea
+            // 
+            this.ClientArea_Fill_Panel.ClientArea.Controls.Add(this.PanelPrincipal);
             this.ClientArea_Fill_Panel.Cursor = System.Windows.Forms.Cursors.Default;
             this.ClientArea_Fill_Panel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ClientArea_Fill_Panel.Location = new System.Drawing.Point(0, 78);
             this.ClientArea_Fill_Panel.Name = "ClientArea_Fill_Panel";
-            this.ClientArea_Fill_Panel.Size = new System.Drawing.Size(784, 332);
+            this.ClientArea_Fill_Panel.Size = new System.Drawing.Size(691, 332);
             this.ClientArea_Fill_Panel.TabIndex = 0;
             this.ClientArea_Fill_Panel.PaintClient += new System.Windows.Forms.PaintEventHandler(this.ClientArea_Fill_Panel_PaintClient);
             // 
@@ -140,17 +136,17 @@
             this.ultraToolbarsManager1.Ribbon.Visible = true;
             this.ultraToolbarsManager1.RuntimeCustomizationOptions = Infragistics.Win.UltraWinToolbars.RuntimeCustomizationOptions.None;
             this.ultraToolbarsManager1.Style = Infragistics.Win.UltraWinToolbars.ToolbarStyle.ScenicRibbon;
-            ultraToolbar1.DockedColumn = 0;
-            ultraToolbar1.DockedRow = 0;
-            ultraToolbar1.FloatingLocation = new System.Drawing.Point(191, 269);
-            ultraToolbar1.FloatingSize = new System.Drawing.Size(297, 24);
-            ultraToolbar1.NonInheritedTools.AddRange(new Infragistics.Win.UltraWinToolbars.ToolBase[] {
+            ultraToolbar2.DockedColumn = 0;
+            ultraToolbar2.DockedRow = 0;
+            ultraToolbar2.FloatingLocation = new System.Drawing.Point(191, 269);
+            ultraToolbar2.FloatingSize = new System.Drawing.Size(297, 24);
+            ultraToolbar2.NonInheritedTools.AddRange(new Infragistics.Win.UltraWinToolbars.ToolBase[] {
             buttonTool9,
             buttonTool11,
             buttonTool13});
-            ultraToolbar1.Text = "ultraBarraMenu";
+            ultraToolbar2.Text = "ultraBarraMenu";
             this.ultraToolbarsManager1.Toolbars.AddRange(new Infragistics.Win.UltraWinToolbars.UltraToolbar[] {
-            ultraToolbar1});
+            ultraToolbar2});
             this.ultraToolbarsManager1.ToolbarSettings.AllowCustomize = Infragistics.Win.DefaultableBoolean.False;
             popupMenuTool2.SharedPropsInternal.Caption = "Cliente";
             popupMenuTool2.Tools.AddRange(new Infragistics.Win.UltraWinToolbars.ToolBase[] {
@@ -201,7 +197,7 @@
             this._ClientArea_Toolbars_Dock_Area_Right.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(233)))), ((int)(((byte)(245)))));
             this._ClientArea_Toolbars_Dock_Area_Right.DockedPosition = Infragistics.Win.UltraWinToolbars.DockedPosition.Right;
             this._ClientArea_Toolbars_Dock_Area_Right.ForeColor = System.Drawing.SystemColors.ControlText;
-            this._ClientArea_Toolbars_Dock_Area_Right.Location = new System.Drawing.Point(784, 78);
+            this._ClientArea_Toolbars_Dock_Area_Right.Location = new System.Drawing.Point(691, 78);
             this._ClientArea_Toolbars_Dock_Area_Right.Name = "_ClientArea_Toolbars_Dock_Area_Right";
             this._ClientArea_Toolbars_Dock_Area_Right.Size = new System.Drawing.Size(0, 332);
             this._ClientArea_Toolbars_Dock_Area_Right.ToolbarsManager = this.ultraToolbarsManager1;
@@ -214,7 +210,7 @@
             this._ClientArea_Toolbars_Dock_Area_Bottom.ForeColor = System.Drawing.SystemColors.ControlText;
             this._ClientArea_Toolbars_Dock_Area_Bottom.Location = new System.Drawing.Point(0, 410);
             this._ClientArea_Toolbars_Dock_Area_Bottom.Name = "_ClientArea_Toolbars_Dock_Area_Bottom";
-            this._ClientArea_Toolbars_Dock_Area_Bottom.Size = new System.Drawing.Size(784, 0);
+            this._ClientArea_Toolbars_Dock_Area_Bottom.Size = new System.Drawing.Size(691, 0);
             this._ClientArea_Toolbars_Dock_Area_Bottom.ToolbarsManager = this.ultraToolbarsManager1;
             // 
             // _ClientArea_Toolbars_Dock_Area_Top
@@ -225,7 +221,7 @@
             this._ClientArea_Toolbars_Dock_Area_Top.ForeColor = System.Drawing.SystemColors.ControlText;
             this._ClientArea_Toolbars_Dock_Area_Top.Location = new System.Drawing.Point(0, 0);
             this._ClientArea_Toolbars_Dock_Area_Top.Name = "_ClientArea_Toolbars_Dock_Area_Top";
-            this._ClientArea_Toolbars_Dock_Area_Top.Size = new System.Drawing.Size(784, 78);
+            this._ClientArea_Toolbars_Dock_Area_Top.Size = new System.Drawing.Size(691, 78);
             this._ClientArea_Toolbars_Dock_Area_Top.ToolbarsManager = this.ultraToolbarsManager1;
             // 
             // _telaPrincipal_UltraFormManager_Dock_Area_Left
@@ -248,7 +244,7 @@
             this._telaPrincipal_UltraFormManager_Dock_Area_Right.ForeColor = System.Drawing.SystemColors.ControlText;
             this._telaPrincipal_UltraFormManager_Dock_Area_Right.FormManager = this.ultraFormManager1;
             this._telaPrincipal_UltraFormManager_Dock_Area_Right.InitialResizeAreaExtent = 8;
-            this._telaPrincipal_UltraFormManager_Dock_Area_Right.Location = new System.Drawing.Point(792, 32);
+            this._telaPrincipal_UltraFormManager_Dock_Area_Right.Location = new System.Drawing.Point(699, 32);
             this._telaPrincipal_UltraFormManager_Dock_Area_Right.Name = "_telaPrincipal_UltraFormManager_Dock_Area_Right";
             this._telaPrincipal_UltraFormManager_Dock_Area_Right.Size = new System.Drawing.Size(8, 410);
             // 
@@ -261,7 +257,7 @@
             this._telaPrincipal_UltraFormManager_Dock_Area_Top.FormManager = this.ultraFormManager1;
             this._telaPrincipal_UltraFormManager_Dock_Area_Top.Location = new System.Drawing.Point(0, 0);
             this._telaPrincipal_UltraFormManager_Dock_Area_Top.Name = "_telaPrincipal_UltraFormManager_Dock_Area_Top";
-            this._telaPrincipal_UltraFormManager_Dock_Area_Top.Size = new System.Drawing.Size(800, 32);
+            this._telaPrincipal_UltraFormManager_Dock_Area_Top.Size = new System.Drawing.Size(707, 32);
             // 
             // _telaPrincipal_UltraFormManager_Dock_Area_Bottom
             // 
@@ -273,13 +269,21 @@
             this._telaPrincipal_UltraFormManager_Dock_Area_Bottom.InitialResizeAreaExtent = 8;
             this._telaPrincipal_UltraFormManager_Dock_Area_Bottom.Location = new System.Drawing.Point(0, 442);
             this._telaPrincipal_UltraFormManager_Dock_Area_Bottom.Name = "_telaPrincipal_UltraFormManager_Dock_Area_Bottom";
-            this._telaPrincipal_UltraFormManager_Dock_Area_Bottom.Size = new System.Drawing.Size(800, 8);
+            this._telaPrincipal_UltraFormManager_Dock_Area_Bottom.Size = new System.Drawing.Size(707, 8);
+            // 
+            // PanelPrincipal
+            // 
+            this.PanelPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PanelPrincipal.Location = new System.Drawing.Point(0, 0);
+            this.PanelPrincipal.Name = "PanelPrincipal";
+            this.PanelPrincipal.Size = new System.Drawing.Size(691, 332);
+            this.PanelPrincipal.TabIndex = 0;
             // 
             // telaPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(707, 450);
             this.Controls.Add(this.ultraPanelTelaPrincipal);
             this.Controls.Add(this._telaPrincipal_UltraFormManager_Dock_Area_Left);
             this.Controls.Add(this._telaPrincipal_UltraFormManager_Dock_Area_Right);
@@ -290,7 +294,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.ultraFormManager1)).EndInit();
             this.ultraPanelTelaPrincipal.ClientArea.ResumeLayout(false);
             this.ultraPanelTelaPrincipal.ResumeLayout(false);
-            this.PanelPrincipal.ResumeLayout(false);
+            this.ClientArea_Fill_Panel.ClientArea.ResumeLayout(false);
             this.ClientArea_Fill_Panel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ultraToolbarsManager1)).EndInit();
             this.ResumeLayout(false);
@@ -311,6 +315,6 @@
         private Infragistics.Win.UltraWinToolbars.UltraToolbarsDockArea _ClientArea_Toolbars_Dock_Area_Bottom;
         private Infragistics.Win.UltraWinToolbars.UltraToolbarsDockArea _ClientArea_Toolbars_Dock_Area_Top;
         public Infragistics.Win.UltraWinToolbars.UltraToolbarsManager ultraToolbarsManager1;
-        private Infragistics.Win.Misc.UltraPanel PanelPrincipal;
+        private System.Windows.Forms.Panel PanelPrincipal;
     }
 }

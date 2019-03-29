@@ -9,6 +9,8 @@ namespace bancoCliente.Apresentacao.Funcionalidades.C.Fisico
 {
     public class ClienteFGerenciadorFormulario : GerenciadorFormulario
     {
+        CFisicoControl _clienteFisicoControl;
+
         public override void Adicionar()
         {
             CadastroClienteFisico dialog = new CadastroClienteFisico();
@@ -34,12 +36,16 @@ namespace bancoCliente.Apresentacao.Funcionalidades.C.Fisico
 
         public override void Atualizar()
         {
-            throw new NotImplementedException();
+            _clienteFisicoControl.PopularListagem(null);
         }
 
         public override UserControl CarregarListagem()
         {
-            throw new NotImplementedException();
+            if(_clienteFisicoControl == null)
+            {
+                _clienteFisicoControl = new CFisicoControl();
+            }
+            return _clienteFisicoControl;
         }
 
         public override void Editar()

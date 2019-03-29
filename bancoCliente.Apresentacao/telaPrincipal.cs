@@ -91,16 +91,13 @@ namespace bancoCliente.Apresentacao
         private void CarregarCadastro(GerenciadorFormulario gerenciador)
         {
             _gerenciador = gerenciador;
-
-            /*Estes Metodos serão utilizados quando houver conexão com o Banco de Dados
-            //UserControl listagem = _gerenciador.CarregarListagem();
-            //listagem.Dock = DockStyle.Fill;
-            //PanelPrincipal.Controls.Clear();
+            /*Estes Metodos serão utilizados quando houver conexão com o Banco de Dados*/
+            UserControl listagem = _gerenciador.CarregarListagem();
+            listagem.Dock = DockStyle.Fill;
+            PanelPrincipal.Controls.Clear();
             //Será Utilizado quando for realizada a consulta ao banco
-            //panelControl.Controls.Add(listagem);
-            //_gerenciador.Atualizar();
-            */
-
+            PanelPrincipal.Controls.Add(listagem);
+            _gerenciador.Atualizar();
             alteraEstadoBotoes(true);
         }
 
