@@ -17,18 +17,22 @@ namespace bancoCliente.Apresentacao.Funcionalidades.Contas
         {
             InitializeComponent();
         }
-        public void PopularListagem(IList<Conta> Clientes)
+        public void PopularListagem(IList<Conta> Contas)
         {
-            lbConta.Items.Clear();
+            //lbConta.Items.Clear();
 
-            foreach (Conta item in Clientes)
+            foreach (Conta item in Contas)
             {
-                lbConta.Items.Add(item);
             }
         }
-        public Conta ObtemDisciplinaSelecionada()
+        /*public Conta ObtemDisciplinaSelecionada()
         {
             return (Conta)lbConta.SelectedItem;
+        }*/
+
+        private void ultraGrid1_InitializeLayout(object sender, Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs e)
+        {
+
         }
     }
 }

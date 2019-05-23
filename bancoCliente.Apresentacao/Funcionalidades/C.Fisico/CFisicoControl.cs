@@ -18,7 +18,7 @@ namespace bancoCliente.Apresentacao.Funcionalidades.C.Fisico
             InitializeComponent();
         }
 
-        public void PopularListagem(IList<ClienteFisico> Clientes)
+        /*public void PopularListagem(IList<ClienteFisico> Clientes)
         {
             DataTable T_Gender = new DataTable();
             T_Gender.Columns.AddRange(new DataColumn[] {
@@ -41,6 +41,7 @@ namespace bancoCliente.Apresentacao.Funcionalidades.C.Fisico
             }
             ugClienteFisico.DataSource = T_Gender;
         }
+        */
 
         //public ClienteFisico ObtemDisciplinaSelecionada()
         //{

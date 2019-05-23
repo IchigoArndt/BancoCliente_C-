@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BancoCliente.Servico.Funcionalidade.Clientes.Fisico;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,6 +11,7 @@ namespace bancoCliente.Apresentacao.Funcionalidades.C.Fisico
     public class ClienteFGerenciadorFormulario : GerenciadorFormulario
     {
         CFisicoControl _clienteFisicoControl;
+        ClienteFisicoServico _clienteServico = new ClienteFisicoServico();
 
         public override void Adicionar()
         {
@@ -36,7 +38,7 @@ namespace bancoCliente.Apresentacao.Funcionalidades.C.Fisico
 
         public override void Atualizar()
         {
-            _clienteFisicoControl.PopularListagem(null);
+            //_clienteFisicoControl.PopularListagem(null);
         }
 
         public override UserControl CarregarListagem()
@@ -60,7 +62,7 @@ namespace bancoCliente.Apresentacao.Funcionalidades.C.Fisico
 
         public override string ObtemTipoCadastro()
         {
-            throw new NotImplementedException();
+            return "Cadastro Cliente Físico";
         }
     }
 }

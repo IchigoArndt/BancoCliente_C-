@@ -28,293 +28,159 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            Infragistics.Win.UltraWinToolbars.PopupMenuTool popupMenuTool7 = new Infragistics.Win.UltraWinToolbars.PopupMenuTool("Cliente");
-            Infragistics.Win.UltraWinToolbars.PopupMenuTool popupMenuTool8 = new Infragistics.Win.UltraWinToolbars.PopupMenuTool("funcionario");
-            Infragistics.Win.UltraWinToolbars.PopupMenuTool popupMenuTool9 = new Infragistics.Win.UltraWinToolbars.PopupMenuTool("contas");
-            Infragistics.Win.UltraWinToolbars.PopupMenuTool popupMenuTool1 = new Infragistics.Win.UltraWinToolbars.PopupMenuTool("Empresas");
-            Infragistics.Win.UltraWinToolbars.UltraToolbar ultraToolbar2 = new Infragistics.Win.UltraWinToolbars.UltraToolbar("ultraBarraMenu");
-            Infragistics.Win.UltraWinToolbars.ButtonTool buttonTool9 = new Infragistics.Win.UltraWinToolbars.ButtonTool("Adicionar");
-            Infragistics.Win.UltraWinToolbars.ButtonTool buttonTool11 = new Infragistics.Win.UltraWinToolbars.ButtonTool("Alterar");
-            Infragistics.Win.UltraWinToolbars.ButtonTool buttonTool13 = new Infragistics.Win.UltraWinToolbars.ButtonTool("Excluir");
-            Infragistics.Win.UltraWinToolbars.PopupMenuTool popupMenuTool2 = new Infragistics.Win.UltraWinToolbars.PopupMenuTool("Cliente");
-            Infragistics.Win.UltraWinToolbars.ButtonTool buttonTool1 = new Infragistics.Win.UltraWinToolbars.ButtonTool("Fisico");
-            Infragistics.Win.UltraWinToolbars.ButtonTool buttonTool2 = new Infragistics.Win.UltraWinToolbars.ButtonTool("Juridico");
-            Infragistics.Win.UltraWinToolbars.ButtonTool buttonTool4 = new Infragistics.Win.UltraWinToolbars.ButtonTool("Juridico");
-            Infragistics.Win.UltraWinToolbars.PopupMenuTool popupMenuTool4 = new Infragistics.Win.UltraWinToolbars.PopupMenuTool("funcionario");
-            Infragistics.Win.UltraWinToolbars.ButtonTool buttonTool5 = new Infragistics.Win.UltraWinToolbars.ButtonTool("Funcionarios");
-            Infragistics.Win.UltraWinToolbars.ButtonTool buttonTool6 = new Infragistics.Win.UltraWinToolbars.ButtonTool("Funcionarios");
-            Infragistics.Win.UltraWinToolbars.PopupMenuTool popupMenuTool6 = new Infragistics.Win.UltraWinToolbars.PopupMenuTool("contas");
-            Infragistics.Win.UltraWinToolbars.ButtonTool buttonTool7 = new Infragistics.Win.UltraWinToolbars.ButtonTool("Conta");
-            Infragistics.Win.UltraWinToolbars.ButtonTool buttonTool8 = new Infragistics.Win.UltraWinToolbars.ButtonTool("Conta");
-            Infragistics.Win.UltraWinToolbars.ButtonTool buttonTool3 = new Infragistics.Win.UltraWinToolbars.ButtonTool("Fisico");
-            Infragistics.Win.UltraWinToolbars.ButtonTool buttonTool10 = new Infragistics.Win.UltraWinToolbars.ButtonTool("btnCadastrar");
-            Infragistics.Win.UltraWinToolbars.ButtonTool buttonTool12 = new Infragistics.Win.UltraWinToolbars.ButtonTool("ButtonTool1");
-            Infragistics.Win.UltraWinToolbars.ButtonTool buttonTool14 = new Infragistics.Win.UltraWinToolbars.ButtonTool("Adicionar");
-            Infragistics.Win.UltraWinToolbars.ButtonTool buttonTool17 = new Infragistics.Win.UltraWinToolbars.ButtonTool("Alterar");
-            Infragistics.Win.UltraWinToolbars.ButtonTool buttonTool18 = new Infragistics.Win.UltraWinToolbars.ButtonTool("Excluir");
-            Infragistics.Win.UltraWinToolbars.PopupMenuTool popupMenuTool3 = new Infragistics.Win.UltraWinToolbars.PopupMenuTool("Empresas");
-            Infragistics.Win.UltraWinToolbars.ButtonTool buttonTool19 = new Infragistics.Win.UltraWinToolbars.ButtonTool("Empresa");
-            Infragistics.Win.UltraWinToolbars.ButtonTool buttonTool20 = new Infragistics.Win.UltraWinToolbars.ButtonTool("Empresa");
-            this.ultraFormManager1 = new Infragistics.Win.UltraWinForm.UltraFormManager(this.components);
-            this.ultraPanelTelaPrincipal = new Infragistics.Win.Misc.UltraPanel();
-            this.ClientArea_Fill_Panel = new Infragistics.Win.Misc.UltraPanel();
-            this._ClientArea_Toolbars_Dock_Area_Left = new Infragistics.Win.UltraWinToolbars.UltraToolbarsDockArea();
-            this.ultraToolbarsManager1 = new Infragistics.Win.UltraWinToolbars.UltraToolbarsManager(this.components);
-            this._ClientArea_Toolbars_Dock_Area_Right = new Infragistics.Win.UltraWinToolbars.UltraToolbarsDockArea();
-            this._ClientArea_Toolbars_Dock_Area_Bottom = new Infragistics.Win.UltraWinToolbars.UltraToolbarsDockArea();
-            this._ClientArea_Toolbars_Dock_Area_Top = new Infragistics.Win.UltraWinToolbars.UltraToolbarsDockArea();
-            this._telaPrincipal_UltraFormManager_Dock_Area_Left = new Infragistics.Win.UltraWinForm.UltraFormDockArea();
-            this._telaPrincipal_UltraFormManager_Dock_Area_Right = new Infragistics.Win.UltraWinForm.UltraFormDockArea();
-            this._telaPrincipal_UltraFormManager_Dock_Area_Top = new Infragistics.Win.UltraWinForm.UltraFormDockArea();
-            this._telaPrincipal_UltraFormManager_Dock_Area_Bottom = new Infragistics.Win.UltraWinForm.UltraFormDockArea();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.tsmCliente = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmFisico = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmJuridica = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsm = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmItemConta = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmFuncionario = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmItemFuncionario = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnCadastrar = new Infragistics.Win.Misc.UltraButton();
+            this.btnExcluir = new Infragistics.Win.Misc.UltraButton();
+            this.btnEditar = new Infragistics.Win.Misc.UltraButton();
+            this.lblCadastro = new Infragistics.Win.Misc.UltraLabel();
             this.PanelPrincipal = new System.Windows.Forms.Panel();
-            ((System.ComponentModel.ISupportInitialize)(this.ultraFormManager1)).BeginInit();
-            this.ultraPanelTelaPrincipal.ClientArea.SuspendLayout();
-            this.ultraPanelTelaPrincipal.SuspendLayout();
-            this.ClientArea_Fill_Panel.ClientArea.SuspendLayout();
-            this.ClientArea_Fill_Panel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ultraToolbarsManager1)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // ultraFormManager1
+            // menuStrip1
             // 
-            this.ultraFormManager1.Form = this;
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmCliente,
+            this.tsm,
+            this.tsmFuncionario});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(677, 24);
+            this.menuStrip1.TabIndex = 0;
+            this.menuStrip1.Text = "menuStrip1";
             // 
-            // ultraPanelTelaPrincipal
+            // tsmCliente
             // 
+            this.tsmCliente.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmFisico,
+            this.tsmJuridica});
+            this.tsmCliente.Name = "tsmCliente";
+            this.tsmCliente.Size = new System.Drawing.Size(106, 20);
+            this.tsmCliente.Text = "Cadastro Cliente";
             // 
-            // ultraPanelTelaPrincipal.ClientArea
+            // tsmFisico
             // 
-            this.ultraPanelTelaPrincipal.ClientArea.Controls.Add(this.ClientArea_Fill_Panel);
-            this.ultraPanelTelaPrincipal.ClientArea.Controls.Add(this._ClientArea_Toolbars_Dock_Area_Left);
-            this.ultraPanelTelaPrincipal.ClientArea.Controls.Add(this._ClientArea_Toolbars_Dock_Area_Right);
-            this.ultraPanelTelaPrincipal.ClientArea.Controls.Add(this._ClientArea_Toolbars_Dock_Area_Bottom);
-            this.ultraPanelTelaPrincipal.ClientArea.Controls.Add(this._ClientArea_Toolbars_Dock_Area_Top);
-            this.ultraPanelTelaPrincipal.Cursor = System.Windows.Forms.Cursors.Default;
-            this.ultraPanelTelaPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ultraPanelTelaPrincipal.Location = new System.Drawing.Point(8, 32);
-            this.ultraPanelTelaPrincipal.Name = "ultraPanelTelaPrincipal";
-            this.ultraPanelTelaPrincipal.Size = new System.Drawing.Size(691, 410);
-            this.ultraPanelTelaPrincipal.TabIndex = 0;
+            this.tsmFisico.Name = "tsmFisico";
+            this.tsmFisico.Size = new System.Drawing.Size(180, 22);
+            this.tsmFisico.Text = "Física";
+            this.tsmFisico.Click += new System.EventHandler(this.tsmFisico_Click);
             // 
-            // ClientArea_Fill_Panel
+            // tsmJuridica
             // 
+            this.tsmJuridica.Name = "tsmJuridica";
+            this.tsmJuridica.Size = new System.Drawing.Size(180, 22);
+            this.tsmJuridica.Text = "Juridica";
             // 
-            // ClientArea_Fill_Panel.ClientArea
+            // tsm
             // 
-            this.ClientArea_Fill_Panel.ClientArea.Controls.Add(this.PanelPrincipal);
-            this.ClientArea_Fill_Panel.Cursor = System.Windows.Forms.Cursors.Default;
-            this.ClientArea_Fill_Panel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ClientArea_Fill_Panel.Location = new System.Drawing.Point(0, 78);
-            this.ClientArea_Fill_Panel.Name = "ClientArea_Fill_Panel";
-            this.ClientArea_Fill_Panel.Size = new System.Drawing.Size(691, 332);
-            this.ClientArea_Fill_Panel.TabIndex = 0;
-            this.ClientArea_Fill_Panel.PaintClient += new System.Windows.Forms.PaintEventHandler(this.ClientArea_Fill_Panel_PaintClient);
+            this.tsm.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmItemConta});
+            this.tsm.Name = "tsm";
+            this.tsm.Size = new System.Drawing.Size(101, 20);
+            this.tsm.Text = "Cadastro Conta";
             // 
-            // _ClientArea_Toolbars_Dock_Area_Left
+            // tsmItemConta
             // 
-            this._ClientArea_Toolbars_Dock_Area_Left.AccessibleRole = System.Windows.Forms.AccessibleRole.Grouping;
-            this._ClientArea_Toolbars_Dock_Area_Left.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(233)))), ((int)(((byte)(245)))));
-            this._ClientArea_Toolbars_Dock_Area_Left.DockedPosition = Infragistics.Win.UltraWinToolbars.DockedPosition.Left;
-            this._ClientArea_Toolbars_Dock_Area_Left.ForeColor = System.Drawing.SystemColors.ControlText;
-            this._ClientArea_Toolbars_Dock_Area_Left.Location = new System.Drawing.Point(0, 78);
-            this._ClientArea_Toolbars_Dock_Area_Left.Name = "_ClientArea_Toolbars_Dock_Area_Left";
-            this._ClientArea_Toolbars_Dock_Area_Left.Size = new System.Drawing.Size(0, 332);
-            this._ClientArea_Toolbars_Dock_Area_Left.ToolbarsManager = this.ultraToolbarsManager1;
+            this.tsmItemConta.Name = "tsmItemConta";
+            this.tsmItemConta.Size = new System.Drawing.Size(180, 22);
+            this.tsmItemConta.Text = "Contas";
             // 
-            // ultraToolbarsManager1
+            // tsmFuncionario
             // 
-            this.ultraToolbarsManager1.DesignerFlags = 1;
-            this.ultraToolbarsManager1.DockWithinContainer = this.ultraPanelTelaPrincipal.ClientArea;
-            this.ultraToolbarsManager1.Office2007UICompatibility = false;
-            this.ultraToolbarsManager1.Ribbon.ApplicationMenu.ToolAreaLeft.NonInheritedTools.AddRange(new Infragistics.Win.UltraWinToolbars.ToolBase[] {
-            popupMenuTool7,
-            popupMenuTool8,
-            popupMenuTool9,
-            popupMenuTool1});
-            this.ultraToolbarsManager1.Ribbon.Visible = true;
-            this.ultraToolbarsManager1.RuntimeCustomizationOptions = Infragistics.Win.UltraWinToolbars.RuntimeCustomizationOptions.None;
-            this.ultraToolbarsManager1.Style = Infragistics.Win.UltraWinToolbars.ToolbarStyle.ScenicRibbon;
-            ultraToolbar2.DockedColumn = 0;
-            ultraToolbar2.DockedRow = 0;
-            ultraToolbar2.FloatingLocation = new System.Drawing.Point(191, 269);
-            ultraToolbar2.FloatingSize = new System.Drawing.Size(297, 24);
-            ultraToolbar2.NonInheritedTools.AddRange(new Infragistics.Win.UltraWinToolbars.ToolBase[] {
-            buttonTool9,
-            buttonTool11,
-            buttonTool13});
-            ultraToolbar2.Text = "ultraBarraMenu";
-            this.ultraToolbarsManager1.Toolbars.AddRange(new Infragistics.Win.UltraWinToolbars.UltraToolbar[] {
-            ultraToolbar2});
-            this.ultraToolbarsManager1.ToolbarSettings.AllowCustomize = Infragistics.Win.DefaultableBoolean.False;
-            popupMenuTool2.SharedPropsInternal.Caption = "Cliente";
-            popupMenuTool2.Tools.AddRange(new Infragistics.Win.UltraWinToolbars.ToolBase[] {
-            buttonTool1,
-            buttonTool2});
-            buttonTool4.SharedPropsInternal.Caption = "Juridico";
-            popupMenuTool4.SharedPropsInternal.Caption = "funcionario";
-            popupMenuTool4.Tools.AddRange(new Infragistics.Win.UltraWinToolbars.ToolBase[] {
-            buttonTool5});
-            buttonTool6.SharedPropsInternal.Caption = "Funcionarios";
-            popupMenuTool6.SharedPropsInternal.Caption = "contas";
-            popupMenuTool6.Tools.AddRange(new Infragistics.Win.UltraWinToolbars.ToolBase[] {
-            buttonTool7});
-            buttonTool8.SharedPropsInternal.Caption = "Conta";
-            buttonTool3.SharedPropsInternal.Caption = "Fisico";
-            buttonTool10.SharedPropsInternal.Caption = "btnCadastrar";
-            buttonTool12.SharedPropsInternal.Caption = "ButtonTool1";
-            buttonTool14.SharedPropsInternal.Caption = "Adicionar";
-            buttonTool14.SharedPropsInternal.DisplayStyle = Infragistics.Win.UltraWinToolbars.ToolDisplayStyle.TextOnlyAlways;
-            buttonTool17.SharedPropsInternal.Caption = "Alterar";
-            buttonTool17.SharedPropsInternal.DisplayStyle = Infragistics.Win.UltraWinToolbars.ToolDisplayStyle.TextOnlyAlways;
-            buttonTool18.SharedPropsInternal.Caption = "Excluir";
-            buttonTool18.SharedPropsInternal.DisplayStyle = Infragistics.Win.UltraWinToolbars.ToolDisplayStyle.TextOnlyAlways;
-            popupMenuTool3.SharedPropsInternal.Caption = "Empresas";
-            popupMenuTool3.Tools.AddRange(new Infragistics.Win.UltraWinToolbars.ToolBase[] {
-            buttonTool19});
-            buttonTool20.SharedPropsInternal.Caption = "Empresa";
-            this.ultraToolbarsManager1.Tools.AddRange(new Infragistics.Win.UltraWinToolbars.ToolBase[] {
-            popupMenuTool2,
-            buttonTool4,
-            popupMenuTool4,
-            buttonTool6,
-            popupMenuTool6,
-            buttonTool8,
-            buttonTool3,
-            buttonTool10,
-            buttonTool12,
-            buttonTool14,
-            buttonTool17,
-            buttonTool18,
-            popupMenuTool3,
-            buttonTool20});
-            this.ultraToolbarsManager1.ToolClick += new Infragistics.Win.UltraWinToolbars.ToolClickEventHandler(this.ultraToolbarsManager1_ToolClick);
+            this.tsmFuncionario.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmItemFuncionario});
+            this.tsmFuncionario.Name = "tsmFuncionario";
+            this.tsmFuncionario.Size = new System.Drawing.Size(132, 20);
+            this.tsmFuncionario.Text = "Cadastro Funcionario";
             // 
-            // _ClientArea_Toolbars_Dock_Area_Right
+            // tsmItemFuncionario
             // 
-            this._ClientArea_Toolbars_Dock_Area_Right.AccessibleRole = System.Windows.Forms.AccessibleRole.Grouping;
-            this._ClientArea_Toolbars_Dock_Area_Right.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(233)))), ((int)(((byte)(245)))));
-            this._ClientArea_Toolbars_Dock_Area_Right.DockedPosition = Infragistics.Win.UltraWinToolbars.DockedPosition.Right;
-            this._ClientArea_Toolbars_Dock_Area_Right.ForeColor = System.Drawing.SystemColors.ControlText;
-            this._ClientArea_Toolbars_Dock_Area_Right.Location = new System.Drawing.Point(691, 78);
-            this._ClientArea_Toolbars_Dock_Area_Right.Name = "_ClientArea_Toolbars_Dock_Area_Right";
-            this._ClientArea_Toolbars_Dock_Area_Right.Size = new System.Drawing.Size(0, 332);
-            this._ClientArea_Toolbars_Dock_Area_Right.ToolbarsManager = this.ultraToolbarsManager1;
+            this.tsmItemFuncionario.Name = "tsmItemFuncionario";
+            this.tsmItemFuncionario.Size = new System.Drawing.Size(180, 22);
+            this.tsmItemFuncionario.Text = "Funcionario";
             // 
-            // _ClientArea_Toolbars_Dock_Area_Bottom
+            // btnCadastrar
             // 
-            this._ClientArea_Toolbars_Dock_Area_Bottom.AccessibleRole = System.Windows.Forms.AccessibleRole.Grouping;
-            this._ClientArea_Toolbars_Dock_Area_Bottom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(233)))), ((int)(((byte)(245)))));
-            this._ClientArea_Toolbars_Dock_Area_Bottom.DockedPosition = Infragistics.Win.UltraWinToolbars.DockedPosition.Bottom;
-            this._ClientArea_Toolbars_Dock_Area_Bottom.ForeColor = System.Drawing.SystemColors.ControlText;
-            this._ClientArea_Toolbars_Dock_Area_Bottom.Location = new System.Drawing.Point(0, 410);
-            this._ClientArea_Toolbars_Dock_Area_Bottom.Name = "_ClientArea_Toolbars_Dock_Area_Bottom";
-            this._ClientArea_Toolbars_Dock_Area_Bottom.Size = new System.Drawing.Size(691, 0);
-            this._ClientArea_Toolbars_Dock_Area_Bottom.ToolbarsManager = this.ultraToolbarsManager1;
+            this.btnCadastrar.Location = new System.Drawing.Point(12, 27);
+            this.btnCadastrar.Name = "btnCadastrar";
+            this.btnCadastrar.Size = new System.Drawing.Size(88, 23);
+            this.btnCadastrar.TabIndex = 1;
+            this.btnCadastrar.Text = "Cadastrar";
+            this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
             // 
-            // _ClientArea_Toolbars_Dock_Area_Top
+            // btnExcluir
             // 
-            this._ClientArea_Toolbars_Dock_Area_Top.AccessibleRole = System.Windows.Forms.AccessibleRole.Grouping;
-            this._ClientArea_Toolbars_Dock_Area_Top.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(233)))), ((int)(((byte)(245)))));
-            this._ClientArea_Toolbars_Dock_Area_Top.DockedPosition = Infragistics.Win.UltraWinToolbars.DockedPosition.Top;
-            this._ClientArea_Toolbars_Dock_Area_Top.ForeColor = System.Drawing.SystemColors.ControlText;
-            this._ClientArea_Toolbars_Dock_Area_Top.Location = new System.Drawing.Point(0, 0);
-            this._ClientArea_Toolbars_Dock_Area_Top.Name = "_ClientArea_Toolbars_Dock_Area_Top";
-            this._ClientArea_Toolbars_Dock_Area_Top.Size = new System.Drawing.Size(691, 78);
-            this._ClientArea_Toolbars_Dock_Area_Top.ToolbarsManager = this.ultraToolbarsManager1;
+            this.btnExcluir.Location = new System.Drawing.Point(119, 27);
+            this.btnExcluir.Name = "btnExcluir";
+            this.btnExcluir.Size = new System.Drawing.Size(86, 23);
+            this.btnExcluir.TabIndex = 2;
+            this.btnExcluir.Text = "Excluir";
             // 
-            // _telaPrincipal_UltraFormManager_Dock_Area_Left
+            // btnEditar
             // 
-            this._telaPrincipal_UltraFormManager_Dock_Area_Left.AccessibleRole = System.Windows.Forms.AccessibleRole.Grouping;
-            this._telaPrincipal_UltraFormManager_Dock_Area_Left.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(219)))), ((int)(((byte)(255)))));
-            this._telaPrincipal_UltraFormManager_Dock_Area_Left.DockedPosition = Infragistics.Win.UltraWinForm.DockedPosition.Left;
-            this._telaPrincipal_UltraFormManager_Dock_Area_Left.ForeColor = System.Drawing.SystemColors.ControlText;
-            this._telaPrincipal_UltraFormManager_Dock_Area_Left.FormManager = this.ultraFormManager1;
-            this._telaPrincipal_UltraFormManager_Dock_Area_Left.InitialResizeAreaExtent = 8;
-            this._telaPrincipal_UltraFormManager_Dock_Area_Left.Location = new System.Drawing.Point(0, 32);
-            this._telaPrincipal_UltraFormManager_Dock_Area_Left.Name = "_telaPrincipal_UltraFormManager_Dock_Area_Left";
-            this._telaPrincipal_UltraFormManager_Dock_Area_Left.Size = new System.Drawing.Size(8, 410);
+            this.btnEditar.Location = new System.Drawing.Point(222, 27);
+            this.btnEditar.Name = "btnEditar";
+            this.btnEditar.Size = new System.Drawing.Size(115, 23);
+            this.btnEditar.TabIndex = 3;
+            this.btnEditar.Text = "Editar";
             // 
-            // _telaPrincipal_UltraFormManager_Dock_Area_Right
+            // lblCadastro
             // 
-            this._telaPrincipal_UltraFormManager_Dock_Area_Right.AccessibleRole = System.Windows.Forms.AccessibleRole.Grouping;
-            this._telaPrincipal_UltraFormManager_Dock_Area_Right.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(219)))), ((int)(((byte)(255)))));
-            this._telaPrincipal_UltraFormManager_Dock_Area_Right.DockedPosition = Infragistics.Win.UltraWinForm.DockedPosition.Right;
-            this._telaPrincipal_UltraFormManager_Dock_Area_Right.ForeColor = System.Drawing.SystemColors.ControlText;
-            this._telaPrincipal_UltraFormManager_Dock_Area_Right.FormManager = this.ultraFormManager1;
-            this._telaPrincipal_UltraFormManager_Dock_Area_Right.InitialResizeAreaExtent = 8;
-            this._telaPrincipal_UltraFormManager_Dock_Area_Right.Location = new System.Drawing.Point(699, 32);
-            this._telaPrincipal_UltraFormManager_Dock_Area_Right.Name = "_telaPrincipal_UltraFormManager_Dock_Area_Right";
-            this._telaPrincipal_UltraFormManager_Dock_Area_Right.Size = new System.Drawing.Size(8, 410);
-            // 
-            // _telaPrincipal_UltraFormManager_Dock_Area_Top
-            // 
-            this._telaPrincipal_UltraFormManager_Dock_Area_Top.AccessibleRole = System.Windows.Forms.AccessibleRole.Grouping;
-            this._telaPrincipal_UltraFormManager_Dock_Area_Top.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(219)))), ((int)(((byte)(255)))));
-            this._telaPrincipal_UltraFormManager_Dock_Area_Top.DockedPosition = Infragistics.Win.UltraWinForm.DockedPosition.Top;
-            this._telaPrincipal_UltraFormManager_Dock_Area_Top.ForeColor = System.Drawing.SystemColors.ControlText;
-            this._telaPrincipal_UltraFormManager_Dock_Area_Top.FormManager = this.ultraFormManager1;
-            this._telaPrincipal_UltraFormManager_Dock_Area_Top.Location = new System.Drawing.Point(0, 0);
-            this._telaPrincipal_UltraFormManager_Dock_Area_Top.Name = "_telaPrincipal_UltraFormManager_Dock_Area_Top";
-            this._telaPrincipal_UltraFormManager_Dock_Area_Top.Size = new System.Drawing.Size(707, 32);
-            // 
-            // _telaPrincipal_UltraFormManager_Dock_Area_Bottom
-            // 
-            this._telaPrincipal_UltraFormManager_Dock_Area_Bottom.AccessibleRole = System.Windows.Forms.AccessibleRole.Grouping;
-            this._telaPrincipal_UltraFormManager_Dock_Area_Bottom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(219)))), ((int)(((byte)(255)))));
-            this._telaPrincipal_UltraFormManager_Dock_Area_Bottom.DockedPosition = Infragistics.Win.UltraWinForm.DockedPosition.Bottom;
-            this._telaPrincipal_UltraFormManager_Dock_Area_Bottom.ForeColor = System.Drawing.SystemColors.ControlText;
-            this._telaPrincipal_UltraFormManager_Dock_Area_Bottom.FormManager = this.ultraFormManager1;
-            this._telaPrincipal_UltraFormManager_Dock_Area_Bottom.InitialResizeAreaExtent = 8;
-            this._telaPrincipal_UltraFormManager_Dock_Area_Bottom.Location = new System.Drawing.Point(0, 442);
-            this._telaPrincipal_UltraFormManager_Dock_Area_Bottom.Name = "_telaPrincipal_UltraFormManager_Dock_Area_Bottom";
-            this._telaPrincipal_UltraFormManager_Dock_Area_Bottom.Size = new System.Drawing.Size(707, 8);
+            this.lblCadastro.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.World, ((byte)(0)));
+            this.lblCadastro.Location = new System.Drawing.Point(344, 26);
+            this.lblCadastro.Name = "lblCadastro";
+            this.lblCadastro.Size = new System.Drawing.Size(321, 23);
+            this.lblCadastro.TabIndex = 4;
             // 
             // PanelPrincipal
             // 
-            this.PanelPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PanelPrincipal.Location = new System.Drawing.Point(0, 0);
+            this.PanelPrincipal.Location = new System.Drawing.Point(12, 56);
             this.PanelPrincipal.Name = "PanelPrincipal";
-            this.PanelPrincipal.Size = new System.Drawing.Size(691, 332);
-            this.PanelPrincipal.TabIndex = 0;
+            this.PanelPrincipal.Size = new System.Drawing.Size(653, 279);
+            this.PanelPrincipal.TabIndex = 5;
             // 
             // telaPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(707, 450);
-            this.Controls.Add(this.ultraPanelTelaPrincipal);
-            this.Controls.Add(this._telaPrincipal_UltraFormManager_Dock_Area_Left);
-            this.Controls.Add(this._telaPrincipal_UltraFormManager_Dock_Area_Right);
-            this.Controls.Add(this._telaPrincipal_UltraFormManager_Dock_Area_Top);
-            this.Controls.Add(this._telaPrincipal_UltraFormManager_Dock_Area_Bottom);
+            this.ClientSize = new System.Drawing.Size(677, 347);
+            this.Controls.Add(this.PanelPrincipal);
+            this.Controls.Add(this.lblCadastro);
+            this.Controls.Add(this.btnEditar);
+            this.Controls.Add(this.btnExcluir);
+            this.Controls.Add(this.btnCadastrar);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "telaPrincipal";
             this.Text = "telaPrincipal";
-            ((System.ComponentModel.ISupportInitialize)(this.ultraFormManager1)).EndInit();
-            this.ultraPanelTelaPrincipal.ClientArea.ResumeLayout(false);
-            this.ultraPanelTelaPrincipal.ResumeLayout(false);
-            this.ClientArea_Fill_Panel.ClientArea.ResumeLayout(false);
-            this.ClientArea_Fill_Panel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.ultraToolbarsManager1)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private Infragistics.Win.UltraWinForm.UltraFormManager ultraFormManager1;
-        private Infragistics.Win.Misc.UltraPanel ultraPanelTelaPrincipal;
-        private Infragistics.Win.UltraWinForm.UltraFormDockArea _telaPrincipal_UltraFormManager_Dock_Area_Left;
-        private Infragistics.Win.UltraWinForm.UltraFormDockArea _telaPrincipal_UltraFormManager_Dock_Area_Right;
-        private Infragistics.Win.UltraWinForm.UltraFormDockArea _telaPrincipal_UltraFormManager_Dock_Area_Top;
-        private Infragistics.Win.UltraWinForm.UltraFormDockArea _telaPrincipal_UltraFormManager_Dock_Area_Bottom;
-        private Infragistics.Win.Misc.UltraPanel ClientArea_Fill_Panel;
-        private Infragistics.Win.UltraWinToolbars.UltraToolbarsDockArea _ClientArea_Toolbars_Dock_Area_Left;
-        private Infragistics.Win.UltraWinToolbars.UltraToolbarsDockArea _ClientArea_Toolbars_Dock_Area_Right;
-        private Infragistics.Win.UltraWinToolbars.UltraToolbarsDockArea _ClientArea_Toolbars_Dock_Area_Bottom;
-        private Infragistics.Win.UltraWinToolbars.UltraToolbarsDockArea _ClientArea_Toolbars_Dock_Area_Top;
-        public Infragistics.Win.UltraWinToolbars.UltraToolbarsManager ultraToolbarsManager1;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem tsmCliente;
+        private System.Windows.Forms.ToolStripMenuItem tsmFisico;
+        private System.Windows.Forms.ToolStripMenuItem tsmJuridica;
+        private System.Windows.Forms.ToolStripMenuItem tsm;
+        private System.Windows.Forms.ToolStripMenuItem tsmItemConta;
+        private System.Windows.Forms.ToolStripMenuItem tsmFuncionario;
+        private System.Windows.Forms.ToolStripMenuItem tsmItemFuncionario;
+        private Infragistics.Win.Misc.UltraButton btnCadastrar;
+        private Infragistics.Win.Misc.UltraButton btnExcluir;
+        private Infragistics.Win.Misc.UltraButton btnEditar;
+        private Infragistics.Win.Misc.UltraLabel lblCadastro;
         private System.Windows.Forms.Panel PanelPrincipal;
     }
 }

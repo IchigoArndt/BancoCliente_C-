@@ -130,6 +130,7 @@
       <DependentUpon>funcionarioControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Funcionalidades\Funcionarios\GerenciadorFormularioFuncionario.cs" />
+    <Compile Include="Funcionalidades\validacao\validacao.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="telaPrincipal.cs">
@@ -200,6 +201,10 @@
     <ProjectReference Include="..\bancoCliente.Dominio\bancoCliente.Dominio.csproj">
       <Project>{4a181f52-f54e-415b-9935-db5c7f07e29c}</Project>
       <Name>bancoCliente.Dominio</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BancoCliente.Servico\BancoCliente.Servico.csproj">
+      <Project>{C6BFA6F8-FE61-43F6-8D87-9A6FE646DABC}</Project>
+      <Name>BancoCliente.Servico</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

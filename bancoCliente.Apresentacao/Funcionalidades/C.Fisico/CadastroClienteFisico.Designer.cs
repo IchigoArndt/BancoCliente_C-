@@ -59,9 +59,9 @@
             this.ultraLabel2 = new Infragistics.Win.Misc.UltraLabel();
             this.ultraLabel3 = new Infragistics.Win.Misc.UltraLabel();
             this.ultraLabel4 = new Infragistics.Win.Misc.UltraLabel();
-            this.ultraTextEditor1 = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
-            this.ultraTextEditor2 = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
-            this.ultraTextEditor3 = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
+            this.utxtLimiteSaque = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
+            this.utxtCpf = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
+            this.utxtQtdLimite = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
             this.ulblCpf = new Infragistics.Win.Misc.UltraLabel();
             this.ultraLabel8 = new Infragistics.Win.Misc.UltraLabel();
             this.ultraLabel9 = new Infragistics.Win.Misc.UltraLabel();
@@ -88,9 +88,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.utxtBairro)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.utxtRua)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.utxtNumero)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ultraTextEditor1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ultraTextEditor2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ultraTextEditor3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.utxtLimiteSaque)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.utxtCpf)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.utxtQtdLimite)).BeginInit();
             this.panelDados.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -135,6 +135,7 @@
             this.utxtTel.Name = "utxtTel";
             this.utxtTel.Size = new System.Drawing.Size(222, 19);
             this.utxtTel.TabIndex = 5;
+            this.utxtTel.Leave += new System.EventHandler(this.utxtTel_Leave);
             // 
             // utxtNome
             // 
@@ -143,6 +144,7 @@
             this.utxtNome.Name = "utxtNome";
             this.utxtNome.Size = new System.Drawing.Size(222, 19);
             this.utxtNome.TabIndex = 4;
+            this.utxtNome.ValueChanged += new System.EventHandler(this.utxtNome_ValueChanged);
             // 
             // ulblDnasc
             // 
@@ -195,7 +197,7 @@
             this.uPanelCliente.ClientArea.Controls.Add(this.ulblLimite);
             this.uPanelCliente.Location = new System.Drawing.Point(0, 320);
             this.uPanelCliente.Name = "uPanelCliente";
-            this.uPanelCliente.Size = new System.Drawing.Size(314, 133);
+            this.uPanelCliente.Size = new System.Drawing.Size(314, 117);
             this.uPanelCliente.TabIndex = 1;
             // 
             // utxtConta
@@ -285,7 +287,7 @@
             this.uPanelEndereco.ClientArea.Controls.Add(this.ultraLabel4);
             this.uPanelEndereco.Location = new System.Drawing.Point(3, 130);
             this.uPanelEndereco.Name = "uPanelEndereco";
-            this.uPanelEndereco.Size = new System.Drawing.Size(311, 193);
+            this.uPanelEndereco.Size = new System.Drawing.Size(311, 174);
             this.uPanelEndereco.TabIndex = 2;
             // 
             // ucmbUf
@@ -353,6 +355,8 @@
             this.utxtNumero.Name = "utxtNumero";
             this.utxtNumero.Size = new System.Drawing.Size(212, 19);
             this.utxtNumero.TabIndex = 8;
+            this.utxtNumero.ValueChanged += new System.EventHandler(this.utxtNumero_ValueChanged);
+            this.utxtNumero.Leave += new System.EventHandler(this.utxtNumero_Leave);
             // 
             // ultraLabel1
             // 
@@ -390,34 +394,34 @@
             this.ultraLabel4.TabIndex = 9;
             this.ultraLabel4.Text = "Numero:";
             // 
-            // ultraTextEditor1
+            // utxtLimiteSaque
             // 
-            this.ultraTextEditor1.BorderStyle = Infragistics.Win.UIElementBorderStyle.Dotted;
-            this.ultraTextEditor1.Location = new System.Drawing.Point(123, 538);
-            this.ultraTextEditor1.Name = "ultraTextEditor1";
-            this.ultraTextEditor1.Size = new System.Drawing.Size(171, 19);
-            this.ultraTextEditor1.TabIndex = 27;
+            this.utxtLimiteSaque.BorderStyle = Infragistics.Win.UIElementBorderStyle.Dotted;
+            this.utxtLimiteSaque.Location = new System.Drawing.Point(120, 507);
+            this.utxtLimiteSaque.Name = "utxtLimiteSaque";
+            this.utxtLimiteSaque.Size = new System.Drawing.Size(171, 19);
+            this.utxtLimiteSaque.TabIndex = 27;
             // 
-            // ultraTextEditor2
+            // utxtCpf
             // 
-            this.ultraTextEditor2.BorderStyle = Infragistics.Win.UIElementBorderStyle.Dotted;
-            this.ultraTextEditor2.Location = new System.Drawing.Point(123, 480);
-            this.ultraTextEditor2.Name = "ultraTextEditor2";
-            this.ultraTextEditor2.Size = new System.Drawing.Size(171, 19);
-            this.ultraTextEditor2.TabIndex = 26;
+            this.utxtCpf.BorderStyle = Infragistics.Win.UIElementBorderStyle.Dotted;
+            this.utxtCpf.Location = new System.Drawing.Point(120, 449);
+            this.utxtCpf.Name = "utxtCpf";
+            this.utxtCpf.Size = new System.Drawing.Size(171, 19);
+            this.utxtCpf.TabIndex = 26;
             // 
-            // ultraTextEditor3
+            // utxtQtdLimite
             // 
-            this.ultraTextEditor3.BorderStyle = Infragistics.Win.UIElementBorderStyle.Dotted;
-            this.ultraTextEditor3.Location = new System.Drawing.Point(123, 509);
-            this.ultraTextEditor3.Name = "ultraTextEditor3";
-            this.ultraTextEditor3.Size = new System.Drawing.Size(171, 19);
-            this.ultraTextEditor3.TabIndex = 22;
+            this.utxtQtdLimite.BorderStyle = Infragistics.Win.UIElementBorderStyle.Dotted;
+            this.utxtQtdLimite.Location = new System.Drawing.Point(120, 478);
+            this.utxtQtdLimite.Name = "utxtQtdLimite";
+            this.utxtQtdLimite.Size = new System.Drawing.Size(171, 19);
+            this.utxtQtdLimite.TabIndex = 22;
             // 
             // ulblCpf
             // 
             this.ulblCpf.BorderStyleInner = Infragistics.Win.UIElementBorderStyle.Dotted;
-            this.ulblCpf.Location = new System.Drawing.Point(7, 476);
+            this.ulblCpf.Location = new System.Drawing.Point(6, 445);
             this.ulblCpf.Name = "ulblCpf";
             this.ulblCpf.Size = new System.Drawing.Size(66, 23);
             this.ulblCpf.TabIndex = 23;
@@ -426,7 +430,7 @@
             // ultraLabel8
             // 
             this.ultraLabel8.BorderStyleInner = Infragistics.Win.UIElementBorderStyle.Dotted;
-            this.ultraLabel8.Location = new System.Drawing.Point(7, 534);
+            this.ultraLabel8.Location = new System.Drawing.Point(4, 503);
             this.ultraLabel8.Name = "ultraLabel8";
             this.ultraLabel8.Size = new System.Drawing.Size(110, 23);
             this.ultraLabel8.TabIndex = 25;
@@ -435,7 +439,7 @@
             // ultraLabel9
             // 
             this.ultraLabel9.BorderStyleInner = Infragistics.Win.UIElementBorderStyle.Dotted;
-            this.ultraLabel9.Location = new System.Drawing.Point(7, 505);
+            this.ultraLabel9.Location = new System.Drawing.Point(4, 474);
             this.ultraLabel9.Name = "ultraLabel9";
             this.ultraLabel9.Size = new System.Drawing.Size(110, 23);
             this.ultraLabel9.TabIndex = 24;
@@ -444,15 +448,16 @@
             // ultraButton1
             // 
             this.ultraButton1.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.ultraButton1.Location = new System.Drawing.Point(10, 575);
+            this.ultraButton1.Location = new System.Drawing.Point(3, 532);
             this.ultraButton1.Name = "ultraButton1";
             this.ultraButton1.Size = new System.Drawing.Size(75, 23);
             this.ultraButton1.TabIndex = 28;
             this.ultraButton1.Text = "Gravar";
+            this.ultraButton1.Click += new System.EventHandler(this.ultraButton1_Click);
             // 
             // ultraButton2
             // 
-            this.ultraButton2.Location = new System.Drawing.Point(219, 576);
+            this.ultraButton2.Location = new System.Drawing.Point(219, 532);
             this.ultraButton2.Name = "ultraButton2";
             this.ultraButton2.Size = new System.Drawing.Size(75, 23);
             this.ultraButton2.TabIndex = 29;
@@ -465,20 +470,20 @@
             this.panelDados.Controls.Add(this.uPanelCliente);
             this.panelDados.Location = new System.Drawing.Point(3, 2);
             this.panelDados.Name = "panelDados";
-            this.panelDados.Size = new System.Drawing.Size(314, 468);
+            this.panelDados.Size = new System.Drawing.Size(314, 437);
             this.panelDados.TabIndex = 30;
             // 
             // CadastroClienteFisico
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(320, 610);
+            this.ClientSize = new System.Drawing.Size(320, 578);
             this.Controls.Add(this.panelDados);
             this.Controls.Add(this.ultraButton2);
             this.Controls.Add(this.ultraButton1);
-            this.Controls.Add(this.ultraTextEditor1);
-            this.Controls.Add(this.ultraTextEditor2);
-            this.Controls.Add(this.ultraTextEditor3);
+            this.Controls.Add(this.utxtLimiteSaque);
+            this.Controls.Add(this.utxtCpf);
+            this.Controls.Add(this.utxtQtdLimite);
             this.Controls.Add(this.ulblCpf);
             this.Controls.Add(this.ultraLabel8);
             this.Controls.Add(this.ultraLabel9);
@@ -507,9 +512,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.utxtBairro)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.utxtRua)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.utxtNumero)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ultraTextEditor1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ultraTextEditor2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ultraTextEditor3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.utxtLimiteSaque)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.utxtCpf)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.utxtQtdLimite)).EndInit();
             this.panelDados.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -549,9 +554,9 @@
         private Infragistics.Win.UltraWinEditors.UltraTextEditor utxtBairro;
         private Infragistics.Win.Misc.UltraLabel ultraLabel6;
         private Infragistics.Win.UltraWinEditors.UltraComboEditor ucmbUf;
-        private Infragistics.Win.UltraWinEditors.UltraTextEditor ultraTextEditor1;
-        private Infragistics.Win.UltraWinEditors.UltraTextEditor ultraTextEditor2;
-        private Infragistics.Win.UltraWinEditors.UltraTextEditor ultraTextEditor3;
+        private Infragistics.Win.UltraWinEditors.UltraTextEditor utxtLimiteSaque;
+        private Infragistics.Win.UltraWinEditors.UltraTextEditor utxtCpf;
+        private Infragistics.Win.UltraWinEditors.UltraTextEditor utxtQtdLimite;
         private Infragistics.Win.Misc.UltraLabel ulblCpf;
         private Infragistics.Win.Misc.UltraLabel ultraLabel8;
         private Infragistics.Win.Misc.UltraLabel ultraLabel9;

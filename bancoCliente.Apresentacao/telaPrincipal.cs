@@ -27,86 +27,45 @@ namespace bancoCliente.Apresentacao
         {
 
         }
-        //Procurar um jeito de refatorar 
-        private void ultraToolbarsManager1_ToolClick(object sender, Infragistics.Win.UltraWinToolbars.ToolClickEventArgs e)
-        {
-            switch (e.Tool.Key)
-            {
-                case "Fisico":
-                 {
-                  if(CFG == null)
-                    {
-                            CFG = new ClienteFGerenciadorFormulario();
-                            CarregarCadastro(CFG);
-                    }
-                  break;
-                 }
-                case "Juridico":
-                    {
-                        if (CJ == null)
-                        {
-                            CJ = new GerenciadorFormularioCJ();
-                            CarregarCadastro(CJ);
-                        }
-                        break;
-                    }
-                case "Conta":
-                    {
-                        if (CONTA == null)
-                        {
-                            CONTA = new GerenciadorFormularioConta();
-                            CarregarCadastro(CONTA);
-                        }
-                        break;
-                    }
-                case "Empresa":
-                    {
-                        if (EMPRESA == null)
-                        {
-                            EMPRESA = new GeenciadorFormularioEmpresa();
-                            CarregarCadastro(EMPRESA);
-                        }
-                        break;
-                    }
-                case "Funcionarios":
-                    {
-                        if (FUNCIONARIO == null)
-                        {
-                            FUNCIONARIO = new GerenciadorFormularioFuncionario();
-                            CarregarCadastro(FUNCIONARIO);
-                        }
-                        break;
-                    }
-            }
-            if (e.Tool.Key == "Adicionar")
-            {
-                if (_gerenciador != null) 
-                {
-                    _gerenciador.Adicionar();
-                }
-            }
-            
-        }
 
         private void CarregarCadastro(GerenciadorFormulario gerenciador)
         {
-            _gerenciador = gerenciador;
+             _gerenciador = gerenciador;
             /*Estes Metodos serão utilizados quando houver conexão com o Banco de Dados*/
-            UserControl listagem = _gerenciador.CarregarListagem();
-            listagem.Dock = DockStyle.Fill;
-            PanelPrincipal.Controls.Clear();
+             UserControl listagem = _gerenciador.CarregarListagem();
+             listagem.Dock = DockStyle.Fill;
+             PanelPrincipal.Controls.Clear();
             //Será Utilizado quando for realizada a consulta ao banco
-            PanelPrincipal.Controls.Add(listagem);
+             PanelPrincipal.Controls.Add(listagem);
             _gerenciador.Atualizar();
-            alteraEstadoBotoes(true);
+             alteraEstadoBotoes(true);
+            lblCadastro.Text = _gerenciador.ObtemTipoCadastro();
         }
 
 
         private void alteraEstadoBotoes(bool estado)
         {
-            ultraToolbarsManager1.Tools[9].SharedProps.Enabled = estado;
-            ultraToolbarsManager1.Tools[10].SharedProps.Enabled = estado;
-            ultraToolbarsManager1.Tools[11].SharedProps.Enabled = estado;
+            btnCadastrar.Enabled = estado;
+            btnEditar.Enabled = estado;
+            btnExcluir.Enabled = estado;
+    }
+
+        private void tsmFisico_Click(object sender, System.EventArgs e)
+        {
+            if(CFG == null)
+            {
+                CFG = new ClienteFGerenciadorFormulario();
+                CarregarCadastro(CFG);
+            }
+            else
+            {
+                CarregarCadastro(CFG);
+            }
+        }
+
+        private void btnCadastrar_Click(object sender, System.EventArgs e)
+        {
+            _gerenciador.Adicionar();
         }
     }
 }
