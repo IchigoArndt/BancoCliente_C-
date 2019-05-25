@@ -41,6 +41,8 @@
             this.btnEditar = new Infragistics.Win.Misc.UltraButton();
             this.lblCadastro = new Infragistics.Win.Misc.UltraLabel();
             this.PanelPrincipal = new System.Windows.Forms.Panel();
+            this.cadastroEmpresaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.empresaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,7 +51,8 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmCliente,
             this.tsm,
-            this.tsmFuncionario});
+            this.tsmFuncionario,
+            this.cadastroEmpresaToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(677, 24);
@@ -68,15 +71,16 @@
             // tsmFisico
             // 
             this.tsmFisico.Name = "tsmFisico";
-            this.tsmFisico.Size = new System.Drawing.Size(180, 22);
+            this.tsmFisico.Size = new System.Drawing.Size(114, 22);
             this.tsmFisico.Text = "Física";
             this.tsmFisico.Click += new System.EventHandler(this.tsmFisico_Click);
             // 
             // tsmJuridica
             // 
             this.tsmJuridica.Name = "tsmJuridica";
-            this.tsmJuridica.Size = new System.Drawing.Size(180, 22);
+            this.tsmJuridica.Size = new System.Drawing.Size(114, 22);
             this.tsmJuridica.Text = "Juridica";
+            this.tsmJuridica.Click += new System.EventHandler(this.tsmJuridica_Click);
             // 
             // tsm
             // 
@@ -91,6 +95,7 @@
             this.tsmItemConta.Name = "tsmItemConta";
             this.tsmItemConta.Size = new System.Drawing.Size(180, 22);
             this.tsmItemConta.Text = "Contas";
+            this.tsmItemConta.Click += new System.EventHandler(this.tsmItemConta_Click);
             // 
             // tsmFuncionario
             // 
@@ -146,6 +151,21 @@
             this.PanelPrincipal.Size = new System.Drawing.Size(653, 279);
             this.PanelPrincipal.TabIndex = 5;
             // 
+            // cadastroEmpresaToolStripMenuItem
+            // 
+            this.cadastroEmpresaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.empresaToolStripMenuItem});
+            this.cadastroEmpresaToolStripMenuItem.Name = "cadastroEmpresaToolStripMenuItem";
+            this.cadastroEmpresaToolStripMenuItem.Size = new System.Drawing.Size(114, 20);
+            this.cadastroEmpresaToolStripMenuItem.Text = "Cadastro Empresa";
+            // 
+            // empresaToolStripMenuItem
+            // 
+            this.empresaToolStripMenuItem.Name = "empresaToolStripMenuItem";
+            this.empresaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.empresaToolStripMenuItem.Text = "Empresa";
+            this.empresaToolStripMenuItem.Click += new System.EventHandler(this.empresaToolStripMenuItem_Click);
+            // 
             // telaPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -182,5 +202,7 @@
         private Infragistics.Win.Misc.UltraButton btnEditar;
         private Infragistics.Win.Misc.UltraLabel lblCadastro;
         private System.Windows.Forms.Panel PanelPrincipal;
+        private System.Windows.Forms.ToolStripMenuItem cadastroEmpresaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem empresaToolStripMenuItem;
     }
 }

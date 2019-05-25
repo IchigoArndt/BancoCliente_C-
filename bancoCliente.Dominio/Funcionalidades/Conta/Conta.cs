@@ -22,14 +22,39 @@ namespace bancoCliente.Dominio.Funcionalidades.Conta
            "Conta Digital"
         };
 
-        private int id;
-        private float taxaManutencao;
-        private string agencia;
-        private int tipoConta;
+        private int _id;
+        private float _taxaManutencao;
+        private string _agencia;
+        private int _tipoConta;
 
         public override void Validar()
         {
             throw new NotImplementedException();
         }
+        public List<string> Contas
+        {
+            get { return Tipos_contas; }
+        } 
+        public string agencia
+        {
+            get { return _agencia; }
+            set { _agencia = agencia; }
+        } 
+        public float taxaManutencao
+        {
+            get { return _taxaManutencao; }
+            set { _taxaManutencao = taxaManutencao; }
+        }
+        public int tipoConta
+        {
+            get { return _tipoConta; }
+            set { _tipoConta = tipoConta; }
+        }
+        public int id
+        {
+            get { return _id; }
+            set { _id = id; }
+        }
+
     }
 }

@@ -30,5 +30,10 @@ namespace bancoCliente.Apresentacao.Funcionalidades.ClientesJuridicos
         {
             return (ClienteJuridico)lbCJ.SelectedItem;
         }
+
+        private void lbCJ_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

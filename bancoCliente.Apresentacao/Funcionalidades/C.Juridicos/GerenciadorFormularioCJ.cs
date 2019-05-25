@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BancoCliente.Servico.Funcionalidade.Clientes.Jurudico;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,11 +10,13 @@ namespace bancoCliente.Apresentacao.Funcionalidades.ClientesJuridicos
 {
     public class GerenciadorFormularioCJ : GerenciadorFormulario
     {
+        CJControl _clienteFisicoControl;
+        ClienteJuridicoServico _clienteServico = new ClienteJuridicoServico();
 
         public override void Adicionar()
         {
             CadastroClientesJuridicos dialog = new CadastroClientesJuridicos();
-
+           
             DialogResult resultado = dialog.ShowDialog();
 
             if (resultado == DialogResult.OK)
@@ -22,7 +25,7 @@ namespace bancoCliente.Apresentacao.Funcionalidades.ClientesJuridicos
                 {
                     /* Fica  Para quando for implementado o acesso ao banco 
                     */
-                    //_livroService.Adicionar(dialog.livro);
+                    _clienteServico.Adicionar(dialog.Cliente);
                     //ListarLivros();
                     MessageBox.Show("Abriu a Tela !");
                 }
@@ -35,12 +38,16 @@ namespace bancoCliente.Apresentacao.Funcionalidades.ClientesJuridicos
 
         public override void Atualizar()
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
 
         public override UserControl CarregarListagem()
         {
-            throw new NotImplementedException();
+            if (_clienteFisicoControl == null)
+            {
+                _clienteFisicoControl = new CJControl();
+            }
+            return _clienteFisicoControl;
         }
 
         public override void Editar()
@@ -55,7 +62,7 @@ namespace bancoCliente.Apresentacao.Funcionalidades.ClientesJuridicos
 
         public override string ObtemTipoCadastro()
         {
-            throw new NotImplementedException();
+            return "Cadastro Cliente Júridico";
         }
 
     }

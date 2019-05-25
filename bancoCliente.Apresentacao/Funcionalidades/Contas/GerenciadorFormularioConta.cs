@@ -1,4 +1,6 @@
-﻿using System;
+﻿using bancoCliente.Dominio.Funcionalidades.Conta;
+using BancoCliente.Servico.Funcionalidade.Contas;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,6 +11,9 @@ namespace bancoCliente.Apresentacao.Funcionalidades.Contas
 {
     public class GerenciadorFormularioConta : GerenciadorFormulario
     {
+        ContaServico _contaServico = new ContaServico();
+        ContaControl _contaControl = new ContaControl();
+
         public override void Adicionar()
         {
             CadastroConta Conta = new CadastroConta();
@@ -17,27 +22,31 @@ namespace bancoCliente.Apresentacao.Funcionalidades.Contas
             {
                 try
                 {
-                    MessageBox.Show("Chegou a tela de Conta");
+                    _contaServico.Adicionar(Conta.conta);
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
-                    throw;
+                    MessageBox.Show(ex.Message);
                 }
             }
         }
 
         public override void Atualizar()
         {
-            throw new NotImplementedException();
+           //
         }
 
         public override UserControl CarregarListagem()
         {
-            throw new NotImplementedException();
+            if (_contaControl == null)
+            {
+                _contaControl = new ContaControl();
+            }
+            return _contaControl;
         }
 
         public override void Editar()
-        {
+        { 
             throw new NotImplementedException();
         }
 
@@ -48,7 +57,7 @@ namespace bancoCliente.Apresentacao.Funcionalidades.Contas
 
         public override string ObtemTipoCadastro()
         {
-            throw new NotImplementedException();
+            return "Cadastro Conta";
         }
     }
 }

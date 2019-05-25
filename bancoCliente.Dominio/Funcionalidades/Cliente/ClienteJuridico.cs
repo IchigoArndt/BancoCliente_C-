@@ -13,5 +13,18 @@ namespace bancoCliente.Dominio.Funcionalidades.Clientes
         {
             throw new NotImplementedException();
         }
+
+        private string cnpj;
+
+        public string getCnpj()
+        {
+            return cnpj;
+        }
+
+        public void setCnpj(string cnpj)
+        {
+            this.cnpj = cnpj;
+        }
+
     }
 }

@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Base\ValidacaoCampos.cs" />
     <Compile Include="Funcionalidade\Clientes\Fisico\ClienteFisicoServico.cs" />
     <Compile Include="Funcionalidade\Clientes\Fisico\IClienteFisicoServico.cs" />
     <Compile Include="Base\IServico.cs" />

@@ -11,84 +11,62 @@ namespace bancoCliente.Dominio.Funcionalidades.Empresa
 {
     public class Empresa : Entidade
     {
-        private static int Id;
-        private String razaoSocial;
-        private String nomeFantasia;
-        private String cnpj;
-        private GregorianCalendar dataFund;
-        private String telefone;
-        private String email;
-        private Endereco endereco;
-        private List<Funcionario> listaFuncionario;
+        private static int _Id;
+        private string _razaoSocial;
+        private string _nomeFantasia;
+        private string _cnpj;
+        private DateTime _dataFund;
+        private string _telefone;
+        private string _email;
+        private Endereco _endereco;
+        private List<Funcionario> _listaFuncionario;
 
         #region Getters and Setters
         //Geters
-        public String getTelefone()
+        public string Telefone
         {
-            return telefone;
+            get { return _telefone; }
+            set { _telefone = Telefone; }
         }
-        public String getEmail()
+        public string Email
         {
-            return email;
+            get { return _email; }
+            set { _email = Email; }
         }
-        public int getId()
+        public int Id
         {
-            return Id;
+            get { return _Id; }
+            set { _Id = Id; }
         }
-        public String getRazaoSocial()
+        public string RazaoSocial
         {
-            return razaoSocial;
+            get { return _razaoSocial; }
+            set { _razaoSocial = RazaoSocial; }
         }
-        public String getNomeFantasia()
+        public string NomeFantasia
         {
-            return nomeFantasia;
+            get { return _nomeFantasia; }
+            set { _nomeFantasia = NomeFantasia; }
         }
-        public String getCnpj()
+        public string Cnpj
         {
-            return cnpj;
+            get { return _cnpj; }
+            set { _cnpj = Cnpj; }
         }
-        public GregorianCalendar getDataFund()
+        public DateTime DataFund
         {
-            return dataFund;
+            get { return _dataFund; }
+            set { _dataFund = DataFund; }
         }
-        public Endereco getEndereco()
+        public Endereco Endereco
         {
-            return endereco;
+            get { return _endereco; }
+            set { _endereco = Endereco; }
         }
-
-        // set Id
-        public void setId(int id)
+        public List<Funcionario> funcionarios
         {
-            Id = id;
-        }
-
-        public String setRazaoSocial(String razao)
-        {
-            return this.razaoSocial = razao;
-        }
-        public String setNomeFantasia(String Nome)
-        {
-            return nomeFantasia = Nome;
-        }
-        public String setCnpj(String cnpj)
-        {
-            return cnpj = cnpj;
-        }
-        public GregorianCalendar setDataFund(GregorianCalendar data)
-        {
-            return dataFund = data;
-        }
-        public String setTelefone(String telefone)
-        {
-            return telefone = telefone;
-        }
-        public String setEmail(String Email)
-        {
-            return email = Email;
-        }
-        public Endereco setEndereco(Endereco endereco2)
-        {
-            return endereco = endereco2;
+            get { return _listaFuncionario; }
+            set { _listaFuncionario = funcionarios; }
         }
 
         public override void Validar()

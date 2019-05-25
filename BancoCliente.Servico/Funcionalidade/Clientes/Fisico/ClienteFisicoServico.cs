@@ -9,9 +9,10 @@ namespace BancoCliente.Servico.Funcionalidade.Clientes.Fisico
 {
     public class ClienteFisicoServico : IClienteFisicoServico
     {
+
         public ClienteFisico Adicionar(ClienteFisico entidade)
         {
-            throw new NotImplementedException();
+            return null;
         }
 
         public ClienteFisico Atualizar(ClienteFisico entidade)

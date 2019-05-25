@@ -36,8 +36,9 @@
             this.lbCJ.FormattingEnabled = true;
             this.lbCJ.Location = new System.Drawing.Point(0, 0);
             this.lbCJ.Name = "lbCJ";
-            this.lbCJ.Size = new System.Drawing.Size(283, 277);
+            this.lbCJ.Size = new System.Drawing.Size(686, 329);
             this.lbCJ.TabIndex = 0;
+            this.lbCJ.SelectedIndexChanged += new System.EventHandler(this.lbCJ_SelectedIndexChanged);
             // 
             // CJControl
             // 
@@ -45,7 +46,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.lbCJ);
             this.Name = "CJControl";
-            this.Size = new System.Drawing.Size(283, 276);
+            this.Size = new System.Drawing.Size(686, 329);
             this.ResumeLayout(false);
 
         }

@@ -130,7 +130,6 @@
       <DependentUpon>funcionarioControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Funcionalidades\Funcionarios\GerenciadorFormularioFuncionario.cs" />
-    <Compile Include="Funcionalidades\validacao\validacao.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="telaPrincipal.cs">

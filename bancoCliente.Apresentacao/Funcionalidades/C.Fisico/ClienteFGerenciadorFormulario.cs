@@ -25,7 +25,7 @@ namespace bancoCliente.Apresentacao.Funcionalidades.C.Fisico
                 {
                     /* Fica  Para quando for implementado o acesso ao banco 
                     */
-                    //_livroService.Adicionar(dialog.livro);
+                    _clienteServico.Adicionar(dialog.Cliente);
                     //ListarLivros();
                     MessageBox.Show("Abriu a Tela !");
                 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BancoCliente.Servico.Funcionalidade.Empresas;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,6 +10,8 @@ namespace bancoCliente.Apresentacao.Funcionalidades.Empresas
 {
     class GeenciadorFormularioEmpresa : GerenciadorFormulario
     {
+        EmpresaServico _empresaServico;
+        empresaControl _empresaControl; 
         public override void Adicionar()
         {
             CadastroEmpresa Empresa = new CadastroEmpresa();
@@ -17,23 +20,27 @@ namespace bancoCliente.Apresentacao.Funcionalidades.Empresas
             {
                 try
                 {
-                    MessageBox.Show("Chegou a tela de Empresa");
+                    _empresaServico.Adicionar(Empresa.empresa);
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
-                    throw;
+                    MessageBox.Show(ex.Message);
                 }
             }
         }
 
         public override void Atualizar()
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
 
         public override UserControl CarregarListagem()
         {
-            throw new NotImplementedException();
+            if(_empresaControl == null)
+            {
+                _empresaControl = new empresaControl();
+            }
+                return _empresaControl;
         }
 
         public override void Editar()
@@ -48,7 +55,7 @@ namespace bancoCliente.Apresentacao.Funcionalidades.Empresas
 
         public override string ObtemTipoCadastro()
         {
-            throw new NotImplementedException();
+            return "Cadastro de Empresa";
         }
     }
 }

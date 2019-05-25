@@ -67,5 +67,44 @@ namespace bancoCliente.Apresentacao
         {
             _gerenciador.Adicionar();
         }
+
+        private void tsmJuridica_Click(object sender, System.EventArgs e)
+        {
+            if (CJ == null)
+            {
+                CJ = new GerenciadorFormularioCJ();
+                CarregarCadastro(CJ);
+            }
+            else
+            {
+                CarregarCadastro(CJ);
+            }
+        }
+
+        private void tsmItemConta_Click(object sender, System.EventArgs e)
+        {
+            if (CONTA == null)
+            {
+                CONTA = new GerenciadorFormularioConta();
+                CarregarCadastro(CONTA);
+            }
+            else
+            {
+                CarregarCadastro(CONTA);
+            }
+        }
+
+        private void empresaToolStripMenuItem_Click(object sender, System.EventArgs e)
+        {
+            if(EMPRESA == null)
+            {
+                EMPRESA = new GeenciadorFormularioEmpresa();
+                CarregarCadastro(EMPRESA);
+            }
+            else
+            {
+                CarregarCadastro(EMPRESA);
+            }
+        }
     }
 }
