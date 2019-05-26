@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BancoCliente.Servico.Funcionalidade.Funcionarios;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,31 +10,37 @@ namespace bancoCliente.Apresentacao.Funcionalidades.Funcionarios
 {
     public class GerenciadorFormularioFuncionario : GerenciadorFormulario
     {
+        CadastroFuncionario Conta = new CadastroFuncionario();
+        FuncionarioServico Func = new FuncionarioServico();
+        funcionarioControl FunControl;
         public override void Adicionar()
         {
-            CadastroFuncionario Conta = new CadastroFuncionario();
             DialogResult result = Conta.ShowDialog();
             if (result == DialogResult.OK)
             {
                 try
                 {
-                    MessageBox.Show("Chegou a tela de Funcionario");
+                    Func.Adicionar(Conta.Func);
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
-                    throw;
+                    MessageBox.Show(ex.Message);
                 }
             }
         }
 
         public override void Atualizar()
         {
-            throw new NotImplementedException();
+            //
         }
 
         public override UserControl CarregarListagem()
         {
-            throw new NotImplementedException();
+            if (FunControl == null)
+            {
+                FunControl = new funcionarioControl();
+            }
+            return FunControl;
         }
 
         public override void Editar()
@@ -48,7 +55,7 @@ namespace bancoCliente.Apresentacao.Funcionalidades.Funcionarios
 
         public override string ObtemTipoCadastro()
         {
-            throw new NotImplementedException();
+            return "Cadastro de Funcionários";
         }
     }
 }

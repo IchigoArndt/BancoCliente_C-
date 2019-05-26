@@ -17,35 +17,18 @@ namespace bancoCliente.Apresentacao.Funcionalidades.C.Fisico
         {
             InitializeComponent();
         }
-
-        /*public void PopularListagem(IList<ClienteFisico> Clientes)
+        public void PopularListagem(IList<ClienteFisico> Clientes)
         {
-            DataTable T_Gender = new DataTable();
-            T_Gender.Columns.AddRange(new DataColumn[] {
-                new DataColumn("ID"),
-                new DataColumn("Nome"),
-                new DataColumn("Limite"),
-                new DataColumn("Direito Cheque"),
-                new DataColumn("Direito Cartão"),
-                new DataColumn("Limite Pagamento"),
-                new DataColumn("CPF"),
-            });
-            foreach (ClienteFisico item in Clientes)
-            {
-                T_Gender.Rows.Add(new object[] {item.id,item.nome,
-                    item.getLimite(),
-                    item.isDireitoCheque(),
-                    item.isCartaoCredito(),
-                    item.getLimitePagamento(),
-                    item.getCpf()});
-            }
-            ugClienteFisico.DataSource = T_Gender;
-        }
-        */
+            lbClienteFisico.Items.Clear();
 
-        //public ClienteFisico ObtemDisciplinaSelecionada()
-        //{
-        //return (ClienteFisico)lbCFisicoControl.SelectedItem;
-        //}
+            foreach (var item in Clientes)
+            {
+                lbClienteFisico.Items.Add(item);
+            }          
+        }
+        public ClienteFisico ObtemItemSelecionado()
+        {
+            return (ClienteFisico)lbClienteFisico.SelectedItem;
+        }
     }
 }

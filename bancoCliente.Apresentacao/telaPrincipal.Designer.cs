@@ -36,13 +36,13 @@
             this.tsmItemConta = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmFuncionario = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmItemFuncionario = new System.Windows.Forms.ToolStripMenuItem();
+            this.cadastroEmpresaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.empresaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnCadastrar = new Infragistics.Win.Misc.UltraButton();
             this.btnExcluir = new Infragistics.Win.Misc.UltraButton();
             this.btnEditar = new Infragistics.Win.Misc.UltraButton();
             this.lblCadastro = new Infragistics.Win.Misc.UltraLabel();
             this.PanelPrincipal = new System.Windows.Forms.Panel();
-            this.cadastroEmpresaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.empresaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -93,7 +93,7 @@
             // tsmItemConta
             // 
             this.tsmItemConta.Name = "tsmItemConta";
-            this.tsmItemConta.Size = new System.Drawing.Size(180, 22);
+            this.tsmItemConta.Size = new System.Drawing.Size(111, 22);
             this.tsmItemConta.Text = "Contas";
             this.tsmItemConta.Click += new System.EventHandler(this.tsmItemConta_Click);
             // 
@@ -108,8 +108,24 @@
             // tsmItemFuncionario
             // 
             this.tsmItemFuncionario.Name = "tsmItemFuncionario";
-            this.tsmItemFuncionario.Size = new System.Drawing.Size(180, 22);
+            this.tsmItemFuncionario.Size = new System.Drawing.Size(137, 22);
             this.tsmItemFuncionario.Text = "Funcionario";
+            this.tsmItemFuncionario.Click += new System.EventHandler(this.tsmItemFuncionario_Click);
+            // 
+            // cadastroEmpresaToolStripMenuItem
+            // 
+            this.cadastroEmpresaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.empresaToolStripMenuItem});
+            this.cadastroEmpresaToolStripMenuItem.Name = "cadastroEmpresaToolStripMenuItem";
+            this.cadastroEmpresaToolStripMenuItem.Size = new System.Drawing.Size(114, 20);
+            this.cadastroEmpresaToolStripMenuItem.Text = "Cadastro Empresa";
+            // 
+            // empresaToolStripMenuItem
+            // 
+            this.empresaToolStripMenuItem.Name = "empresaToolStripMenuItem";
+            this.empresaToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
+            this.empresaToolStripMenuItem.Text = "Empresa";
+            this.empresaToolStripMenuItem.Click += new System.EventHandler(this.empresaToolStripMenuItem_Click);
             // 
             // btnCadastrar
             // 
@@ -127,6 +143,7 @@
             this.btnExcluir.Size = new System.Drawing.Size(86, 23);
             this.btnExcluir.TabIndex = 2;
             this.btnExcluir.Text = "Excluir";
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // btnEditar
             // 
@@ -135,6 +152,7 @@
             this.btnEditar.Size = new System.Drawing.Size(115, 23);
             this.btnEditar.TabIndex = 3;
             this.btnEditar.Text = "Editar";
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // lblCadastro
             // 
@@ -150,21 +168,6 @@
             this.PanelPrincipal.Name = "PanelPrincipal";
             this.PanelPrincipal.Size = new System.Drawing.Size(653, 279);
             this.PanelPrincipal.TabIndex = 5;
-            // 
-            // cadastroEmpresaToolStripMenuItem
-            // 
-            this.cadastroEmpresaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.empresaToolStripMenuItem});
-            this.cadastroEmpresaToolStripMenuItem.Name = "cadastroEmpresaToolStripMenuItem";
-            this.cadastroEmpresaToolStripMenuItem.Size = new System.Drawing.Size(114, 20);
-            this.cadastroEmpresaToolStripMenuItem.Text = "Cadastro Empresa";
-            // 
-            // empresaToolStripMenuItem
-            // 
-            this.empresaToolStripMenuItem.Name = "empresaToolStripMenuItem";
-            this.empresaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.empresaToolStripMenuItem.Text = "Empresa";
-            this.empresaToolStripMenuItem.Click += new System.EventHandler(this.empresaToolStripMenuItem_Click);
             // 
             // telaPrincipal
             // 

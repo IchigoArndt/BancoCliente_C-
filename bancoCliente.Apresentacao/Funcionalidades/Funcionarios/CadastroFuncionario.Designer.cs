@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.uPanelPessoa = new Infragistics.Win.Misc.UltraPanel();
-            this.utxtDnasc = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
             this.utxtEmail = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
             this.utxtTel = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
             this.utxtNome = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
@@ -51,16 +50,17 @@
             this.ultraLabel3 = new Infragistics.Win.Misc.UltraLabel();
             this.ultraLabel4 = new Infragistics.Win.Misc.UltraLabel();
             this.utxtCargo = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
-            this.ultraTextEditor2 = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
+            this.utxtCpf = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
             this.utxtSalario = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
             this.ulblCpf = new Infragistics.Win.Misc.UltraLabel();
             this.ulblCargo = new Infragistics.Win.Misc.UltraLabel();
             this.ulblSalario = new Infragistics.Win.Misc.UltraLabel();
-            this.ubtnSalvar = new Infragistics.Win.Misc.UltraButton();
+            this.ubtnGravar = new Infragistics.Win.Misc.UltraButton();
             this.ubtnSair = new Infragistics.Win.Misc.UltraButton();
+            this.lblValidacao = new Infragistics.Win.Misc.UltraLabel();
+            this.utxtData = new Infragistics.Win.UltraWinEditors.UltraDateTimeEditor();
             this.uPanelPessoa.ClientArea.SuspendLayout();
             this.uPanelPessoa.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.utxtDnasc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.utxtEmail)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.utxtTel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.utxtNome)).BeginInit();
@@ -73,8 +73,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.utxtRua)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.utxtNumero)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.utxtCargo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ultraTextEditor2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.utxtCpf)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.utxtSalario)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.utxtData)).BeginInit();
             this.SuspendLayout();
             // 
             // uPanelPessoa
@@ -82,7 +83,7 @@
             // 
             // uPanelPessoa.ClientArea
             // 
-            this.uPanelPessoa.ClientArea.Controls.Add(this.utxtDnasc);
+            this.uPanelPessoa.ClientArea.Controls.Add(this.utxtData);
             this.uPanelPessoa.ClientArea.Controls.Add(this.utxtEmail);
             this.uPanelPessoa.ClientArea.Controls.Add(this.utxtTel);
             this.uPanelPessoa.ClientArea.Controls.Add(this.utxtNome);
@@ -95,14 +96,6 @@
             this.uPanelPessoa.Size = new System.Drawing.Size(618, 76);
             this.uPanelPessoa.TabIndex = 1;
             // 
-            // utxtDnasc
-            // 
-            this.utxtDnasc.BorderStyle = Infragistics.Win.UIElementBorderStyle.Dotted;
-            this.utxtDnasc.Location = new System.Drawing.Point(438, 48);
-            this.utxtDnasc.Name = "utxtDnasc";
-            this.utxtDnasc.Size = new System.Drawing.Size(161, 19);
-            this.utxtDnasc.TabIndex = 7;
-            // 
             // utxtEmail
             // 
             this.utxtEmail.BorderStyle = Infragistics.Win.UIElementBorderStyle.Dotted;
@@ -110,6 +103,7 @@
             this.utxtEmail.Name = "utxtEmail";
             this.utxtEmail.Size = new System.Drawing.Size(222, 19);
             this.utxtEmail.TabIndex = 6;
+            this.utxtEmail.Leave += new System.EventHandler(this.utxtEmail_Leave);
             // 
             // utxtTel
             // 
@@ -118,6 +112,7 @@
             this.utxtTel.Name = "utxtTel";
             this.utxtTel.Size = new System.Drawing.Size(218, 19);
             this.utxtTel.TabIndex = 5;
+            this.utxtTel.Leave += new System.EventHandler(this.utxtTel_Leave);
             // 
             // utxtNome
             // 
@@ -126,6 +121,7 @@
             this.utxtNome.Name = "utxtNome";
             this.utxtNome.Size = new System.Drawing.Size(222, 19);
             this.utxtNome.TabIndex = 4;
+            this.utxtNome.Leave += new System.EventHandler(this.utxtNome_ValueChanged);
             // 
             // ulblDnasc
             // 
@@ -200,6 +196,7 @@
             this.utxtComplemento.Name = "utxtComplemento";
             this.utxtComplemento.Size = new System.Drawing.Size(195, 19);
             this.utxtComplemento.TabIndex = 20;
+            this.utxtComplemento.Leave += new System.EventHandler(this.utxtComplemento_Leave);
             // 
             // utxtCidade
             // 
@@ -208,6 +205,7 @@
             this.utxtCidade.Name = "utxtCidade";
             this.utxtCidade.Size = new System.Drawing.Size(212, 19);
             this.utxtCidade.TabIndex = 18;
+            this.utxtCidade.Leave += new System.EventHandler(this.utxtCidade_Leave);
             // 
             // utxtBairro
             // 
@@ -216,6 +214,7 @@
             this.utxtBairro.Name = "utxtBairro";
             this.utxtBairro.Size = new System.Drawing.Size(212, 19);
             this.utxtBairro.TabIndex = 17;
+            this.utxtBairro.Leave += new System.EventHandler(this.utxtBairro_Leave);
             // 
             // ultraLabel6
             // 
@@ -242,6 +241,7 @@
             this.utxtRua.Name = "utxtRua";
             this.utxtRua.Size = new System.Drawing.Size(212, 19);
             this.utxtRua.TabIndex = 14;
+            this.utxtRua.Leave += new System.EventHandler(this.utxtRua_Leave);
             // 
             // utxtNumero
             // 
@@ -250,6 +250,7 @@
             this.utxtNumero.Name = "utxtNumero";
             this.utxtNumero.Size = new System.Drawing.Size(212, 19);
             this.utxtNumero.TabIndex = 8;
+            this.utxtNumero.Leave += new System.EventHandler(this.utxtNumero_Leave);
             // 
             // ultraLabel1
             // 
@@ -294,14 +295,16 @@
             this.utxtCargo.Name = "utxtCargo";
             this.utxtCargo.Size = new System.Drawing.Size(168, 19);
             this.utxtCargo.TabIndex = 33;
+            this.utxtCargo.Leave += new System.EventHandler(this.utxtNome_ValueChanged);
             // 
-            // ultraTextEditor2
+            // utxtCpf
             // 
-            this.ultraTextEditor2.BorderStyle = Infragistics.Win.UIElementBorderStyle.Dotted;
-            this.ultraTextEditor2.Location = new System.Drawing.Point(89, 215);
-            this.ultraTextEditor2.Name = "ultraTextEditor2";
-            this.ultraTextEditor2.Size = new System.Drawing.Size(211, 19);
-            this.ultraTextEditor2.TabIndex = 32;
+            this.utxtCpf.BorderStyle = Infragistics.Win.UIElementBorderStyle.Dotted;
+            this.utxtCpf.Location = new System.Drawing.Point(89, 215);
+            this.utxtCpf.Name = "utxtCpf";
+            this.utxtCpf.Size = new System.Drawing.Size(211, 19);
+            this.utxtCpf.TabIndex = 32;
+            this.utxtCpf.Leave += new System.EventHandler(this.utxtCpf_leave);
             // 
             // utxtSalario
             // 
@@ -310,6 +313,7 @@
             this.utxtSalario.Name = "utxtSalario";
             this.utxtSalario.Size = new System.Drawing.Size(171, 19);
             this.utxtSalario.TabIndex = 28;
+            this.utxtSalario.Leave += new System.EventHandler(this.utxtNumero_Leave);
             // 
             // ulblCpf
             // 
@@ -338,13 +342,14 @@
             this.ulblSalario.TabIndex = 30;
             this.ulblSalario.Text = "Salário";
             // 
-            // ubtnSalvar
+            // ubtnGravar
             // 
-            this.ubtnSalvar.Location = new System.Drawing.Point(189, 287);
-            this.ubtnSalvar.Name = "ubtnSalvar";
-            this.ubtnSalvar.Size = new System.Drawing.Size(111, 23);
-            this.ubtnSalvar.TabIndex = 34;
-            this.ubtnSalvar.Text = "Salvar";
+            this.ubtnGravar.Location = new System.Drawing.Point(189, 287);
+            this.ubtnGravar.Name = "ubtnGravar";
+            this.ubtnGravar.Size = new System.Drawing.Size(111, 23);
+            this.ubtnGravar.TabIndex = 34;
+            this.ubtnGravar.Text = "Salvar";
+            this.ubtnGravar.Click += new System.EventHandler(this.ultraButton1_Click);
             // 
             // ubtnSair
             // 
@@ -354,15 +359,30 @@
             this.ubtnSair.TabIndex = 35;
             this.ubtnSair.Text = "Sair";
             // 
+            // lblValidacao
+            // 
+            this.lblValidacao.Location = new System.Drawing.Point(322, 248);
+            this.lblValidacao.Name = "lblValidacao";
+            this.lblValidacao.Size = new System.Drawing.Size(289, 23);
+            this.lblValidacao.TabIndex = 36;
+            // 
+            // utxtData
+            // 
+            this.utxtData.Location = new System.Drawing.Point(438, 47);
+            this.utxtData.Name = "utxtData";
+            this.utxtData.Size = new System.Drawing.Size(161, 21);
+            this.utxtData.TabIndex = 7;
+            // 
             // CadastroFuncionario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(638, 318);
+            this.Controls.Add(this.lblValidacao);
             this.Controls.Add(this.ubtnSair);
-            this.Controls.Add(this.ubtnSalvar);
+            this.Controls.Add(this.ubtnGravar);
             this.Controls.Add(this.utxtCargo);
-            this.Controls.Add(this.ultraTextEditor2);
+            this.Controls.Add(this.utxtCpf);
             this.Controls.Add(this.utxtSalario);
             this.Controls.Add(this.ulblCpf);
             this.Controls.Add(this.ulblCargo);
@@ -374,7 +394,6 @@
             this.uPanelPessoa.ClientArea.ResumeLayout(false);
             this.uPanelPessoa.ClientArea.PerformLayout();
             this.uPanelPessoa.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.utxtDnasc)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.utxtEmail)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.utxtTel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.utxtNome)).EndInit();
@@ -388,8 +407,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.utxtRua)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.utxtNumero)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.utxtCargo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ultraTextEditor2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.utxtCpf)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.utxtSalario)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.utxtData)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -398,7 +418,6 @@
         #endregion
 
         private Infragistics.Win.Misc.UltraPanel uPanelPessoa;
-        private Infragistics.Win.UltraWinEditors.UltraTextEditor utxtDnasc;
         private Infragistics.Win.UltraWinEditors.UltraTextEditor utxtEmail;
         private Infragistics.Win.UltraWinEditors.UltraTextEditor utxtTel;
         private Infragistics.Win.UltraWinEditors.UltraTextEditor utxtNome;
@@ -420,12 +439,14 @@
         private Infragistics.Win.Misc.UltraLabel ultraLabel3;
         private Infragistics.Win.Misc.UltraLabel ultraLabel4;
         private Infragistics.Win.UltraWinEditors.UltraTextEditor utxtCargo;
-        private Infragistics.Win.UltraWinEditors.UltraTextEditor ultraTextEditor2;
+        private Infragistics.Win.UltraWinEditors.UltraTextEditor utxtCpf;
         private Infragistics.Win.UltraWinEditors.UltraTextEditor utxtSalario;
         private Infragistics.Win.Misc.UltraLabel ulblCpf;
         private Infragistics.Win.Misc.UltraLabel ulblCargo;
         private Infragistics.Win.Misc.UltraLabel ulblSalario;
-        private Infragistics.Win.Misc.UltraButton ubtnSalvar;
+        private Infragistics.Win.Misc.UltraButton ubtnGravar;
         private Infragistics.Win.Misc.UltraButton ubtnSair;
+        private Infragistics.Win.Misc.UltraLabel lblValidacao;
+        private Infragistics.Win.UltraWinEditors.UltraDateTimeEditor utxtData;
     }
 }

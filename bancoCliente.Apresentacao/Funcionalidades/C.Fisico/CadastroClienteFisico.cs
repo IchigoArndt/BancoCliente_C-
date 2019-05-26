@@ -1,5 +1,6 @@
 ﻿
 using bancoCliente.Dominio.Funcionalidades.Clientes;
+using bancoCliente.Dominio.Funcionalidades.Conta;
 using BancoCliente.Servico.Base;
 using System;
 using System.Collections.Generic;
@@ -22,6 +23,19 @@ namespace bancoCliente.Apresentacao.Funcionalidades.C.Fisico
             btnGravar.Enabled = false;
         }
 
+        public CadastroClienteFisico(ClienteFisico cliente) : this()
+        {
+            Cliente = cliente;
+        }
+
+        public void carregaContaCombo(List<string> contas)
+        {
+            foreach (var item in contas)
+            {
+                cmbConta.Items.Add(item.ToString());
+            }
+        }
+
         ClienteFisico _clienteServico;
 
         public ClienteFisico Cliente
@@ -29,6 +43,8 @@ namespace bancoCliente.Apresentacao.Funcionalidades.C.Fisico
             get { return _clienteServico; }
             set
             {
+                _clienteServico = value;
+
                 utxtNome.Text = _clienteServico.getNome();
                 dateTimeEditor.DateTime = _clienteServico.getDataNasc();
                 utxtEmail.Text = _clienteServico.getEmail();
@@ -39,11 +55,13 @@ namespace bancoCliente.Apresentacao.Funcionalidades.C.Fisico
                 utxtQtdLimite.Text = Convert.ToString(_clienteServico.getQuantidadeLimite());
                 //Endereço
                 utxtRua.Text = _clienteServico.endereco.getLongradouro();
+                utxtBairro.Text = _clienteServico.endereco.getBairro();
                 utxtNumero.Text = Convert.ToString(_clienteServico.endereco.getNumero());
                 utxtCidade.Text = Convert.ToString(_clienteServico.endereco.getCidade());
                 utxtComplemento.Text = Convert.ToString(_clienteServico.endereco.getComplemento());
             }
         }
+
         private void utxtTel_Leave(object sender, EventArgs e)
         {
             if (!ValidacaoCampos.ValidarNumeros(utxtTel.Text))
@@ -102,7 +120,7 @@ namespace bancoCliente.Apresentacao.Funcionalidades.C.Fisico
                 _clienteServico.setLimite(Convert.ToInt32(utxtLimite.Text));
                 _clienteServico.setTelefone(utxtTel.Text);
                 _clienteServico.setCpf(utxtCpf.Text);
-                _clienteServico.setLimitePagamento(Convert.ToInt32(utxtLimiteSaque));
+                _clienteServico.setLimitePagamento(Convert.ToInt32(utxtLimiteSaque.Text));
                 _clienteServico.setQuantidadeLimite(Convert.ToInt32(utxtQtdLimite.Text));
                 //Endereço
                 _clienteServico.endereco.setLongradouro(utxtRua.Text);
@@ -164,17 +182,6 @@ namespace bancoCliente.Apresentacao.Funcionalidades.C.Fisico
         private void utxtCidade_Leave(object sender, EventArgs e)
         {
             if (!ValidacaoCampos.ValidarString(utxtCidade.Text))
-            {
-                lblValidacao.Text = "O campo não está valido";
-                btnGravar.Enabled = false;
-            }
-            else
-                btnGravar.Enabled = true;
-        }
-
-        private void utxtConta_leave(object sender, EventArgs e)
-        {
-            if (!ValidacaoCampos.ValidarString(utxtConta.Text))
             {
                 lblValidacao.Text = "O campo não está valido";
                 btnGravar.Enabled = false;

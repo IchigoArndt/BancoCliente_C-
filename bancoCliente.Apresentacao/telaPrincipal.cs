@@ -106,5 +106,28 @@ namespace bancoCliente.Apresentacao
                 CarregarCadastro(EMPRESA);
             }
         }
+
+        private void tsmItemFuncionario_Click(object sender, System.EventArgs e)
+        {
+            if (FUNCIONARIO == null)
+            {
+                FUNCIONARIO = new GerenciadorFormularioFuncionario();
+                CarregarCadastro(FUNCIONARIO);
+            }
+            else
+            {
+                CarregarCadastro(FUNCIONARIO);
+            }
+        }
+
+        private void btnEditar_Click(object sender, System.EventArgs e)
+        {
+            _gerenciador.Editar();
+        }
+
+        private void btnExcluir_Click(object sender, System.EventArgs e)
+        {
+            _gerenciador.Excluir();
+        }
     }
 }

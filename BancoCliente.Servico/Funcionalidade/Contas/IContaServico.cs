@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BancoCliente.Servico.Funcionalidade.Contas
 {
-    interface IContaServico : IServico<Conta>
+    interface IContaServico : IServico<ContaDominio>
     {
 
     }

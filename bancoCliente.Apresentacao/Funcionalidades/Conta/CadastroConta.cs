@@ -15,7 +15,7 @@ namespace bancoCliente.Apresentacao.Funcionalidades.Contas
     public partial class CadastroConta : Form
     {
 
-        Conta _conta;
+        ContaDominio _conta;
 
         public CadastroConta()
         {
@@ -59,7 +59,7 @@ namespace bancoCliente.Apresentacao.Funcionalidades.Contas
             else
                 ubtnGravar.Enabled = true;
         }
-        public Conta conta
+        public ContaDominio conta
         {
             get { return _conta; }
             set
@@ -67,14 +67,12 @@ namespace bancoCliente.Apresentacao.Funcionalidades.Contas
                 utxtAgencia.Text = _conta.agencia;
                 utxtId.Text = _conta.id.ToString();
                 utxtTaxa.Text = _conta.taxaManutencao.ToString();
-                utxtTipo.Text = _conta.tipoConta.ToString();
             }
         }
         private void ubtnGravar_Click(object sender, EventArgs e)
         {
             _conta.agencia = utxtAgencia.Text;
             _conta.taxaManutencao = Convert.ToInt32(utxtTaxa.Text);
-            _conta.tipoConta = Convert.ToInt32(utxtTipo.Text);
         }
     }
 }

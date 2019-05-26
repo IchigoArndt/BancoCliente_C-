@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace bancoCliente.Dominio.Funcionalidades.Conta
 {
-   public class Conta : Entidade
+   public class ContaDominio : Entidade
     {
         public static readonly int TIPO_CONTA_POUPANCA = 0;
         public static readonly int TIPO_CONTA_CORRENTE = 1;
@@ -15,9 +15,9 @@ namespace bancoCliente.Dominio.Funcionalidades.Conta
         public static readonly int TIPO_CONTA_DIGITAL = 3;
 
         public static List<string> Tipos_contas = new List<string>()
-        {
-           "Conta Corrente",
+        {          
            "Conta Poupança",
+           "Conta Corrente",
            "Conta Sálario",
            "Conta Digital"
         };
@@ -45,15 +45,20 @@ namespace bancoCliente.Dominio.Funcionalidades.Conta
             get { return _taxaManutencao; }
             set { _taxaManutencao = taxaManutencao; }
         }
-        public int tipoConta
-        {
-            get { return _tipoConta; }
-            set { _tipoConta = tipoConta; }
-        }
         public int id
         {
             get { return _id; }
             set { _id = id; }
+        }
+
+        public List<string> retornaTipoConta()
+        {
+            return Tipos_contas;
+        }
+
+        public override string ToString()
+        {
+            return string.Format("Tipo Conta: {0}" + "Descrição: {1} ", _tipoConta, Tipos_contas[_tipoConta]);
         }
 
     }

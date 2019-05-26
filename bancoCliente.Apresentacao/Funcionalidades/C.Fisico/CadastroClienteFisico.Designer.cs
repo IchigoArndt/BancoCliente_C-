@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.uPanelPessoa = new Infragistics.Win.Misc.UltraPanel();
+            this.dateTimeEditor = new Infragistics.Win.UltraWinEditors.UltraDateTimeEditor();
             this.utxtEmail = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
             this.utxtTel = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
             this.utxtNome = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
@@ -37,7 +38,6 @@
             this.ulblTel = new Infragistics.Win.Misc.UltraLabel();
             this.ulblNome = new Infragistics.Win.Misc.UltraLabel();
             this.uPanelCliente = new Infragistics.Win.Misc.UltraPanel();
-            this.utxtConta = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
             this.utxtLimite = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
             this.uckbCartao = new Infragistics.Win.UltraWinEditors.UltraCheckEditor();
             this.uckbCheque = new Infragistics.Win.UltraWinEditors.UltraCheckEditor();
@@ -68,15 +68,15 @@
             this.ultraButton2 = new Infragistics.Win.Misc.UltraButton();
             this.panelDados = new System.Windows.Forms.Panel();
             this.lblValidacao = new Infragistics.Win.Misc.UltraLabel();
-            this.dateTimeEditor = new Infragistics.Win.UltraWinEditors.UltraDateTimeEditor();
+            this.cmbConta = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
             this.uPanelPessoa.ClientArea.SuspendLayout();
             this.uPanelPessoa.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dateTimeEditor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.utxtEmail)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.utxtTel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.utxtNome)).BeginInit();
             this.uPanelCliente.ClientArea.SuspendLayout();
             this.uPanelCliente.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.utxtConta)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.utxtLimite)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.uckbCartao)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.uckbCheque)).BeginInit();
@@ -92,7 +92,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.utxtCpf)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.utxtQtdLimite)).BeginInit();
             this.panelDados.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dateTimeEditor)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbConta)).BeginInit();
             this.SuspendLayout();
             // 
             // uPanelPessoa
@@ -112,6 +112,16 @@
             this.uPanelPessoa.Name = "uPanelPessoa";
             this.uPanelPessoa.Size = new System.Drawing.Size(311, 126);
             this.uPanelPessoa.TabIndex = 0;
+            // 
+            // dateTimeEditor
+            // 
+            this.dateTimeEditor.Location = new System.Drawing.Point(123, 102);
+            this.dateTimeEditor.MaxDate = new System.DateTime(2120, 8, 3, 0, 0, 0, 0);
+            this.dateTimeEditor.MinDate = new System.DateTime(1919, 8, 3, 0, 0, 0, 0);
+            this.dateTimeEditor.Name = "dateTimeEditor";
+            this.dateTimeEditor.Size = new System.Drawing.Size(165, 21);
+            this.dateTimeEditor.TabIndex = 8;
+            this.dateTimeEditor.Leave += new System.EventHandler(this.dateTimeEditor_Leave);
             // 
             // utxtEmail
             // 
@@ -181,7 +191,7 @@
             // 
             // uPanelCliente.ClientArea
             // 
-            this.uPanelCliente.ClientArea.Controls.Add(this.utxtConta);
+            this.uPanelCliente.ClientArea.Controls.Add(this.cmbConta);
             this.uPanelCliente.ClientArea.Controls.Add(this.utxtLimite);
             this.uPanelCliente.ClientArea.Controls.Add(this.uckbCartao);
             this.uPanelCliente.ClientArea.Controls.Add(this.uckbCheque);
@@ -193,14 +203,6 @@
             this.uPanelCliente.Name = "uPanelCliente";
             this.uPanelCliente.Size = new System.Drawing.Size(314, 117);
             this.uPanelCliente.TabIndex = 1;
-            // 
-            // utxtConta
-            // 
-            this.utxtConta.BorderStyle = Infragistics.Win.UIElementBorderStyle.Dotted;
-            this.utxtConta.Location = new System.Drawing.Point(76, 3);
-            this.utxtConta.Name = "utxtConta";
-            this.utxtConta.Size = new System.Drawing.Size(212, 19);
-            this.utxtConta.TabIndex = 14;
             // 
             // utxtLimite
             // 
@@ -483,15 +485,13 @@
             this.lblValidacao.Size = new System.Drawing.Size(169, 32);
             this.lblValidacao.TabIndex = 31;
             // 
-            // dateTimeEditor
+            // cmbConta
             // 
-            this.dateTimeEditor.Location = new System.Drawing.Point(123, 102);
-            this.dateTimeEditor.MaxDate = new System.DateTime(2120, 8, 3, 0, 0, 0, 0);
-            this.dateTimeEditor.MinDate = new System.DateTime(1919, 8, 3, 0, 0, 0, 0);
-            this.dateTimeEditor.Name = "dateTimeEditor";
-            this.dateTimeEditor.Size = new System.Drawing.Size(165, 21);
-            this.dateTimeEditor.TabIndex = 8;
-            this.dateTimeEditor.Leave += new System.EventHandler(this.dateTimeEditor_Leave);
+            this.cmbConta.BorderStyle = Infragistics.Win.UIElementBorderStyle.Dotted;
+            this.cmbConta.Location = new System.Drawing.Point(80, 11);
+            this.cmbConta.Name = "cmbConta";
+            this.cmbConta.Size = new System.Drawing.Size(211, 19);
+            this.cmbConta.TabIndex = 22;
             // 
             // CadastroClienteFisico
             // 
@@ -513,13 +513,13 @@
             this.uPanelPessoa.ClientArea.ResumeLayout(false);
             this.uPanelPessoa.ClientArea.PerformLayout();
             this.uPanelPessoa.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dateTimeEditor)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.utxtEmail)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.utxtTel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.utxtNome)).EndInit();
             this.uPanelCliente.ClientArea.ResumeLayout(false);
             this.uPanelCliente.ClientArea.PerformLayout();
             this.uPanelCliente.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.utxtConta)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.utxtLimite)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.uckbCartao)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.uckbCheque)).EndInit();
@@ -536,7 +536,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.utxtCpf)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.utxtQtdLimite)).EndInit();
             this.panelDados.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dateTimeEditor)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbConta)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -557,7 +557,6 @@
         private Infragistics.Win.Misc.UltraLabel ulblTipoC;
         private Infragistics.Win.Misc.UltraLabel ulblCheque;
         private Infragistics.Win.Misc.UltraLabel ulblLimite;
-        private Infragistics.Win.UltraWinEditors.UltraTextEditor utxtConta;
         private Infragistics.Win.UltraWinEditors.UltraTextEditor utxtLimite;
         private Infragistics.Win.UltraWinEditors.UltraCheckEditor uckbCartao;
         private Infragistics.Win.UltraWinEditors.UltraCheckEditor uckbCheque;
@@ -585,5 +584,6 @@
         private System.Windows.Forms.Panel panelDados;
         private Infragistics.Win.Misc.UltraLabel lblValidacao;
         private Infragistics.Win.UltraWinEditors.UltraDateTimeEditor dateTimeEditor;
+        private Infragistics.Win.UltraWinEditors.UltraComboEditor cmbConta;
     }
 }

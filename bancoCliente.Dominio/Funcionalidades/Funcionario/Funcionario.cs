@@ -9,13 +9,47 @@ namespace bancoCliente.Dominio.Funcionalidades.Funcionarios
 {
     public class Funcionario : Pessoa
     {
-        private String cpf;
+        private string cpf;
         private float salario;
-        private String cargo;
+        private string cargo;
 
         public override void Validar()
         {
             throw new NotImplementedException();
         }
+
+        public string CPF
+        {
+            get { return cpf; }
+            set
+            {
+                cpf = CPF;
+            }
+        }
+
+        public float Salario
+        {
+            get
+            {
+                return salario;
+            }
+            set
+            {
+                salario = Salario;
+            }
+        }
+        public string Cargo
+        {
+            get
+            {
+                return cargo;
+            }
+            set
+            {
+                cargo = Cargo;
+            }
+        }
+
+
     }
 }

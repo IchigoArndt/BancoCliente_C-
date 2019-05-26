@@ -91,19 +91,19 @@
       <DependentUpon>CJControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Funcionalidades\C.Juridicos\GerenciadorFormularioCJ.cs" />
-    <Compile Include="Funcionalidades\Contas\CadastroConta.cs">
+    <Compile Include="Funcionalidades\Conta\CadastroConta.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Funcionalidades\Contas\CadastroConta.Designer.cs">
+    <Compile Include="Funcionalidades\Conta\CadastroConta.Designer.cs">
       <DependentUpon>CadastroConta.cs</DependentUpon>
     </Compile>
-    <Compile Include="Funcionalidades\Contas\ContaControl.cs">
+    <Compile Include="Funcionalidades\Conta\ContaControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Funcionalidades\Contas\ContaControl.Designer.cs">
+    <Compile Include="Funcionalidades\Conta\ContaControl.Designer.cs">
       <DependentUpon>ContaControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Funcionalidades\Contas\GerenciadorFormularioConta.cs" />
+    <Compile Include="Funcionalidades\Conta\GerenciadorFormularioConta.cs" />
     <Compile Include="Funcionalidades\Empresas\CadastroEmpresa.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -150,10 +150,10 @@
     <EmbeddedResource Include="Funcionalidades\C.Juridicos\CJControl.resx">
       <DependentUpon>CJControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Funcionalidades\Contas\CadastroConta.resx">
+    <EmbeddedResource Include="Funcionalidades\Conta\CadastroConta.resx">
       <DependentUpon>CadastroConta.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Funcionalidades\Contas\ContaControl.resx">
+    <EmbeddedResource Include="Funcionalidades\Conta\ContaControl.resx">
       <DependentUpon>ContaControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Funcionalidades\Empresas\CadastroEmpresa.resx">

@@ -4,20 +4,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using bancoCliente.Dominio.Funcionalidades.Clientes;
+using BancoCliente.Infra.BancoDados.Cliente.Fisico;
 
 namespace BancoCliente.Servico.Funcionalidade.Clientes.Fisico
 {
     public class ClienteFisicoServico : IClienteFisicoServico
     {
+        ClienteFisicoDAO _clienteDAO = new ClienteFisicoDAO();
 
         public ClienteFisico Adicionar(ClienteFisico entidade)
         {
-            return null;
+            return _clienteDAO.Adicionar(entidade);
         }
 
         public ClienteFisico Atualizar(ClienteFisico entidade)
         {
-            throw new NotImplementedException();
+            return _clienteDAO.Atualizar(entidade);
         }
 
         public ClienteFisico BuscarPorId(long id)
@@ -27,12 +29,12 @@ namespace BancoCliente.Servico.Funcionalidade.Clientes.Fisico
 
         public IList<ClienteFisico> BuscarTodos()
         {
-            throw new NotImplementedException();
+            return _clienteDAO.BuscarTodos();
         }
 
         public void Deletar(ClienteFisico entidade)
         {
-            throw new NotImplementedException();
+            _clienteDAO.Deletar(entidade);
         }
     }
 }

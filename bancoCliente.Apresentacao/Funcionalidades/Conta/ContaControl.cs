@@ -17,12 +17,13 @@ namespace bancoCliente.Apresentacao.Funcionalidades.Contas
         {
             InitializeComponent();
         }
-        public void PopularListagem(IList<Conta> Contas)
+        public void PopularListagem(IList<ContaDominio> Contas)
         {
-            //lbConta.Items.Clear();
+            lbConta.Items.Clear();
 
-            foreach (Conta item in Contas)
+            foreach (ContaDominio item in Contas)
             {
+                lbConta.Items.Add(item);
             }
         }
         /*public Conta ObtemDisciplinaSelecionada()

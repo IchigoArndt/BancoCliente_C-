@@ -60,6 +60,10 @@
       <Project>{4A181F52-F54E-415B-9935-DB5C7F07E29C}</Project>
       <Name>bancoCliente.Dominio</Name>
     </ProjectReference>
+    <ProjectReference Include="..\BancoCliente.Infra\BancoCliente.Infra.Data.csproj">
+      <Project>{54855093-C086-494C-9D33-0B4C5C667070}</Project>
+      <Name>BancoCliente.Infra.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

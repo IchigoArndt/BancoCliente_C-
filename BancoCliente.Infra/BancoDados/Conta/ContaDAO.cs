@@ -1,17 +1,17 @@
-﻿using System;
+﻿using bancoCliente.Dominio.Funcionalidades.Conta;
+using BancoCliente.Infra.Base;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using bancoCliente.Dominio.Funcionalidades.Conta;
-using BancoCliente.Infra.BancoDados.Conta;
 
-namespace BancoCliente.Servico.Funcionalidade.Contas
+namespace BancoCliente.Infra.BancoDados.Conta
 {
-    public class ContaServico : IContaServico
+    public class ContaDAO : IDAO<ContaDominio>
     {
-
-        ContaDAO _conta = new ContaDAO();
+        public static List<ContaDominio> Contas;
+        public static ContaDominio conta = new ContaDominio();
 
         public ContaDominio Adicionar(ContaDominio entidade)
         {
@@ -30,7 +30,19 @@ namespace BancoCliente.Servico.Funcionalidade.Contas
 
         public IList<ContaDominio> BuscarTodos()
         {
-            return _conta.BuscarTodos();
+            if (Contas == null)
+            {
+                Contas = RetornaContas();
+
+                return Contas;
+            }
+            else
+                return Contas;
+        }
+
+        public IList<string> retornaTipoContas()
+        {
+            return conta.retornaTipoConta();
         }
 
         public void Deletar(ContaDominio entidade)
@@ -38,9 +50,9 @@ namespace BancoCliente.Servico.Funcionalidade.Contas
             throw new NotImplementedException();
         }
 
-        public IList<string> retornaTipoConta()
+        public List<ContaDominio> RetornaContas()
         {
-            return _conta.retornaTipoContas();
+            return DadosBase.retornaContas();
         }
 
     }

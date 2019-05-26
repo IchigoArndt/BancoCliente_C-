@@ -9,15 +9,21 @@ namespace bancoCliente.Dominio.Funcionalidades.Clientes
 {
     public class ClienteFisico : Cliente
     {
-        private String cpf;
+        private string cpf;
         private int quantidadeLimite;
         private float limitePagamento;
         #region Geters and Seters
-        public String getCpf()
+        
+        public ClienteFisico()
+        {
+            this.endereco = new Endereco();
+        }
+
+        public string getCpf()
         {
             return cpf;
         }
-        public void setCpf(String cpf)
+        public void setCpf(string cpf)
         {
             this.cpf = cpf;
         }
@@ -37,11 +43,16 @@ namespace bancoCliente.Dominio.Funcionalidades.Clientes
         {
             this.limitePagamento = limitePagamento;
         }
-
         public override void Validar()
         {
             throw new NotImplementedException();
         }
         #endregion
+
+        public override string ToString()
+        {
+            return string.Format("ID:{0} CPF:{1} Nome:{2}", id, getCpf(), nome);
+        }
+
     }
 }

@@ -36,7 +36,7 @@
             this.lbFuncionario.FormattingEnabled = true;
             this.lbFuncionario.Location = new System.Drawing.Point(0, -2);
             this.lbFuncionario.Name = "lbFuncionario";
-            this.lbFuncionario.Size = new System.Drawing.Size(340, 355);
+            this.lbFuncionario.Size = new System.Drawing.Size(686, 329);
             this.lbFuncionario.TabIndex = 0;
             // 
             // funcionarioControl
@@ -45,7 +45,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.lbFuncionario);
             this.Name = "funcionarioControl";
-            this.Size = new System.Drawing.Size(343, 350);
+            this.Size = new System.Drawing.Size(686, 329);
             this.ResumeLayout(false);
 
         }
