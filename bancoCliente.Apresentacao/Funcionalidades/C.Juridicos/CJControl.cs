@@ -26,7 +26,7 @@ namespace bancoCliente.Apresentacao.Funcionalidades.ClientesJuridicos
                 lbCJ.Items.Add(item);
             }
         }
-        public ClienteJuridico ObtemDisciplinaSelecionada()
+        public ClienteJuridico ObtemClienteSelecionado()
         {
             return (ClienteJuridico)lbCJ.SelectedItem;
         }

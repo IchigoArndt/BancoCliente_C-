@@ -15,12 +15,12 @@ namespace BancoCliente.Servico.Funcionalidade.Contas
 
         public ContaDominio Adicionar(ContaDominio entidade)
         {
-            throw new NotImplementedException();
+           return  _conta.Adicionar(entidade);
         }
 
         public ContaDominio Atualizar(ContaDominio entidade)
         {
-            throw new NotImplementedException();
+            return _conta.Atualizar(entidade);
         }
 
         public ContaDominio BuscarPorId(long id)
@@ -35,7 +35,7 @@ namespace BancoCliente.Servico.Funcionalidade.Contas
 
         public void Deletar(ContaDominio entidade)
         {
-            throw new NotImplementedException();
+            _conta.Deletar(entidade);
         }
 
         public IList<string> retornaTipoConta()

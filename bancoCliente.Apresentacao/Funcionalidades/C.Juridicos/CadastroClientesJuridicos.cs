@@ -20,11 +20,19 @@ namespace bancoCliente.Apresentacao.Funcionalidades.ClientesJuridicos
         }
         ClienteJuridico _clienteServico;
 
+        public CadastroClientesJuridicos(ClienteJuridico cliente) : this()
+        {
+            Cliente = cliente;
+        }
+
         public ClienteJuridico Cliente
         {
             get { return _clienteServico; }
             set
             {
+
+                _clienteServico = value;
+
                 utxtNome.Text = _clienteServico.getNome();
                 utxtEmail.Text = _clienteServico.getEmail();
                 utxtLimite.Text = Convert.ToString(_clienteServico.getLimite());
@@ -34,6 +42,7 @@ namespace bancoCliente.Apresentacao.Funcionalidades.ClientesJuridicos
                 utxtRua.Text = _clienteServico.endereco.getLongradouro();
                 utxtNumero.Text = Convert.ToString(_clienteServico.endereco.getNumero());
                 utxtCidade.Text = Convert.ToString(_clienteServico.endereco.getCidade());
+                utxtBairro.Text = _clienteServico.endereco.getBairro();
                 utxtComplemento.Text = Convert.ToString(_clienteServico.endereco.getComplemento());
             }
         }

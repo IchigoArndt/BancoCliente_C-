@@ -22,10 +22,10 @@ namespace bancoCliente.Dominio.Funcionalidades.Conta
            "Conta Digital"
         };
 
-        private int _id;
-        private float _taxaManutencao;
-        private string _agencia;
-        private int _tipoConta;
+        //private int _id;
+        //private float _taxaManutencao;
+        //private string _agencia;
+        //private int _tipoConta;
 
         public override void Validar()
         {
@@ -35,21 +35,10 @@ namespace bancoCliente.Dominio.Funcionalidades.Conta
         {
             get { return Tipos_contas; }
         } 
-        public string agencia
-        {
-            get { return _agencia; }
-            set { _agencia = agencia; }
-        } 
-        public float taxaManutencao
-        {
-            get { return _taxaManutencao; }
-            set { _taxaManutencao = taxaManutencao; }
-        }
-        public int id
-        {
-            get { return _id; }
-            set { _id = id; }
-        }
+        public string Agencia{ get; set; } 
+        public float taxaManutencao { get; set; }
+        public int TipoConta { get; set;}
+
 
         public List<string> retornaTipoConta()
         {
@@ -58,7 +47,7 @@ namespace bancoCliente.Dominio.Funcionalidades.Conta
 
         public override string ToString()
         {
-            return string.Format("Tipo Conta: {0}" + "Descrição: {1} ", _tipoConta, Tipos_contas[_tipoConta]);
+            return string.Format("ID: {0}"+" Tipo Conta: {1}" + "  Descrição: {2} ",Id,TipoConta,Tipos_contas[TipoConta]);
         }
 
     }

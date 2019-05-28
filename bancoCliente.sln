@@ -13,8 +13,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dominio", "Dominio", "{EF80
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infraestrutura", "Infraestrutura", "{B5F29F80-3377-4DAE-BCCF-DEC3E0C8F5CF}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Testes", "Testes", "{0317637A-7AFC-4F0E-BC79-D1293DF2DA25}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bancoCliente.Dominio", "bancoCliente.Dominio\bancoCliente.Dominio.csproj", "{4A181F52-F54E-415B-9935-DB5C7F07E29C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BancoCliente.Servico", "BancoCliente.Servico\BancoCliente.Servico.csproj", "{C6BFA6F8-FE61-43F6-8D87-9A6FE646DABC}"

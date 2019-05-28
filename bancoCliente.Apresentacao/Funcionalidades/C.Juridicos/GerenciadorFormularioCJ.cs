@@ -1,4 +1,5 @@
-﻿using BancoCliente.Servico.Funcionalidade.Clientes.Jurudico;
+﻿using bancoCliente.Dominio.Funcionalidades.Clientes;
+using BancoCliente.Servico.Funcionalidade.Clientes.Jurudico;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -38,7 +39,9 @@ namespace bancoCliente.Apresentacao.Funcionalidades.ClientesJuridicos
 
         public override void Atualizar()
         {
-            //throw new NotImplementedException();
+            IList<ClienteJuridico> cliente = _clienteServico.BuscarTodos();
+
+            _clienteFisicoControl.PopularListagem(cliente);
         }
 
         public override UserControl CarregarListagem()
@@ -46,18 +49,39 @@ namespace bancoCliente.Apresentacao.Funcionalidades.ClientesJuridicos
             if (_clienteFisicoControl == null)
             {
                 _clienteFisicoControl = new CJControl();
+                _clienteFisicoControl.PopularListagem(_clienteServico.BuscarTodos());
             }
             return _clienteFisicoControl;
         }
 
         public override void Editar()
         {
-            throw new NotImplementedException();
+            ClienteJuridico clienteSelecionado = _clienteFisicoControl.ObtemClienteSelecionado();
+            if (clienteSelecionado != null)
+            {
+                CadastroClientesJuridicos dialog = new CadastroClientesJuridicos(clienteSelecionado);
+                DialogResult result = dialog.ShowDialog();
+                if (result == DialogResult.OK)
+                {
+                    _clienteServico.Atualizar(clienteSelecionado);
+                }
+
+            }
+            Atualizar();
         }
 
         public override void Excluir()
         {
-            throw new NotImplementedException();
+            ClienteJuridico clienteSelecionado = _clienteFisicoControl.ObtemClienteSelecionado();
+            if (clienteSelecionado != null)
+            {
+                _clienteServico.Deletar(clienteSelecionado);
+                Atualizar();
+            }
+            else
+            {
+                MessageBox.Show("Não foi selecionado cliente nenhum para a exclusão");
+            }
         }
 
         public override string ObtemTipoCadastro()

@@ -67,6 +67,9 @@ namespace BancoCliente.Infra.Base
         }
         public static List<ClienteJuridico> retornaClientesJuridicos()
         {
+
+            clienteJuridicos = new List<ClienteJuridico>();
+
             ClienteJuridico cliente1 = new ClienteJuridico
             {
                 dataNasc = Convert.ToDateTime("02/08/1900"),
@@ -76,17 +79,24 @@ namespace BancoCliente.Infra.Base
                 nome = "Empresa Fake",
                 telefone = "32230486"
             };
+            cliente1.setCnpj("03208444000105");
+            cliente1.setLimite(1000);
+
             ClienteJuridico cliente2 = new ClienteJuridico
             {
                 dataNasc = Convert.ToDateTime("02/08/1950"),
                 email = "EmpresaFake2@gmail.com",
                 endereco = RetornaEndereco(),
-                id = 1,
+                id = 2,
                 nome = "Empresa Fake Falsa",
                 telefone = "32220486"
             };
+            cliente2.setCnpj("38301094000101");
+            cliente2.setLimite(2000);
+
             clienteJuridicos.Add(cliente1);
             clienteJuridicos.Add(cliente2);
+
             return clienteJuridicos;
         }
         public static List<ContaDominio> retornaContas()
@@ -95,20 +105,22 @@ namespace BancoCliente.Infra.Base
 
             ContaDominio conta1 = new ContaDominio
             {
-                agencia = "0002220",
-                id = 1,
+                Agencia = "0002220",
+                Id = 1,
                 taxaManutencao = 50,
+                TipoConta = 0,
             };
             ContaDominio conta2 = new ContaDominio
             {
-                agencia = "0062430",
-                id = 2,
+                Agencia = "0062430",
+                Id = 2,
                 taxaManutencao = 30,
+                TipoConta = 2,
             };
             contasCadastradas.Add(conta1);
             contasCadastradas.Add(conta2);
 
-            return contasCadastradas;
+            return contasCadastradas.OrderBy(C => C.Id).ToList();
         }
         public static List<Empresa> retornaEmpresas()
         {

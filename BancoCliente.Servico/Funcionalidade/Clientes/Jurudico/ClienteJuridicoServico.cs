@@ -4,19 +4,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using bancoCliente.Dominio.Funcionalidades.Clientes;
+using BancoCliente.Infra.BancoDados.Cliente.Jurudico;
 
 namespace BancoCliente.Servico.Funcionalidade.Clientes.Jurudico
 {
     public class ClienteJuridicoServico : IClienteJuridicoServico
     {
+
+        ClienteJuridicoDAO _clienteDAO = new ClienteJuridicoDAO();
+
         public ClienteJuridico Adicionar(ClienteJuridico entidade)
         {
-            throw new NotImplementedException();
+            return _clienteDAO.Adicionar(entidade);
         }
 
         public ClienteJuridico Atualizar(ClienteJuridico entidade)
         {
-            throw new NotImplementedException();
+            return _clienteDAO.Atualizar(entidade);
         }
 
         public ClienteJuridico BuscarPorId(long id)
@@ -26,12 +30,12 @@ namespace BancoCliente.Servico.Funcionalidade.Clientes.Jurudico
 
         public IList<ClienteJuridico> BuscarTodos()
         {
-            throw new NotImplementedException();
+            return _clienteDAO.BuscarTodos();
         }
 
         public void Deletar(ClienteJuridico entidade)
         {
-            throw new NotImplementedException();
+            _clienteDAO.Deletar(entidade);
         }
     }
 }

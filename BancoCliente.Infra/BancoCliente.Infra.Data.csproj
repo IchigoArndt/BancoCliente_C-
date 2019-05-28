@@ -42,13 +42,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BancoDados\Cliente\Fisico\ClienteFisicoDAO.cs" />
+    <Compile Include="BancoDados\Cliente\Jurudico\ClienteJuridicoDAO.cs" />
     <Compile Include="BancoDados\Conta\ContaDAO.cs" />
     <Compile Include="Base\DadosBase.cs" />
     <Compile Include="Base\IDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="BancoDados\Cliente\Jurudico\" />
     <Folder Include="BancoDados\Empresa\" />
     <Folder Include="BancoDados\Funcionario\" />
   </ItemGroup>

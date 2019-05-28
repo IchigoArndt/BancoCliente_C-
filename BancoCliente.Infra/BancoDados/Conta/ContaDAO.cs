@@ -15,12 +15,24 @@ namespace BancoCliente.Infra.BancoDados.Conta
 
         public ContaDominio Adicionar(ContaDominio entidade)
         {
-            throw new NotImplementedException();
+            Contas = BuscarTodos().ToList();
+            ContaDominio conta = Contas.Last();
+            entidade.Id = conta.Id + 1;
+            Contas.Add(entidade);
+            return entidade;
         }
 
         public ContaDominio Atualizar(ContaDominio entidade)
         {
-            throw new NotImplementedException();
+            ContaDominio conta = Contas.Find(C => C.Id == entidade.Id);
+            Contas.Remove(conta);
+            conta.Agencia = entidade.Agencia;
+            conta.Id = entidade.Id;
+            conta.taxaManutencao = entidade.taxaManutencao;
+            /////////////////////////////
+            Contas.Add(conta);
+            ////////////////////////////
+            return conta;
         }
 
         public ContaDominio BuscarPorId(long id)
@@ -47,7 +59,7 @@ namespace BancoCliente.Infra.BancoDados.Conta
 
         public void Deletar(ContaDominio entidade)
         {
-            throw new NotImplementedException();
+            Contas.Remove(entidade);
         }
 
         public List<ContaDominio> RetornaContas()

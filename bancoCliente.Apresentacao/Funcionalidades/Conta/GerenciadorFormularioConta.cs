@@ -28,12 +28,16 @@ namespace bancoCliente.Apresentacao.Funcionalidades.Contas
                 {
                     MessageBox.Show(ex.Message);
                 }
+                Atualizar();
             }
+
         }
 
         public override void Atualizar()
         {
-           //
+            IList<ContaDominio> cliente = _contaServico.BuscarTodos();
+
+            _contaControl.PopularListagem(cliente);
         }
 
         public override UserControl CarregarListagem()
@@ -41,18 +45,39 @@ namespace bancoCliente.Apresentacao.Funcionalidades.Contas
             if (_contaControl == null)
             {
                 _contaControl = new ContaControl();
+
+                _contaControl.PopularListagem(_contaServico.BuscarTodos());
             }
             return _contaControl;
         }
 
         public override void Editar()
-        { 
-            throw new NotImplementedException();
+        {
+            ContaDominio clienteSelecionado = _contaControl.ObtemContaSelecionada();
+            if (clienteSelecionado != null)
+            {
+                CadastroConta dialog = new CadastroConta(clienteSelecionado);
+                DialogResult result = dialog.ShowDialog();
+                if (result == DialogResult.OK)
+                {
+                    _contaServico.Atualizar(clienteSelecionado);
+                }
+            }
+            Atualizar();
         }
 
         public override void Excluir()
         {
-            throw new NotImplementedException();
+            ContaDominio clienteSelecionado = _contaControl.ObtemContaSelecionada();
+            if (clienteSelecionado != null)
+            {
+                _contaServico.Deletar(clienteSelecionado);
+                Atualizar();
+            }
+            else
+            {
+                MessageBox.Show("Não foi selecionado cliente nenhum para a exclusão");
+            }
         }
 
         public override string ObtemTipoCadastro()

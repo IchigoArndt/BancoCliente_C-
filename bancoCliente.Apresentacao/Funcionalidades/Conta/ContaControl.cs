@@ -26,10 +26,10 @@ namespace bancoCliente.Apresentacao.Funcionalidades.Contas
                 lbConta.Items.Add(item);
             }
         }
-        /*public Conta ObtemDisciplinaSelecionada()
+        public ContaDominio ObtemContaSelecionada()
         {
-            return (Conta)lbConta.SelectedItem;
-        }*/
+            return (ContaDominio)lbConta.SelectedItem;
+        }
 
         private void ultraGrid1_InitializeLayout(object sender, Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs e)
         {

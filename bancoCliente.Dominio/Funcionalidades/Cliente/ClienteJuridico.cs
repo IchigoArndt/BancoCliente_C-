@@ -9,6 +9,13 @@ namespace bancoCliente.Dominio.Funcionalidades.Clientes
 {
     public class ClienteJuridico : Cliente
     {
+
+
+        public ClienteJuridico()
+        {
+            endereco = new Endereco();
+        }
+
         public override void Validar()
         {
             throw new NotImplementedException();
@@ -24,6 +31,11 @@ namespace bancoCliente.Dominio.Funcionalidades.Clientes
         public void setCnpj(string cnpj)
         {
             this.cnpj = cnpj;
+        }
+
+        public override string ToString()
+        {
+            return string.Format("ID: {0}" + " Nome: {1}" + " CNPJ: {2}", getId(), getNome(), getCnpj());
         }
 
     }
