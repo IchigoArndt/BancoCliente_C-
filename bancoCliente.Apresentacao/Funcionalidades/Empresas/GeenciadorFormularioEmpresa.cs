@@ -1,4 +1,5 @@
-﻿using BancoCliente.Servico.Funcionalidade.Empresas;
+﻿using bancoCliente.Dominio.Funcionalidades.Empresa;
+using BancoCliente.Servico.Funcionalidade.Empresas;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,8 +11,8 @@ namespace bancoCliente.Apresentacao.Funcionalidades.Empresas
 {
     class GeenciadorFormularioEmpresa : GerenciadorFormulario
     {
-        EmpresaServico _empresaServico;
-        empresaControl _empresaControl; 
+        EmpresaServico _empresaServico = new EmpresaServico();
+        empresaControl _empresaControl = new empresaControl(); 
         public override void Adicionar()
         {
             CadastroEmpresa Empresa = new CadastroEmpresa();
@@ -31,7 +32,9 @@ namespace bancoCliente.Apresentacao.Funcionalidades.Empresas
 
         public override void Atualizar()
         {
-            //throw new NotImplementedException();
+            IList<Empresa> cliente = _empresaServico.BuscarTodos();
+
+            _empresaControl.PopularListagem(cliente);
         }
 
         public override UserControl CarregarListagem()
@@ -45,12 +48,32 @@ namespace bancoCliente.Apresentacao.Funcionalidades.Empresas
 
         public override void Editar()
         {
-            throw new NotImplementedException();
+            Empresa clienteSelecionado = _empresaControl.ObtemDisciplinaSelecionada();
+            if (clienteSelecionado != null)
+            {
+                CadastroEmpresa dialog = new CadastroEmpresa(clienteSelecionado);
+                DialogResult result = dialog.ShowDialog();
+                if (result == DialogResult.OK)
+                {
+                    _empresaServico.Atualizar(clienteSelecionado);
+                }
+
+            }
+            Atualizar();
         }
 
         public override void Excluir()
         {
-            throw new NotImplementedException();
+            Empresa clienteSelecionado = _empresaControl.ObtemDisciplinaSelecionada();
+            if (clienteSelecionado != null)
+            {
+                _empresaServico.Deletar(clienteSelecionado);
+                Atualizar();
+            }
+            else
+            {
+                MessageBox.Show("Não foi selecionado cliente nenhum para a exclusão");
+            }
         }
 
         public override string ObtemTipoCadastro()

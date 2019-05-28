@@ -73,6 +73,12 @@ namespace bancoCliente.Dominio.Funcionalidades.Empresa
         {
             throw new NotImplementedException();
         }
+
+        public override string ToString()
+        {
+            return string.Format("ID: {0}" + "Razão Social: {1}" + "CNPJ: {2}", Id, RazaoSocial, Cnpj);
+        }
+
         #endregion
     }
 }

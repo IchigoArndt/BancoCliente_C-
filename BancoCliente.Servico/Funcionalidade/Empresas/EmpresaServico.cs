@@ -4,19 +4,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using bancoCliente.Dominio.Funcionalidades.Empresa;
+using BancoempresaDominio.Infra.BancoDados.Empresas;
 
 namespace BancoCliente.Servico.Funcionalidade.Empresas
 {
     public class EmpresaServico : IEmpresaServico
     {
+
+        EmpresaDAO _empresa = new EmpresaDAO();
+
         public Empresa Adicionar(Empresa entidade)
         {
-            throw new NotImplementedException();
+           return _empresa.Adicionar(entidade);
         }
 
         public Empresa Atualizar(Empresa entidade)
         {
-            throw new NotImplementedException();
+            return _empresa.Atualizar(entidade);
         }
 
         public Empresa BuscarPorId(long id)
@@ -26,12 +30,12 @@ namespace BancoCliente.Servico.Funcionalidade.Empresas
 
         public IList<Empresa> BuscarTodos()
         {
-            throw new NotImplementedException();
+            return _empresa.BuscarTodos();
         }
 
         public void Deletar(Empresa entidade)
         {
-            throw new NotImplementedException();
+            _empresa.Deletar(entidade);
         }
     }
 }

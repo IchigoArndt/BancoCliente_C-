@@ -23,6 +23,11 @@ namespace bancoCliente.Apresentacao.Funcionalidades.Empresas
             InitializeComponent();
         }
 
+        public CadastroEmpresa(Empresa empresaDominio) : this()
+        {
+            empresa = empresaDominio;
+        }
+
         private void ultraFormattedTextEditor1_LinkClicked(object sender, Infragistics.Win.FormattedLinkLabel.LinkClickedEventArgs e)
         {
 

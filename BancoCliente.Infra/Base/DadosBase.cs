@@ -124,6 +124,9 @@ namespace BancoCliente.Infra.Base
         }
         public static List<Empresa> retornaEmpresas()
         {
+
+            empresas = new List<Empresa>();
+
             Empresa empresa1 = new Empresa
             {
                 Cnpj = "37774472000101",
@@ -154,6 +157,9 @@ namespace BancoCliente.Infra.Base
         }
         public static List<Funcionario> retornaFuncionarios()
         {
+
+            funcionarios = new List<Funcionario>();
+
             Funcionario func1 = new Funcionario
             {
                 Cargo = "Testador",
