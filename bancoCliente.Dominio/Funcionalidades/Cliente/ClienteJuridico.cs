@@ -1,4 +1,6 @@
 ﻿using bancoCliente.Dominio.Base;
+using bancoCliente.Dominio.Funcionalidades.Conta;
+using bancoCliente.Dominio.Funcionalidades.Empresas;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,11 +11,22 @@ namespace bancoCliente.Dominio.Funcionalidades.Clientes
 {
     public class ClienteJuridico : Cliente
     {
+        public ContaDominio conta;
 
+        public void setConta(ContaDominio Conta)
+        {
+            conta = Conta;
+        }
+
+        public ContaDominio getConta()
+        {
+            return conta;
+        }
 
         public ClienteJuridico()
         {
             endereco = new Endereco();
+            conta = new ContaDominio();
         }
 
         public override void Validar()
@@ -31,6 +44,11 @@ namespace bancoCliente.Dominio.Funcionalidades.Clientes
         public void setCnpj(string cnpj)
         {
             this.cnpj = cnpj;
+        }
+
+        public Empresa empresa
+        {
+            get;set;
         }
 
         public override string ToString()

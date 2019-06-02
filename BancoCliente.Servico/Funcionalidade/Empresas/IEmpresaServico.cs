@@ -1,4 +1,4 @@
-﻿using bancoCliente.Dominio.Funcionalidades.Empresa;
+﻿using bancoCliente.Dominio.Funcionalidades.Empresas;
 using System;
 using System.Collections.Generic;
 using System.Linq;

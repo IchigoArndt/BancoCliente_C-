@@ -35,6 +35,7 @@ namespace BancoCliente.Infra.BancoDados.Cliente.Jurudico
             cliente.setCnpj(entidade.getCnpj());
             cliente.setLimite(entidade.getLimite());
             cliente.setId(entidade.getId());
+            cliente.setConta(entidade.getConta());
             /////////////////////////////
             ClientesJuridicos.Add(cliente);
             ////////////////////////////

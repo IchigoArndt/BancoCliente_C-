@@ -15,9 +15,9 @@ namespace BancoCliente.Infra.BancoDados.Cliente.Fisico
 
         public ClienteFisico Adicionar(ClienteFisico entidade)
         {
-            ClientesFiscos.Add(entidade);
             ClienteFisico cliente = ClientesFiscos.Last();
             entidade.id = cliente.id + 1;
+            ClientesFiscos.Add(entidade);
             return entidade;
         }
 
@@ -37,6 +37,7 @@ namespace BancoCliente.Infra.BancoDados.Cliente.Fisico
             cliente.setLimitePagamento(entidade.getLimitePagamento());
             cliente.setQuantidadeLimite(entidade.getQuantidadeLimite());
             cliente.setId(entidade.getId());
+            cliente.setConta(entidade.getConta());
             /////////////////////////////
             ClientesFiscos.Add(cliente);
             ////////////////////////////

@@ -1,4 +1,7 @@
-﻿using bancoCliente.Dominio.Funcionalidades.Clientes;
+﻿using bancoCliente.Dominio.Enums;
+using bancoCliente.Dominio.Funcionalidades.Clientes;
+using bancoCliente.Dominio.Funcionalidades.Conta;
+using bancoCliente.Dominio.Funcionalidades.Empresas;
 using BancoCliente.Servico.Base;
 using System;
 using System.Collections.Generic;
@@ -17,6 +20,7 @@ namespace bancoCliente.Apresentacao.Funcionalidades.ClientesJuridicos
         public CadastroClientesJuridicos()
         {
             InitializeComponent();
+            PreencheComboEstados();
         }
         ClienteJuridico _clienteServico;
 
@@ -25,6 +29,28 @@ namespace bancoCliente.Apresentacao.Funcionalidades.ClientesJuridicos
             Cliente = cliente;
         }
 
+        public void carregaContaCombo(List<ContaDominio> contas)
+        {
+            cmbConta.Items.Clear();
+            foreach (var item in contas)
+            {
+                cmbConta.Items.Add(item);
+            }
+        }
+        private void PreencheComboEstados()
+        {
+            foreach (var item in Enum.GetValues(typeof(EnumUfs)))
+            {
+                cmbEstado.Items.Add(item);
+            }
+        }
+        public void PreencheComboEmpresas(List<Empresa>empresas)
+        {
+            foreach (var item in empresas)
+            {
+                cmbEmpresa.Items.Add(item);
+            }
+        }
         public ClienteJuridico Cliente
         {
             get { return _clienteServico; }
@@ -38,12 +64,18 @@ namespace bancoCliente.Apresentacao.Funcionalidades.ClientesJuridicos
                 utxtLimite.Text = Convert.ToString(_clienteServico.getLimite());
                 utxtTel.Text = Convert.ToString(_clienteServico.getTelefone());
                 utxtCnpj.Text = Convert.ToString(_clienteServico.getCnpj());
+                uckbCheque.Checked = _clienteServico.isDireitoCheque();
+                uckbCartao.Checked = _clienteServico.isCartaoCredito();
+                cmbConta.SelectedItem = _clienteServico.getConta();
+                cmbEmpresa.SelectedItem = _clienteServico.empresa;
                 //Endereço
                 utxtRua.Text = _clienteServico.endereco.getLongradouro();
                 utxtNumero.Text = Convert.ToString(_clienteServico.endereco.getNumero());
                 utxtCidade.Text = Convert.ToString(_clienteServico.endereco.getCidade());
                 utxtBairro.Text = _clienteServico.endereco.getBairro();
                 utxtComplemento.Text = Convert.ToString(_clienteServico.endereco.getComplemento());
+                cmbEstado.SelectedItem = _clienteServico.endereco.getUf();
+
             }
         }
 
@@ -136,17 +168,6 @@ namespace bancoCliente.Apresentacao.Funcionalidades.ClientesJuridicos
                 btnGravar.Enabled = true;
         }
 
-        private void utxtConta_leave(object sender, EventArgs e)
-        {
-            if (!ValidacaoCampos.ValidarString(utxtConta.Text))
-            {
-                lblValidacao.Text = "O campo não está valido";
-                btnGravar.Enabled = false;
-            }
-            else
-                btnGravar.Enabled = true;
-        }
-
         private void utxtLimite_ValueChanged(object sender, EventArgs e)
         {
             if (!ValidacaoCampos.ValidarNumeros(utxtLimite.Text))
@@ -186,11 +207,17 @@ namespace bancoCliente.Apresentacao.Funcionalidades.ClientesJuridicos
                 _clienteServico.setLimite(Convert.ToInt32(utxtLimite.Text));
                 _clienteServico.setTelefone(utxtTel.Text);
                 _clienteServico.setCnpj(utxtCnpj.Text);
+                _clienteServico.setConta((ContaDominio)cmbConta.SelectedItem);
+                _clienteServico.setCartaoCredito(uckbCartao.Checked);
+                _clienteServico.setDireitoCheque(uckbCheque.Checked);
+                _clienteServico.empresa = (Empresa)cmbEmpresa.SelectedItem;
                 //Endereço
                 _clienteServico.endereco.setLongradouro(utxtRua.Text);
                 _clienteServico.endereco.setNumero(Convert.ToInt32(utxtNumero.Text));
                 _clienteServico.endereco.setCidade(utxtCidade.Text);
                 _clienteServico.endereco.setComplemento(utxtComplemento.Text);
+                _clienteServico.endereco.setBairro(utxtBairro.Text);
+                _clienteServico.endereco.setUf((EnumUfs)cmbEstado.SelectedItem);
             }
             catch (Exception ex)
             {

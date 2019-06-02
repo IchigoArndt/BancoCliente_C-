@@ -42,7 +42,7 @@
             this.utxtEmail = new Infragistics.Win.FormattedLinkLabel.UltraFormattedTextEditor();
             this.ultraLabel7 = new Infragistics.Win.Misc.UltraLabel();
             this.uPanelEndereco = new Infragistics.Win.Misc.UltraPanel();
-            this.ucmbUf = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
+            this.ucmbUf = new System.Windows.Forms.ComboBox();
             this.utxtComplemento = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
             this.utxtCidade = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
             this.utxtBairro = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
@@ -57,16 +57,14 @@
             this.btnGravar = new Infragistics.Win.Misc.UltraButton();
             this.utxtSair = new Infragistics.Win.Misc.UltraButton();
             this.panelFuncionarios = new Infragistics.Win.Misc.UltraPanel();
-            this.btnAdcFunc = new Infragistics.Win.Misc.UltraButton();
-            this.btnEditar = new Infragistics.Win.Misc.UltraButton();
-            this.btnDeletar = new Infragistics.Win.Misc.UltraButton();
+            this.lbFunc = new System.Windows.Forms.ListBox();
             this.lbFuncCadastrado = new System.Windows.Forms.ListBox();
+            this.btnDeletar = new Infragistics.Win.Misc.UltraButton();
+            this.btnAdcFunc = new Infragistics.Win.Misc.UltraButton();
             this.lblValidacao = new Infragistics.Win.Misc.UltraLabel();
             this.dtFund = new Infragistics.Win.UltraWinEditors.UltraDateTimeEditor();
-            this.lbFunc = new System.Windows.Forms.ListBox();
             this.uPanelEndereco.ClientArea.SuspendLayout();
             this.uPanelEndereco.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ucmbUf)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.utxtComplemento)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.utxtCidade)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.utxtBairro)).BeginInit();
@@ -213,11 +211,12 @@
             // 
             // ucmbUf
             // 
-            this.ucmbUf.BorderStyle = Infragistics.Win.UIElementBorderStyle.Dotted;
-            this.ucmbUf.Location = new System.Drawing.Point(382, 71);
+            this.ucmbUf.FormattingEnabled = true;
+            this.ucmbUf.Location = new System.Drawing.Point(382, 68);
             this.ucmbUf.Name = "ucmbUf";
-            this.ucmbUf.Size = new System.Drawing.Size(164, 19);
+            this.ucmbUf.Size = new System.Drawing.Size(164, 21);
             this.ucmbUf.TabIndex = 21;
+            this.ucmbUf.SelectedIndexChanged += new System.EventHandler(this.ucmbUf_SelectedIndexChanged);
             // 
             // utxtComplemento
             // 
@@ -345,36 +344,19 @@
             this.panelFuncionarios.ClientArea.Controls.Add(this.lbFunc);
             this.panelFuncionarios.ClientArea.Controls.Add(this.lbFuncCadastrado);
             this.panelFuncionarios.ClientArea.Controls.Add(this.btnDeletar);
-            this.panelFuncionarios.ClientArea.Controls.Add(this.btnEditar);
             this.panelFuncionarios.ClientArea.Controls.Add(this.btnAdcFunc);
             this.panelFuncionarios.Location = new System.Drawing.Point(13, 292);
             this.panelFuncionarios.Name = "panelFuncionarios";
             this.panelFuncionarios.Size = new System.Drawing.Size(542, 163);
             this.panelFuncionarios.TabIndex = 21;
             // 
-            // btnAdcFunc
+            // lbFunc
             // 
-            this.btnAdcFunc.Location = new System.Drawing.Point(3, 3);
-            this.btnAdcFunc.Name = "btnAdcFunc";
-            this.btnAdcFunc.Size = new System.Drawing.Size(75, 23);
-            this.btnAdcFunc.TabIndex = 0;
-            this.btnAdcFunc.Text = "Adicionar";
-            // 
-            // btnEditar
-            // 
-            this.btnEditar.Location = new System.Drawing.Point(247, 0);
-            this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(85, 23);
-            this.btnEditar.TabIndex = 1;
-            this.btnEditar.Text = "Editar";
-            // 
-            // btnDeletar
-            // 
-            this.btnDeletar.Location = new System.Drawing.Point(459, 3);
-            this.btnDeletar.Name = "btnDeletar";
-            this.btnDeletar.Size = new System.Drawing.Size(75, 23);
-            this.btnDeletar.TabIndex = 2;
-            this.btnDeletar.Text = "Deletar";
+            this.lbFunc.FormattingEnabled = true;
+            this.lbFunc.Location = new System.Drawing.Point(294, 29);
+            this.lbFunc.Name = "lbFunc";
+            this.lbFunc.Size = new System.Drawing.Size(248, 134);
+            this.lbFunc.TabIndex = 4;
             // 
             // lbFuncCadastrado
             // 
@@ -383,6 +365,24 @@
             this.lbFuncCadastrado.Name = "lbFuncCadastrado";
             this.lbFuncCadastrado.Size = new System.Drawing.Size(283, 134);
             this.lbFuncCadastrado.TabIndex = 3;
+            // 
+            // btnDeletar
+            // 
+            this.btnDeletar.Location = new System.Drawing.Point(459, 3);
+            this.btnDeletar.Name = "btnDeletar";
+            this.btnDeletar.Size = new System.Drawing.Size(75, 23);
+            this.btnDeletar.TabIndex = 2;
+            this.btnDeletar.Text = "Deletar";
+            this.btnDeletar.Click += new System.EventHandler(this.btnDeletar_Click);
+            // 
+            // btnAdcFunc
+            // 
+            this.btnAdcFunc.Location = new System.Drawing.Point(3, 3);
+            this.btnAdcFunc.Name = "btnAdcFunc";
+            this.btnAdcFunc.Size = new System.Drawing.Size(75, 23);
+            this.btnAdcFunc.TabIndex = 0;
+            this.btnAdcFunc.Text = "Adicionar";
+            this.btnAdcFunc.Click += new System.EventHandler(this.btnAdcFunc_Click);
             // 
             // lblValidacao
             // 
@@ -399,14 +399,6 @@
             this.dtFund.Size = new System.Drawing.Size(164, 21);
             this.dtFund.TabIndex = 24;
             this.dtFund.Leave += new System.EventHandler(this.dtFund_Leave);
-            // 
-            // lbFunc
-            // 
-            this.lbFunc.FormattingEnabled = true;
-            this.lbFunc.Location = new System.Drawing.Point(294, 29);
-            this.lbFunc.Name = "lbFunc";
-            this.lbFunc.Size = new System.Drawing.Size(248, 134);
-            this.lbFunc.TabIndex = 4;
             // 
             // CadastroEmpresa
             // 
@@ -437,7 +429,6 @@
             this.uPanelEndereco.ClientArea.ResumeLayout(false);
             this.uPanelEndereco.ClientArea.PerformLayout();
             this.uPanelEndereco.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.ucmbUf)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.utxtComplemento)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.utxtCidade)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.utxtBairro)).EndInit();
@@ -467,7 +458,6 @@
         private Infragistics.Win.FormattedLinkLabel.UltraFormattedTextEditor utxtEmail;
         private Infragistics.Win.Misc.UltraLabel ultraLabel7;
         private Infragistics.Win.Misc.UltraPanel uPanelEndereco;
-        private Infragistics.Win.UltraWinEditors.UltraComboEditor ucmbUf;
         private Infragistics.Win.UltraWinEditors.UltraTextEditor utxtComplemento;
         private Infragistics.Win.UltraWinEditors.UltraTextEditor utxtCidade;
         private Infragistics.Win.UltraWinEditors.UltraTextEditor utxtBairro;
@@ -484,10 +474,10 @@
         private Infragistics.Win.Misc.UltraPanel panelFuncionarios;
         private System.Windows.Forms.ListBox lbFuncCadastrado;
         private Infragistics.Win.Misc.UltraButton btnDeletar;
-        private Infragistics.Win.Misc.UltraButton btnEditar;
         private Infragistics.Win.Misc.UltraButton btnAdcFunc;
         private Infragistics.Win.Misc.UltraLabel lblValidacao;
         private Infragistics.Win.UltraWinEditors.UltraDateTimeEditor dtFund;
         private System.Windows.Forms.ListBox lbFunc;
+        private System.Windows.Forms.ComboBox ucmbUf;
     }
 }

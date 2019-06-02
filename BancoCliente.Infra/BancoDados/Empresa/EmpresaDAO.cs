@@ -1,4 +1,4 @@
-﻿using bancoCliente.Dominio.Funcionalidades.Empresa;
+﻿using bancoCliente.Dominio.Funcionalidades.Empresas;
 using BancoCliente.Infra.Base;
 using System;
 using System.Collections.Generic;

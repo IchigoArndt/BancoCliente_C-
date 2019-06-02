@@ -50,6 +50,7 @@
     <Compile Include="Funcionalidades\Cliente\ClienteFisico.cs" />
     <Compile Include="Funcionalidades\Cliente\ClienteJuridico.cs" />
     <Compile Include="Funcionalidades\Conta\Conta.cs" />
+    <Compile Include="Funcionalidades\Depositos\Deposito.cs" />
     <Compile Include="Funcionalidades\Empresa\Empresa.cs" />
     <Compile Include="Funcionalidades\Funcionario\Funcionario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

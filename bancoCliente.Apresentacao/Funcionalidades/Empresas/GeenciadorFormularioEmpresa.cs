@@ -1,5 +1,6 @@
-﻿using bancoCliente.Dominio.Funcionalidades.Empresa;
+﻿using bancoCliente.Dominio.Funcionalidades.Empresas;
 using BancoCliente.Servico.Funcionalidade.Empresas;
+using BancoCliente.Servico.Funcionalidade.Funcionarios;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,10 +13,12 @@ namespace bancoCliente.Apresentacao.Funcionalidades.Empresas
     class GeenciadorFormularioEmpresa : GerenciadorFormulario
     {
         EmpresaServico _empresaServico = new EmpresaServico();
+        FuncionarioServico _funcionarioServico = new FuncionarioServico();
         empresaControl _empresaControl = new empresaControl(); 
         public override void Adicionar()
         {
             CadastroEmpresa Empresa = new CadastroEmpresa();
+            Empresa.CarregaListaFuncionarioNãoCadastrado(_funcionarioServico.BuscarTodos().ToList());
             DialogResult result = Empresa.ShowDialog();
             if (result == DialogResult.OK)
             {
@@ -52,6 +55,7 @@ namespace bancoCliente.Apresentacao.Funcionalidades.Empresas
             if (clienteSelecionado != null)
             {
                 CadastroEmpresa dialog = new CadastroEmpresa(clienteSelecionado);
+                dialog.CarregaListaFuncionarioNãoCadastrado(_funcionarioServico.BuscarTodos().ToList());
                 DialogResult result = dialog.ShowDialog();
                 if (result == DialogResult.OK)
                 {

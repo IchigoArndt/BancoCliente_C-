@@ -65,21 +65,21 @@
             this.tsmFisico,
             this.tsmJuridica});
             this.tsmCliente.Name = "tsmCliente";
-            this.tsmCliente.Size = new System.Drawing.Size(106, 20);
-            this.tsmCliente.Text = "Cadastro Cliente";
+            this.tsmCliente.Size = new System.Drawing.Size(109, 20);
+            this.tsmCliente.Text = "Cadastrar Cliente";
             // 
             // tsmFisico
             // 
             this.tsmFisico.Name = "tsmFisico";
-            this.tsmFisico.Size = new System.Drawing.Size(114, 22);
-            this.tsmFisico.Text = "Física";
+            this.tsmFisico.Size = new System.Drawing.Size(180, 22);
+            this.tsmFisico.Text = "Físico";
             this.tsmFisico.Click += new System.EventHandler(this.tsmFisico_Click);
             // 
             // tsmJuridica
             // 
             this.tsmJuridica.Name = "tsmJuridica";
-            this.tsmJuridica.Size = new System.Drawing.Size(114, 22);
-            this.tsmJuridica.Text = "Juridica";
+            this.tsmJuridica.Size = new System.Drawing.Size(180, 22);
+            this.tsmJuridica.Text = "Juridico";
             this.tsmJuridica.Click += new System.EventHandler(this.tsmJuridica_Click);
             // 
             // tsm
@@ -87,13 +87,13 @@
             this.tsm.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmItemConta});
             this.tsm.Name = "tsm";
-            this.tsm.Size = new System.Drawing.Size(101, 20);
-            this.tsm.Text = "Cadastro Conta";
+            this.tsm.Size = new System.Drawing.Size(104, 20);
+            this.tsm.Text = "Cadastrar Conta";
             // 
             // tsmItemConta
             // 
             this.tsmItemConta.Name = "tsmItemConta";
-            this.tsmItemConta.Size = new System.Drawing.Size(111, 22);
+            this.tsmItemConta.Size = new System.Drawing.Size(180, 22);
             this.tsmItemConta.Text = "Contas";
             this.tsmItemConta.Click += new System.EventHandler(this.tsmItemConta_Click);
             // 
@@ -102,13 +102,13 @@
             this.tsmFuncionario.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmItemFuncionario});
             this.tsmFuncionario.Name = "tsmFuncionario";
-            this.tsmFuncionario.Size = new System.Drawing.Size(132, 20);
-            this.tsmFuncionario.Text = "Cadastro Funcionario";
+            this.tsmFuncionario.Size = new System.Drawing.Size(135, 20);
+            this.tsmFuncionario.Text = "Cadastrar Funcionario";
             // 
             // tsmItemFuncionario
             // 
             this.tsmItemFuncionario.Name = "tsmItemFuncionario";
-            this.tsmItemFuncionario.Size = new System.Drawing.Size(137, 22);
+            this.tsmItemFuncionario.Size = new System.Drawing.Size(180, 22);
             this.tsmItemFuncionario.Text = "Funcionario";
             this.tsmItemFuncionario.Click += new System.EventHandler(this.tsmItemFuncionario_Click);
             // 
@@ -117,13 +117,13 @@
             this.cadastroEmpresaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.empresaToolStripMenuItem});
             this.cadastroEmpresaToolStripMenuItem.Name = "cadastroEmpresaToolStripMenuItem";
-            this.cadastroEmpresaToolStripMenuItem.Size = new System.Drawing.Size(114, 20);
-            this.cadastroEmpresaToolStripMenuItem.Text = "Cadastro Empresa";
+            this.cadastroEmpresaToolStripMenuItem.Size = new System.Drawing.Size(117, 20);
+            this.cadastroEmpresaToolStripMenuItem.Text = "Cadastrar Empresa";
             // 
             // empresaToolStripMenuItem
             // 
             this.empresaToolStripMenuItem.Name = "empresaToolStripMenuItem";
-            this.empresaToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
+            this.empresaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.empresaToolStripMenuItem.Text = "Empresa";
             this.empresaToolStripMenuItem.Click += new System.EventHandler(this.empresaToolStripMenuItem_Click);
             // 

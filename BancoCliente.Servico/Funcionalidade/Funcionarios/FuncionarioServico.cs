@@ -4,19 +4,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using bancoCliente.Dominio.Funcionalidades.Funcionarios;
+using BancoCliente.Infra.BancoDados.Funcionarios;
 
 namespace BancoCliente.Servico.Funcionalidade.Funcionarios
 {
     public class FuncionarioServico : IFuncionarioServico
     {
+        FuncionarioDAO _funcionario = new FuncionarioDAO();
+
         public Funcionario Adicionar(Funcionario entidade)
         {
-            throw new NotImplementedException();
+            return _funcionario.Adicionar(entidade);
         }
 
         public Funcionario Atualizar(Funcionario entidade)
         {
-            throw new NotImplementedException();
+            return _funcionario.Atualizar(entidade);
         }
 
         public Funcionario BuscarPorId(long id)
@@ -26,12 +29,12 @@ namespace BancoCliente.Servico.Funcionalidade.Funcionarios
 
         public IList<Funcionario> BuscarTodos()
         {
-            throw new NotImplementedException();
+            return _funcionario.BuscarTodos();
         }
 
         public void Deletar(Funcionario entidade)
         {
-            throw new NotImplementedException();
+            _funcionario.Deletar(entidade);
         }
     }
 }

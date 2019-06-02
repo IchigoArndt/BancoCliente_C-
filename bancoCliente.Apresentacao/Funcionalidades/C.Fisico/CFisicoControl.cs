@@ -19,6 +19,7 @@ namespace bancoCliente.Apresentacao.Funcionalidades.C.Fisico
         }
         public void PopularListagem(IList<ClienteFisico> Clientes)
         {
+
             lbClienteFisico.Items.Clear();
 
             foreach (var item in Clientes)

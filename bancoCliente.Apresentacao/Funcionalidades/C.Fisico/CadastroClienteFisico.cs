@@ -1,4 +1,5 @@
 ﻿
+using bancoCliente.Dominio.Enums;
 using bancoCliente.Dominio.Funcionalidades.Clientes;
 using bancoCliente.Dominio.Funcionalidades.Conta;
 using BancoCliente.Servico.Base;
@@ -21,6 +22,7 @@ namespace bancoCliente.Apresentacao.Funcionalidades.C.Fisico
         {
             InitializeComponent();
             btnGravar.Enabled = false;
+            PreencheComboEstados();
         }
 
         public CadastroClienteFisico(ClienteFisico cliente) : this()
@@ -28,11 +30,19 @@ namespace bancoCliente.Apresentacao.Funcionalidades.C.Fisico
             Cliente = cliente;
         }
 
-        public void carregaContaCombo(List<string> contas)
+        public void carregaContaCombo(List<ContaDominio> contas)
         {
-            foreach (var item in contas)
+                cmbConta.Items.Clear();
+                foreach (var item in contas)
+                {
+                    cmbConta.Items.Add(item);
+                }
+        }
+        private void PreencheComboEstados()
+        {
+            foreach (var item in Enum.GetValues(typeof(EnumUfs)))
             {
-                cmbConta.Items.Add(item.ToString());
+                ucmbUf.Items.Add(item);
             }
         }
 
@@ -53,12 +63,16 @@ namespace bancoCliente.Apresentacao.Funcionalidades.C.Fisico
                 utxtCpf.Text = Convert.ToString(_clienteServico.getCpf());
                 utxtLimiteSaque.Text = Convert.ToString(_clienteServico.getLimitePagamento());
                 utxtQtdLimite.Text = Convert.ToString(_clienteServico.getQuantidadeLimite());
+                uckbCartao.Checked = _clienteServico.isCartaoCredito();
+                uckbCheque.Checked = _clienteServico.isDireitoCheque();
+                cmbConta.SelectedItem = _clienteServico.getConta();
                 //Endereço
                 utxtRua.Text = _clienteServico.endereco.getLongradouro();
                 utxtBairro.Text = _clienteServico.endereco.getBairro();
                 utxtNumero.Text = Convert.ToString(_clienteServico.endereco.getNumero());
                 utxtCidade.Text = Convert.ToString(_clienteServico.endereco.getCidade());
                 utxtComplemento.Text = Convert.ToString(_clienteServico.endereco.getComplemento());
+                ucmbUf.SelectedItem = _clienteServico.endereco.getUf();
             }
         }
 
@@ -122,11 +136,18 @@ namespace bancoCliente.Apresentacao.Funcionalidades.C.Fisico
                 _clienteServico.setCpf(utxtCpf.Text);
                 _clienteServico.setLimitePagamento(Convert.ToInt32(utxtLimiteSaque.Text));
                 _clienteServico.setQuantidadeLimite(Convert.ToInt32(utxtQtdLimite.Text));
+                _clienteServico.setDireitoCheque(uckbCheque.Checked);
+                _clienteServico.setCartaoCredito(uckbCartao.Checked);
+                _clienteServico.setConta((ContaDominio)cmbConta.SelectedItem);
+                _clienteServico.setDireitoCheque(uckbCheque.Checked);
+                _clienteServico.setCartaoCredito(uckbCartao.Checked);
                 //Endereço
+                _clienteServico.endereco.setBairro(utxtBairro.Text);
                 _clienteServico.endereco.setLongradouro(utxtRua.Text);
                 _clienteServico.endereco.setNumero(Convert.ToInt32(utxtNumero.Text));
                 _clienteServico.endereco.setCidade(utxtCidade.Text);
                 _clienteServico.endereco.setComplemento(utxtComplemento.Text);
+                _clienteServico.endereco.setUf((EnumUfs)ucmbUf.SelectedItem);
             }
             catch (Exception ex)
             {
@@ -244,5 +265,6 @@ namespace bancoCliente.Apresentacao.Funcionalidades.C.Fisico
             else
                 btnGravar.Enabled = true;
         }
+
     }
 }

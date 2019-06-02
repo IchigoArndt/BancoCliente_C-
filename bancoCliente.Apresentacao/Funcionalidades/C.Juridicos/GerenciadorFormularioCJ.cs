@@ -1,5 +1,7 @@
 ﻿using bancoCliente.Dominio.Funcionalidades.Clientes;
 using BancoCliente.Servico.Funcionalidade.Clientes.Jurudico;
+using BancoCliente.Servico.Funcionalidade.Contas;
+using BancoCliente.Servico.Funcionalidade.Empresas;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,11 +15,14 @@ namespace bancoCliente.Apresentacao.Funcionalidades.ClientesJuridicos
     {
         CJControl _clienteFisicoControl;
         ClienteJuridicoServico _clienteServico = new ClienteJuridicoServico();
+        ContaServico _contaServico = new ContaServico();
+        EmpresaServico _empresaServico = new EmpresaServico();
 
         public override void Adicionar()
         {
             CadastroClientesJuridicos dialog = new CadastroClientesJuridicos();
-           
+            dialog.carregaContaCombo(_contaServico.BuscarTodos().ToList());
+            dialog.PreencheComboEmpresas(_empresaServico.BuscarTodos().ToList());
             DialogResult resultado = dialog.ShowDialog();
 
             if (resultado == DialogResult.OK)
@@ -28,18 +33,19 @@ namespace bancoCliente.Apresentacao.Funcionalidades.ClientesJuridicos
                     */
                     _clienteServico.Adicionar(dialog.Cliente);
                     //ListarLivros();
-                    MessageBox.Show("Abriu a Tela !");
+                   // MessageBox.Show("Abriu a Tela !");
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
                 }
+                Atualizar();
             }
         }
 
         public override void Atualizar()
         {
-            IList<ClienteJuridico> cliente = _clienteServico.BuscarTodos();
+            IList<ClienteJuridico> cliente = _clienteServico.BuscarTodos().OrderBy(C => C.id).ToList();
 
             _clienteFisicoControl.PopularListagem(cliente);
         }
@@ -60,6 +66,8 @@ namespace bancoCliente.Apresentacao.Funcionalidades.ClientesJuridicos
             if (clienteSelecionado != null)
             {
                 CadastroClientesJuridicos dialog = new CadastroClientesJuridicos(clienteSelecionado);
+                dialog.carregaContaCombo(_contaServico.BuscarTodos().ToList());
+                dialog.PreencheComboEmpresas(_empresaServico.BuscarTodos().ToList());
                 DialogResult result = dialog.ShowDialog();
                 if (result == DialogResult.OK)
                 {

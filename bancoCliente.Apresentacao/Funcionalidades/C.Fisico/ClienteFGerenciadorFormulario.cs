@@ -20,7 +20,7 @@ namespace bancoCliente.Apresentacao.Funcionalidades.C.Fisico
         {
             CadastroClienteFisico dialog = new CadastroClienteFisico();
 
-            dialog.carregaContaCombo(_contaServico.retornaTipoConta().ToList());
+            dialog.carregaContaCombo(_contaServico.BuscarTodos().ToList());
 
             DialogResult resultado = dialog.ShowDialog();
 
@@ -42,6 +42,7 @@ namespace bancoCliente.Apresentacao.Funcionalidades.C.Fisico
 
         public override void Atualizar()
         {
+
             IList<ClienteFisico> cliente = _clienteServico.BuscarTodos();
 
             _clienteFisicoControl.PopularListagem(cliente);
@@ -63,6 +64,7 @@ namespace bancoCliente.Apresentacao.Funcionalidades.C.Fisico
             if(clienteSelecionado != null)
             {
                 CadastroClienteFisico dialog = new CadastroClienteFisico(clienteSelecionado);
+                dialog.carregaContaCombo(_contaServico.BuscarTodos().ToList());
                 DialogResult result = dialog.ShowDialog();
                 if (result == DialogResult.OK)
                 {

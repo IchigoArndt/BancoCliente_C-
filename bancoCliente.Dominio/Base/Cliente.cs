@@ -9,8 +9,8 @@ namespace bancoCliente.Dominio.Base
     public abstract class Cliente : Pessoa
     {
         private float limite;
-        private Boolean direitoCheque;
-        private Boolean cartaoCredito;
+        private bool direitoCheque;
+        private bool cartaoCredito;
         #region Geters and Seters
         public float getLimite()
         {
@@ -20,19 +20,19 @@ namespace bancoCliente.Dominio.Base
         {
             this.limite = limite;
         }
-        public Boolean isDireitoCheque()
+        public bool isDireitoCheque()
         {
             return direitoCheque;
         }
-        public void setDireitoCheque(Boolean direitoCheque)
+        public void setDireitoCheque(bool direitoCheque)
         {
             this.direitoCheque = direitoCheque;
         }
-        public Boolean isCartaoCredito()
+        public bool isCartaoCredito()
         {
             return cartaoCredito;
         }
-        public void setCartaoCredito(Boolean cartaoCredito)
+        public void setCartaoCredito(bool cartaoCredito)
         {
             this.cartaoCredito = cartaoCredito;
         }

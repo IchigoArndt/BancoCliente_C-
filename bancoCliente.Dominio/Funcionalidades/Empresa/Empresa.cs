@@ -7,11 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace bancoCliente.Dominio.Funcionalidades.Empresa
+namespace bancoCliente.Dominio.Funcionalidades.Empresas
 {
     public class Empresa : Entidade
     {
-        private static int _Id;
+      /*private static int _Id;
         private string _razaoSocial;
         private string _nomeFantasia;
         private string _cnpj;
@@ -20,53 +20,45 @@ namespace bancoCliente.Dominio.Funcionalidades.Empresa
         private string _email;
         private Endereco _endereco;
         private List<Funcionario> _listaFuncionario;
+      */
 
         #region Getters and Setters
         //Geters
         public string Telefone
         {
-            get { return _telefone; }
-            set { _telefone = Telefone; }
+            get;set;
         }
         public string Email
         {
-            get { return _email; }
-            set { _email = Email; }
+            get; set;
         }
         public int Id
         {
-            get { return _Id; }
-            set { _Id = Id; }
+            get; set;
         }
         public string RazaoSocial
         {
-            get { return _razaoSocial; }
-            set { _razaoSocial = RazaoSocial; }
+            get; set;
         }
         public string NomeFantasia
         {
-            get { return _nomeFantasia; }
-            set { _nomeFantasia = NomeFantasia; }
+            get; set;
         }
         public string Cnpj
         {
-            get { return _cnpj; }
-            set { _cnpj = Cnpj; }
+            get; set;
         }
         public DateTime DataFund
         {
-            get { return _dataFund; }
-            set { _dataFund = DataFund; }
+            get; set;
         }
         public Endereco Endereco
         {
-            get { return _endereco; }
-            set { _endereco = Endereco; }
+            get; set;
         }
         public List<Funcionario> funcionarios
         {
-            get { return _listaFuncionario; }
-            set { _listaFuncionario = funcionarios; }
+            get; set;
         }
 
         public override void Validar()
@@ -76,7 +68,7 @@ namespace bancoCliente.Dominio.Funcionalidades.Empresa
 
         public override string ToString()
         {
-            return string.Format("ID: {0}" + "Razão Social: {1}" + "CNPJ: {2}", Id, RazaoSocial, Cnpj);
+            return string.Format("ID: {0}" + "  Razão Social: {1}" + "  CNPJ: {2}", Id, RazaoSocial, Cnpj);
         }
 
         #endregion

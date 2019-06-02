@@ -49,6 +49,10 @@ namespace bancoCliente.Dominio.Funcionalidades.Conta
         {
             return string.Format("ID: {0}"+" Tipo Conta: {1}" + "  Descrição: {2} ",Id,TipoConta,Tipos_contas[TipoConta]);
         }
+        public string RetornaDescricao()
+        {
+            return string.Format(Tipos_contas[TipoConta]);
+        }
 
     }
 }

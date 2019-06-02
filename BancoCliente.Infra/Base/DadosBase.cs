@@ -1,7 +1,8 @@
 ﻿using bancoCliente.Dominio.Base;
+using bancoCliente.Dominio.Enums;
 using bancoCliente.Dominio.Funcionalidades.Clientes;
 using bancoCliente.Dominio.Funcionalidades.Conta;
-using bancoCliente.Dominio.Funcionalidades.Empresa;
+using bancoCliente.Dominio.Funcionalidades.Empresas;
 using bancoCliente.Dominio.Funcionalidades.Funcionarios;
 using System;
 using System.Collections.Generic;
@@ -13,11 +14,12 @@ namespace BancoCliente.Infra.Base
 {
     public static class DadosBase
     {
-        public static List<ClienteFisico> clientesFisicos;
-        public static List<ClienteJuridico> clienteJuridicos;
-        public static List<ContaDominio> contasCadastradas;
-        public static List<Empresa> empresas;
+        public static List<ClienteFisico> clientesFisicos = new List<ClienteFisico>();
+        public static List<ClienteJuridico> clienteJuridicos = new List<ClienteJuridico>();
+        public static List<ContaDominio> contasCadastradas = new List<ContaDominio>();
+        public static List<Empresa> empresas = new List<Empresa>();
         public static List<Funcionario> funcionarios;
+
         private static Endereco RetornaEndereco()
         {
             Endereco endereco = new Endereco();
@@ -26,13 +28,48 @@ namespace BancoCliente.Infra.Base
             endereco.setComplemento("Casa");
             endereco.setLongradouro("Rua Francisco lima e silva");
             endereco.setNumero(218);
-            endereco.setUf(42);
+            endereco.setUf(EnumUfs.UF_SC);
 
             return endereco;
         }
+
+
+        public static List<ContaDominio> retornaContas()
+        {
+            //contasCadastradas = new List<ContaDominio>();
+            if(contasCadastradas.Count == 0)
+            {
+                ContaDominio conta1 = new ContaDominio
+                {
+                    Agencia = "0002220",
+                    Id = 1,
+                    taxaManutencao = 50,
+                    TipoConta = 0,
+                };
+                ContaDominio conta2 = new ContaDominio
+                {
+                    Agencia = "0062430",
+                    Id = 2,
+                    taxaManutencao = 30,
+                    TipoConta = 2,
+                };
+
+                contasCadastradas.Add(conta1);
+                contasCadastradas.Add(conta2);
+                return contasCadastradas.OrderBy(C => C.Id).ToList();
+            }
+            else
+            {
+                return contasCadastradas.OrderBy(C => C.Id).ToList();
+            }
+           
+        }
+
+
         public static List<ClienteFisico> retornaClientesFisicos()
         {
-            clientesFisicos = new List<ClienteFisico>();
+            //clientesFisicos = new List<ClienteFisico>();
+            contasCadastradas = retornaContas();
 
             ClienteFisico cliente1 = new ClienteFisico
             {
@@ -41,12 +78,14 @@ namespace BancoCliente.Infra.Base
                 nome = "João",
                 telefone = "32230583",
                 endereco = RetornaEndereco(),
-                dataNasc = Convert.ToDateTime("03/08/1998")
+                dataNasc = Convert.ToDateTime("03/08/1998"),
             };
             cliente1.setCpf("0000022211231");
             cliente1.setLimite(100);
             cliente1.setLimitePagamento(2000);
             cliente1.setQuantidadeLimite(300);
+            cliente1.setConta(contasCadastradas[0]);
+
             ClienteFisico cliente2 = new ClienteFisico
             {
                 email = "ichigoArndt@gmail.com",
@@ -54,12 +93,14 @@ namespace BancoCliente.Infra.Base
                 nome = "Bruna",
                 telefone = "32231585",
                 endereco = RetornaEndereco(),
-                dataNasc = Convert.ToDateTime("24/12/2000")
+                dataNasc = Convert.ToDateTime("24/12/2000"),
             };
             cliente2.setCpf("21212121232311");
-            cliente1.setLimite(100);
-            cliente1.setLimitePagamento(2000);
-            cliente1.setQuantidadeLimite(300);
+            cliente2.setLimite(100);
+            cliente2.setLimitePagamento(2000);
+            cliente2.setQuantidadeLimite(300);
+            cliente2.setConta(contasCadastradas[1]);
+
             clientesFisicos.Add(cliente1);
             clientesFisicos.Add(cliente2);
 
@@ -68,7 +109,10 @@ namespace BancoCliente.Infra.Base
         public static List<ClienteJuridico> retornaClientesJuridicos()
         {
 
-            clienteJuridicos = new List<ClienteJuridico>();
+            //clienteJuridicos = new List<ClienteJuridico>();
+            contasCadastradas = retornaContas();
+            empresas = new List<Empresa>();
+            empresas = retornaEmpresas();
 
             ClienteJuridico cliente1 = new ClienteJuridico
             {
@@ -81,6 +125,8 @@ namespace BancoCliente.Infra.Base
             };
             cliente1.setCnpj("03208444000105");
             cliente1.setLimite(1000);
+            cliente1.setConta(contasCadastradas[0]);
+            cliente1.empresa = empresas[0];
 
             ClienteJuridico cliente2 = new ClienteJuridico
             {
@@ -93,67 +139,51 @@ namespace BancoCliente.Infra.Base
             };
             cliente2.setCnpj("38301094000101");
             cliente2.setLimite(2000);
+            cliente2.setConta(contasCadastradas[1]);
+            cliente2.empresa = empresas[1];
 
             clienteJuridicos.Add(cliente1);
             clienteJuridicos.Add(cliente2);
 
             return clienteJuridicos;
         }
-        public static List<ContaDominio> retornaContas()
-        {
-            contasCadastradas = new List<ContaDominio>();
-
-            ContaDominio conta1 = new ContaDominio
-            {
-                Agencia = "0002220",
-                Id = 1,
-                taxaManutencao = 50,
-                TipoConta = 0,
-            };
-            ContaDominio conta2 = new ContaDominio
-            {
-                Agencia = "0062430",
-                Id = 2,
-                taxaManutencao = 30,
-                TipoConta = 2,
-            };
-            contasCadastradas.Add(conta1);
-            contasCadastradas.Add(conta2);
-
-            return contasCadastradas.OrderBy(C => C.Id).ToList();
-        }
+       
         public static List<Empresa> retornaEmpresas()
         {
 
-            empresas = new List<Empresa>();
+            //empresas = new List<Empresa>();
 
-            Empresa empresa1 = new Empresa
+            if (empresas.Count == 0)
             {
-                Cnpj = "37774472000101",
-                DataFund = Convert.ToDateTime("23/05/1930"),
-                Email = "EmpresaFalsa@gmail.com",
-                Endereco = RetornaEndereco(),
-                Id = 1,
-                NomeFantasia = "Empresa Original",
-                RazaoSocial = "Empresa Falsa",
-                Telefone = "32210453",
-                funcionarios = retornaFuncionarios()
-            };
-            Empresa empresa2 = new Empresa
-            {
-                Cnpj = "37774472000101",
-                DataFund = Convert.ToDateTime("23/10/1955"),
-                Email = "EmpresaFalsaFake@gmail.com",
-                Endereco = RetornaEndereco(),
-                Id = 2,
-                NomeFantasia = "Empresa Cópia Original",
-                RazaoSocial = "Empresa Falsa Original",
-                Telefone = "31210353",
-                funcionarios = retornaFuncionarios()
-            };
-            empresas.Add(empresa1);
-            empresas.Add(empresa2);
-            return empresas;
+                Empresa empresa1 = new Empresa
+                {
+                    Cnpj = "37774472000101",
+                    DataFund = Convert.ToDateTime("23/05/1930"),
+                    Email = "EmpresaFalsa@gmail.com",
+                    Endereco = RetornaEndereco(),
+                    Id = 1,
+                    NomeFantasia = "Empresa Original",
+                    RazaoSocial = "Empresa Falsa",
+                    Telefone = "32210453",
+                    funcionarios = retornaFuncionarios()
+                };
+                Empresa empresa2 = new Empresa
+                {
+                    Cnpj = "37774472000101",
+                    DataFund = Convert.ToDateTime("23/10/1955"),
+                    Email = "EmpresaFalsaFake@gmail.com",
+                    Endereco = RetornaEndereco(),
+                    Id = 2,
+                    NomeFantasia = "Empresa Cópia Original",
+                    RazaoSocial = "Empresa Falsa Original",
+                    Telefone = "31210353",
+                    funcionarios = retornaFuncionarios()
+                };
+                empresas.Add(empresa1);
+                empresas.Add(empresa2);
+                return empresas;
+            }else
+                return empresas;
         }
         public static List<Funcionario> retornaFuncionarios()
         {
@@ -164,7 +194,7 @@ namespace BancoCliente.Infra.Base
             {
                 Cargo = "Testador",
                 CPF = "04189331031",
-                id = 1,
+                Id = 1,
                 email = "Testador1@gmail.com",
                 dataNasc = Convert.ToDateTime("03/08/1997"),
                 endereco = RetornaEndereco(),
@@ -176,7 +206,7 @@ namespace BancoCliente.Infra.Base
             {
                 Cargo = "Desenvolvedor",
                 CPF = "04169531031",
-                id = 2,
+                Id = 2,
                 email = "Dev1@gmail.com",
                 dataNasc = Convert.ToDateTime("03/08/1990"),
                 endereco = RetornaEndereco(),

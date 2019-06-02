@@ -10,15 +10,15 @@ namespace bancoCliente.Dominio.Base
     public class Endereco
     {
         private int id;
-        private String logradouro;
+        private string logradouro;
         private int numero;
-        private String complemento;
-        private String bairro;
-        private String cidade;
+        private string complemento;
+        private string bairro;
+        private string cidade;
         private EnumUfs enumUf;
         private int uf;
         #region
-        public String getLongradouro()
+        public string getLongradouro()
         {
             return logradouro;
         }
@@ -26,24 +26,24 @@ namespace bancoCliente.Dominio.Base
         {
             return numero;
         }
-        public String getComplemento()
+        public string getComplemento()
         {
             return complemento;
         }
-        public String getBairro()
+        public string getBairro()
         {
             return bairro;
         }
-        public String getCidade()
+        public string getCidade()
         {
             return cidade;
         }
-        public int getUf()
+        public EnumUfs getUf()
         {
-            return uf;
+            return enumUf;
         }
         //
-        public String setLongradouro(String Longradouro)
+        public string setLongradouro(string Longradouro)
         {
             return logradouro = Longradouro;
         }
@@ -51,28 +51,29 @@ namespace bancoCliente.Dominio.Base
         {
             return numero = Numero;
         }
-        public String setComplemento(String Complemento)
+        public string setComplemento(string Complemento)
         {
             return complemento = Complemento;
         }
-        public String setBairro(String Bairro)
+        public string setBairro(string Bairro)
         {
             return bairro = Bairro;
         }
-        public String setCidade(String Cidade)
+        public string setCidade(string Cidade)
         {
             return cidade = Cidade;
         }
-        public int setUf(int UF)
+        public EnumUfs setUf(EnumUfs uf)
         {
-            enumUf = (EnumUfs)Enum.Parse(typeof(EnumUfs),uf.ToString());
+            enumUf = uf;
 
-            return uf = UF;
+            return uf = enumUf;
         }
+
         #endregion
-        public String toString()
+        public override string ToString()
         {
-            return "Rua:" + this.logradouro + "\n" + "Numero" + numero + "\n" + "Bairro :" + this.bairro + "\n" + "Cidade :" + this.cidade + "\n" + "Complemento :" + this.complemento + "\n" + "UF :" + this.enumUf;
+            return string.Format("Rua:" + this.logradouro + "\n" + "Numero" + numero + "\n" + "Bairro :" + this.bairro + "\n" + "Cidade :" + this.cidade + "\n" + "Complemento :" + this.complemento + "\n" + "UF :" + this.enumUf);
         }
     }
 }

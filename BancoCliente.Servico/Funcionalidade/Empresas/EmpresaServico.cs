@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using bancoCliente.Dominio.Funcionalidades.Empresa;
+using bancoCliente.Dominio.Funcionalidades.Empresas;
 using BancoempresaDominio.Infra.BancoDados.Empresas;
 
 namespace BancoCliente.Servico.Funcionalidade.Empresas

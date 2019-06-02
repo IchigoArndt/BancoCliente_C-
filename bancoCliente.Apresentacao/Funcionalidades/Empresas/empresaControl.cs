@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using bancoCliente.Dominio.Funcionalidades.Empresa;
+using bancoCliente.Dominio.Funcionalidades.Empresas;
 
 namespace bancoCliente.Apresentacao.Funcionalidades.Empresas
 {

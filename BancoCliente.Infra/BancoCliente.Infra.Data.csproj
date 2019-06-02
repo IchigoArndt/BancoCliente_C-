@@ -45,13 +45,12 @@
     <Compile Include="BancoDados\Cliente\Jurudico\ClienteJuridicoDAO.cs" />
     <Compile Include="BancoDados\Conta\ContaDAO.cs" />
     <Compile Include="BancoDados\Empresa\EmpresaDAO.cs" />
+    <Compile Include="BancoDados\Funcionario\FuncionarioDAO.cs" />
     <Compile Include="Base\DadosBase.cs" />
     <Compile Include="Base\IDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="BancoDados\Funcionario\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\bancoCliente.Dominio\bancoCliente.Dominio.csproj">
       <Project>{4A181F52-F54E-415B-9935-DB5C7F07E29C}</Project>

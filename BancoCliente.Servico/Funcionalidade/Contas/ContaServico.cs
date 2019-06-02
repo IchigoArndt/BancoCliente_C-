@@ -37,11 +37,5 @@ namespace BancoCliente.Servico.Funcionalidade.Contas
         {
             _conta.Deletar(entidade);
         }
-
-        public IList<string> retornaTipoConta()
-        {
-            return _conta.retornaTipoContas();
-        }
-
     }
 }

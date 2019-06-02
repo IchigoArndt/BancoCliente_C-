@@ -34,7 +34,7 @@
             // lbEmpresa
             // 
             this.lbEmpresa.FormattingEnabled = true;
-            this.lbEmpresa.Location = new System.Drawing.Point(0, -6);
+            this.lbEmpresa.Location = new System.Drawing.Point(0, 7);
             this.lbEmpresa.Name = "lbEmpresa";
             this.lbEmpresa.Size = new System.Drawing.Size(686, 329);
             this.lbEmpresa.TabIndex = 0;
@@ -45,7 +45,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.lbEmpresa);
             this.Name = "empresaControl";
-            this.Size = new System.Drawing.Size(686, 322);
+            this.Size = new System.Drawing.Size(686, 329);
             this.ResumeLayout(false);
 
         }

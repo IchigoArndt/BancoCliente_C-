@@ -1,4 +1,5 @@
-﻿using bancoCliente.Dominio.Funcionalidades.Funcionarios;
+﻿using bancoCliente.Dominio.Enums;
+using bancoCliente.Dominio.Funcionalidades.Funcionarios;
 using BancoCliente.Servico.Base;
 using System;
 using System.Collections.Generic;
@@ -20,23 +21,36 @@ namespace bancoCliente.Apresentacao.Funcionalidades.Funcionarios
         public CadastroFuncionario()
         {
             InitializeComponent();
+            CarregaEstadosCombo();
         }
+
+        public CadastroFuncionario(Funcionario funcionarioDominio) : this()
+        {
+            Func = funcionarioDominio;
+        }
+
 
         public Funcionario Func
         {
             get { return _Func; }
             set
             {
+                _Func = value;
+
                 utxtNome.Text = _Func.getNome();
                 utxtData.DateTime = _Func.getDataNasc();
                 utxtEmail.Text = _Func.getEmail();
                 utxtTel.Text = Convert.ToString(_Func.getTelefone());
                 utxtCpf.Text = Convert.ToString(_Func.CPF);
+                utxtSalario.Text = _Func.Salario.ToString();
+                utxtCargo.Text = _Func.Cargo;
                 //Endereço
+                utxtBairro.Text = _Func.endereco.getBairro();
                 utxtRua.Text = _Func.endereco.getLongradouro();
                 utxtNumero.Text = Convert.ToString(_Func.endereco.getNumero());
                 utxtCidade.Text = Convert.ToString(_Func.endereco.getCidade());
                 utxtComplemento.Text = Convert.ToString(_Func.endereco.getComplemento());
+                ucmbUf.SelectedItem = _Func.endereco.getUf();
             }
         }
 
@@ -98,11 +112,15 @@ namespace bancoCliente.Apresentacao.Funcionalidades.Funcionarios
                 _Func.setEmail(utxtEmail.Text);
                 _Func.setTelefone(utxtTel.Text);
                 _Func.CPF = utxtCpf.Text;
+                _Func.Cargo = utxtCargo.Text;
+                _Func.Salario = Convert.ToInt32(utxtSalario.Text);
                 //Endereço
+                _Func.endereco.setBairro(utxtBairro.Text);
                 _Func.endereco.setLongradouro(utxtRua.Text);
                 _Func.endereco.setNumero(Convert.ToInt32(utxtNumero.Text));
                 _Func.endereco.setCidade(utxtCidade.Text);
                 _Func.endereco.setComplemento(utxtComplemento.Text);
+                _Func.endereco.setUf((EnumUfs)ucmbUf.SelectedItem);
             }
             catch (Exception ex)
             {
@@ -110,6 +128,15 @@ namespace bancoCliente.Apresentacao.Funcionalidades.Funcionarios
                 throw;
             }
         }
+
+        private void CarregaEstadosCombo()
+        {
+            foreach (var item in Enum.GetValues(typeof(EnumUfs)))
+            {
+                ucmbUf.Items.Add(item);
+            }
+        }
+
 
         private void utxtEmail_Leave(object sender, EventArgs e)
         {
@@ -186,6 +213,11 @@ namespace bancoCliente.Apresentacao.Funcionalidades.Funcionarios
             }
             else
                 ubtnGravar.Enabled = true;
+        }
+
+        private void ubtnSair_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

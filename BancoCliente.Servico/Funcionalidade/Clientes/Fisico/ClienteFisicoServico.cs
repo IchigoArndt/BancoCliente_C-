@@ -29,7 +29,7 @@ namespace BancoCliente.Servico.Funcionalidade.Clientes.Fisico
 
         public IList<ClienteFisico> BuscarTodos()
         {
-            return _clienteDAO.BuscarTodos();
+            return _clienteDAO.BuscarTodos().OrderBy(C => C.id).ToList();
         }
 
         public void Deletar(ClienteFisico entidade)

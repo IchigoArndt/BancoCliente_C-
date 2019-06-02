@@ -1,4 +1,5 @@
-﻿using BancoCliente.Servico.Funcionalidade.Funcionarios;
+﻿using bancoCliente.Dominio.Funcionalidades.Funcionarios;
+using BancoCliente.Servico.Funcionalidade.Funcionarios;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,8 +12,9 @@ namespace bancoCliente.Apresentacao.Funcionalidades.Funcionarios
     public class GerenciadorFormularioFuncionario : GerenciadorFormulario
     {
         CadastroFuncionario Conta = new CadastroFuncionario();
-        FuncionarioServico Func = new FuncionarioServico();
-        funcionarioControl FunControl;
+        FuncionarioServico _funcServico = new FuncionarioServico();
+        funcionarioControl _funControl;
+
         public override void Adicionar()
         {
             DialogResult result = Conta.ShowDialog();
@@ -20,37 +22,59 @@ namespace bancoCliente.Apresentacao.Funcionalidades.Funcionarios
             {
                 try
                 {
-                    Func.Adicionar(Conta.Func);
+                    _funcServico.Adicionar(Conta.Func);
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
                 }
+                Atualizar();
             }
         }
 
         public override void Atualizar()
         {
-            //
+            IList<Funcionario> cliente = _funcServico.BuscarTodos();
+
+            _funControl.PopularListagem(cliente);
         }
 
         public override UserControl CarregarListagem()
         {
-            if (FunControl == null)
+            if (_funControl == null)
             {
-                FunControl = new funcionarioControl();
+                _funControl = new funcionarioControl();
             }
-            return FunControl;
+            return _funControl;
         }
 
         public override void Editar()
         {
-            throw new NotImplementedException();
+            Funcionario funcionarioSelecionado = _funControl.ObtemDisciplinaSelecionada();
+            if (funcionarioSelecionado != null)
+            {
+                CadastroFuncionario dialog = new CadastroFuncionario(funcionarioSelecionado);
+                DialogResult result = dialog.ShowDialog();
+                if (result == DialogResult.OK)
+                {
+                    _funcServico.Atualizar(funcionarioSelecionado);
+                }
+            }
+            Atualizar();
         }
 
         public override void Excluir()
         {
-            throw new NotImplementedException();
+            Funcionario funcionarioSelecionado = _funControl.ObtemDisciplinaSelecionada();
+            if (funcionarioSelecionado != null)
+            {
+                _funcServico.Deletar(funcionarioSelecionado);
+                Atualizar();
+            }
+            else
+            {
+                MessageBox.Show("Não foi selecionado cliente nenhum para a exclusão");
+            }
         }
 
         public override string ObtemTipoCadastro()

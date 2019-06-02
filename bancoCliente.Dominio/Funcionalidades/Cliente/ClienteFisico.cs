@@ -1,4 +1,5 @@
 ﻿using bancoCliente.Dominio.Base;
+using bancoCliente.Dominio.Funcionalidades.Conta;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,11 +13,23 @@ namespace bancoCliente.Dominio.Funcionalidades.Clientes
         private string cpf;
         private int quantidadeLimite;
         private float limitePagamento;
+        private ContaDominio conta;
         #region Geters and Seters
         
         public ClienteFisico()
         {
-            this.endereco = new Endereco();
+            endereco = new Endereco();
+            conta = new ContaDominio();
+        }
+
+        public void setConta(ContaDominio Conta)
+        {
+            conta = Conta;
+        }
+
+        public ContaDominio getConta()
+        {
+            return conta;
         }
 
         public string getCpf()
@@ -51,7 +64,7 @@ namespace bancoCliente.Dominio.Funcionalidades.Clientes
 
         public override string ToString()
         {
-            return string.Format("ID:{0} CPF:{1} Nome:{2}", id, getCpf(), nome);
+            return string.Format("ID:{0}" +" CPF:{1}"+ "  Nome:{2}"+ "  ContaID:{3}" + " Descrição: {4}", id, getCpf(), nome, conta.Id,conta.RetornaDescricao());
         }
 
     }

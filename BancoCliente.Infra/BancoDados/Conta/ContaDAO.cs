@@ -52,11 +52,6 @@ namespace BancoCliente.Infra.BancoDados.Conta
                 return Contas;
         }
 
-        public IList<string> retornaTipoContas()
-        {
-            return conta.retornaTipoConta();
-        }
-
         public void Deletar(ContaDominio entidade)
         {
             Contas.Remove(entidade);
