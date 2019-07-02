@@ -63,6 +63,7 @@
   <ItemGroup>
     <Compile Include="Base\ValidacaoCampos.cs" />
     <Compile Include="Funcionalidade\Clientes\Fisico\ClienteFisicoServico.cs" />
+    <Compile Include="Funcionalidade\Clientes\Fisico\ClienteFisicoValidacao.cs" />
     <Compile Include="Funcionalidade\Clientes\Fisico\IClienteFisicoServico.cs" />
     <Compile Include="Base\IServico.cs" />
     <Compile Include="Funcionalidade\Clientes\Jurudico\ClienteJuridicoServico.cs" />

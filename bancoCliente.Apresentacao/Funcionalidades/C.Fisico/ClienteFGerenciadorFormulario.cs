@@ -15,6 +15,7 @@ namespace bancoCliente.Apresentacao.Funcionalidades.C.Fisico
         CFisicoControl _clienteFisicoControl;
         ClienteFisicoServico _clienteServico = new ClienteFisicoServico();
         ContaServico _contaServico = new ContaServico();
+        ClienteFisicoValidacao clienteFisicoValidacao;
 
         public override void Adicionar() 
         {
@@ -28,6 +29,10 @@ namespace bancoCliente.Apresentacao.Funcionalidades.C.Fisico
             {
                 try
                 {
+                    if (clienteFisicoValidacao == null)
+                        clienteFisicoValidacao = new ClienteFisicoValidacao(dialog.Cliente);
+                    //Final if
+                   
                     _clienteServico.Inserir(dialog.Cliente);
                     
                     //MessageBox.Show("Abriu a Tela !");

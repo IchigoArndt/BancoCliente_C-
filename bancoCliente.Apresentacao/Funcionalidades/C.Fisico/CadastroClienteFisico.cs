@@ -158,13 +158,7 @@ namespace bancoCliente.Apresentacao.Funcionalidades.C.Fisico
 
         private void utxtEmail_Leave(object sender, EventArgs e)
         {
-            if (!ValidacaoCampos.ValidarEmail(utxtEmail.Text))
-            {
-                lblValidacao.Text = "O Email informado não está valido";
-                btnGravar.Enabled = false;
-            }
-            else
-                btnGravar.Enabled = true;
+
         }
 
         private void utxtRua_Leave(object sender, EventArgs e)

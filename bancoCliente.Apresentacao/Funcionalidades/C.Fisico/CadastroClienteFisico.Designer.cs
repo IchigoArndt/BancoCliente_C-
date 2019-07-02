@@ -132,6 +132,7 @@
             this.utxtEmail.Name = "utxtEmail";
             this.utxtEmail.Size = new System.Drawing.Size(222, 19);
             this.utxtEmail.TabIndex = 6;
+            this.utxtEmail.ValueChanged += new System.EventHandler(this.utxtEmail_Leave);
             this.utxtEmail.Leave += new System.EventHandler(this.utxtEmail_Leave);
             // 
             // utxtTel
@@ -141,6 +142,7 @@
             this.utxtTel.Name = "utxtTel";
             this.utxtTel.Size = new System.Drawing.Size(222, 19);
             this.utxtTel.TabIndex = 5;
+            this.utxtTel.ValueChanged += new System.EventHandler(this.utxtTel_Leave);
             this.utxtTel.Leave += new System.EventHandler(this.utxtTel_Leave);
             // 
             // utxtNome
@@ -150,6 +152,7 @@
             this.utxtNome.Name = "utxtNome";
             this.utxtNome.Size = new System.Drawing.Size(222, 19);
             this.utxtNome.TabIndex = 4;
+            this.utxtNome.ValueChanged += new System.EventHandler(this.utxtNome_ValueChanged);
             this.utxtNome.Leave += new System.EventHandler(this.utxtNome_ValueChanged);
             // 
             // ulblDnasc
