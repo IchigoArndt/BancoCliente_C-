@@ -4,37 +4,44 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using bancoCliente.Dominio.Funcionalidades.Clientes;
+using bancoCliente.Dominio.Funcionalidades.IClienteFisico;
 using BancoCliente.Infra.BancoDados.Cliente.Fisico;
+using BancoCliente.Infra.Contexto;
+using BancoCliente.Infra.Funcionalidades.ClienteFisicosReposiorios;
 
 namespace BancoCliente.Servico.Funcionalidade.Clientes.Fisico
 {
     public class ClienteFisicoServico : IClienteFisicoServico
     {
-        ClienteFisicoDAO _clienteDAO = new ClienteFisicoDAO();
+        //ClienteFisicoDAO _repositorioCliente = new ClienteFisicoDAO();
 
-        public ClienteFisico Adicionar(ClienteFisico entidade)
+       public static BancoClienteContexto _contexto = new BancoClienteContexto();
+
+        private readonly ClienteFisicoRepositorio _repositorioCliente = new ClienteFisicoRepositorio(_contexto) ;
+
+        public ClienteFisico Inserir (ClienteFisico entidade)
         {
-            return _clienteDAO.Adicionar(entidade);
+            return _repositorioCliente.Inserir(entidade);
         }
 
-        public ClienteFisico Atualizar(ClienteFisico entidade)
+        public bool Atualizar(ClienteFisico entidade)
         {
-            return _clienteDAO.Atualizar(entidade);
+            return _repositorioCliente.Atualizar(entidade);
         }
 
-        public ClienteFisico BuscarPorId(long id)
+        public ClienteFisico PegarPorId(int id)
         {
-            throw new NotImplementedException();
+            return _repositorioCliente.PegarPorId(id);
         }
 
-        public IList<ClienteFisico> BuscarTodos()
+        public bool Deletar(ClienteFisico entidade)
         {
-            return _clienteDAO.BuscarTodos().OrderBy(C => C.id).ToList();
+            return _repositorioCliente.Deletar(entidade.id);
         }
 
-        public void Deletar(ClienteFisico entidade)
+        public IQueryable<ClienteFisico> PegarTodos()
         {
-            _clienteDAO.Deletar(entidade);
+            return _repositorioCliente.PegarTodos();
         }
     }
 }

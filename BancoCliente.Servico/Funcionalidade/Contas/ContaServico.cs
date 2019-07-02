@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using bancoCliente.Dominio.Funcionalidades.Conta;
+using bancoCliente.Dominio.Funcionalidades.IContas;
 using BancoCliente.Infra.BancoDados.Conta;
 
 namespace BancoCliente.Servico.Funcionalidade.Contas
@@ -13,29 +14,31 @@ namespace BancoCliente.Servico.Funcionalidade.Contas
 
         ContaDAO _conta = new ContaDAO();
 
-        public ContaDominio Adicionar(ContaDominio entidade)
+        private readonly IConta _repositorioConta;
+
+        public ContaDominio Inserir(ContaDominio entidade)
         {
-           return  _conta.Adicionar(entidade);
+           return _repositorioConta.Inserir(entidade);
         }
 
-        public ContaDominio Atualizar(ContaDominio entidade)
+        public bool Atualizar(ContaDominio entidade)
         {
-            return _conta.Atualizar(entidade);
+            return _repositorioConta.Atualizar(entidade);
         }
 
-        public ContaDominio BuscarPorId(long id)
+        public ContaDominio PegarPorId(int id)
         {
-            throw new NotImplementedException();
+            return _repositorioConta.PegarPorId(id);
         }
 
-        public IList<ContaDominio> BuscarTodos()
+        public IQueryable<ContaDominio> PegarTodos()
         {
-            return _conta.BuscarTodos();
+            return _repositorioConta.PegarTodos();
         }
 
-        public void Deletar(ContaDominio entidade)
+        public bool Deletar(ContaDominio entidade)
         {
-            _conta.Deletar(entidade);
+            return _repositorioConta.Deletar(entidade);
         }
     }
 }

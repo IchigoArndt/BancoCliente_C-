@@ -2,6 +2,7 @@
 using BancoCliente.Infra.Base;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,65 +11,109 @@ namespace BancoCliente.Infra.BancoDados.Cliente.Fisico
 {
     public class ClienteFisicoDAO : IDAO<ClienteFisico>
     {
+        #region Queries
+        private string Insert = @"INSERT INTO TBClienteFisico (Id,Nome,Email,DataNasc,Limite,Cheque,Cartao,CPF,LimitePagamento,QuantidadePagamento,IdConta) 
+                                  VALUES (@id,@nome,@email,@data,@limite,@cheque,@cartao,@cpf,@limiteP,@quantidadeP,@idConta)";
+        private string GetAll = @"SELECT * FROM TBClienteFisico ORDER BY Id";
+        private string GetById = @"SELECT * FROM TBClienteFisico WHERE Id = @id";
+        private string Delete = @"DELETE FROM TBClienteFisico WHERE id = @id";
+        private string Update = @"UPDATE TBClienteFisico SET 
+                                  Nome = @nome,
+                                  Email = @email,
+                                  DataNasc = @data,
+                                  Limite = @limite,
+                                  Cheque = @cheque,
+                                  Cartao = @cartao,
+                                  CPF = @cpf,
+                                  LimitePagamento = @limiteP,
+                                  QuantidadePagamento = @quantidadeP,
+                                  IdConta = @idConta";
+        private const string GetLastOne = @"SELECT top(1) * FROM TBClienteFisico ORDER BY Id DESC";
+        #endregion
 
-        public static List<ClienteFisico> ClientesFiscos;
-
-        public ClienteFisico Adicionar(ClienteFisico entidade)
+        public ClienteFisico Adicionar(ClienteFisico ClienteFisico)
         {
-            ClienteFisico cliente = ClientesFiscos.Last();
-            entidade.id = cliente.id + 1;
-            ClientesFiscos.Add(entidade);
-            return entidade;
+            DB.Add(Insert, GetParam(ClienteFisico));
+
+            long id = ObterUltimoId();
+
+            ClienteFisico.Id = id;
+
+            return ClienteFisico;
         }
 
-        public ClienteFisico Atualizar(ClienteFisico entidade)
+        public long ObterUltimoId()
         {
-            ClienteFisico cliente = ClientesFiscos.Find(C => C.id == entidade.id);
-            ClientesFiscos.Remove(cliente);
-            cliente.dataNasc = entidade.dataNasc;
-            cliente.email = entidade.email;
-            cliente.endereco = entidade.endereco;
-            cliente.nome = entidade.nome;
-            cliente.telefone = entidade.telefone;
-            cliente.setCartaoCredito(entidade.isCartaoCredito());
-            cliente.setDireitoCheque(entidade.isDireitoCheque());
-            cliente.setCpf(entidade.getCpf());
-            cliente.setLimite(entidade.getLimite());
-            cliente.setLimitePagamento(entidade.getLimitePagamento());
-            cliente.setQuantidadeLimite(entidade.getQuantidadeLimite());
-            cliente.setId(entidade.getId());
-            cliente.setConta(entidade.getConta());
-            /////////////////////////////
-            ClientesFiscos.Add(cliente);
-            ////////////////////////////
-            return cliente;
-        }
+            long id = 0;
+            IList<ClienteFisico> ClienteFisicos = DB.GetAll(GetLastOne, Converter);
 
-        public ClienteFisico BuscarPorId(long id)
-        {
-            return ClientesFiscos.Find(C => C.id == id);
-        }
-
-        public IList<ClienteFisico> BuscarTodos()
-        {
-            if (ClientesFiscos == null)
+            foreach (var item in ClienteFisicos)
             {
-                ClientesFiscos = RetornaClientes();
-
-                return ClientesFiscos;
+                id = item.Id;
             }
-            else
-                return ClientesFiscos;
+
+            return id;
         }
 
-        public void Deletar(ClienteFisico entidade)
+        public ClienteFisico Atualizar(ClienteFisico ClienteFisico)
         {
-            ClientesFiscos.Remove(entidade);
+            DB.Update(Update, GetParam(ClienteFisico));
+
+            return ClienteFisico;
         }
 
-        public List<ClienteFisico> RetornaClientes()
+        public int Excluir(int ClienteFisicoId)
         {
-            return DadosBase.retornaClientesFisicos();
+            var dic = new Dictionary<string, object>();
+            dic.Add("Id", ClienteFisicoId);
+
+            DB.Delete(Delete, dic);
+
+            return ClienteFisicoId;
         }
+
+       
+        public IList<ClienteFisico> ObterTodosItens()
+        {
+            return DB.GetAll(GetAll, Converter);
+        }
+
+        private static ClienteFisico Converter(IDataReader _reader)
+        {
+            ClienteFisico ClienteFisico = new ClienteFisico();
+
+            ClienteFisico.Id = Convert.ToInt32(_reader["Id"]);
+            ClienteFisico.nome = Convert.ToString(_reader["Nome"]);
+            ClienteFisico.email = Convert.ToString(_reader["Email"]);
+            ClienteFisico.dataNasc = Convert.ToDateTime(_reader["DataNasc"]);
+            ClienteFisico.limite = float.Parse(Convert.ToString(_reader["Limite"]));
+            ClienteFisico.direitoCheque = Convert.ToBoolean(_reader["Cheque"]);
+            ClienteFisico.cartaoCredito = Convert.ToBoolean(_reader["Cartao"]);
+            ClienteFisico.cpf = Convert.ToString(_reader["CPF"]);
+            ClienteFisico.limitePagamento = float.Parse(Convert.ToString(_reader["LimitePagamento"]));
+            ClienteFisico.quantidadeLimite = Convert.ToInt32(_reader["QuantidadePagamento"]);
+            ClienteFisico.IdConta = Convert.ToInt32(_reader["IdConta"]);
+
+            return ClienteFisico;
+        }
+
+        public Dictionary<string, object> GetParam(ClienteFisico ClienteFisico)
+        {
+            var dic = new Dictionary<string, object>();
+            dic.Add("Id", ClienteFisico.Id);
+            dic.Add("Nome", ClienteFisico.nome);
+            dic.Add("Email", ClienteFisico.email);
+            dic.Add("Limite", ClienteFisico.limite);
+            dic.Add("Cheque", ClienteFisico.direitoCheque);
+            dic.Add("Cartao", ClienteFisico.cartaoCredito);
+            dic.Add("CPF", ClienteFisico.cpf);
+            dic.Add("LimitePagamento", ClienteFisico.limitePagamento);
+            dic.Add("QuantidadePagamento", ClienteFisico.quantidadeLimite);
+            dic.Add("IdConta", ClienteFisico.IdConta);
+
+            return dic;
+        }
+
+       
     }
 }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using bancoCliente.Dominio.Funcionalidades.Clientes;
+using bancoCliente.Dominio.Funcionalidades.IClienteJuridico;
 using BancoCliente.Infra.BancoDados.Cliente.Jurudico;
 
 namespace BancoCliente.Servico.Funcionalidade.Clientes.Jurudico
@@ -13,29 +14,31 @@ namespace BancoCliente.Servico.Funcionalidade.Clientes.Jurudico
 
         ClienteJuridicoDAO _clienteDAO = new ClienteJuridicoDAO();
 
-        public ClienteJuridico Adicionar(ClienteJuridico entidade)
+        private readonly IClienteJuridico _repositorioCliente;
+
+        public ClienteJuridico Inserir (ClienteJuridico entidade)
         {
-            return _clienteDAO.Adicionar(entidade);
+            return _repositorioCliente.Inserir(entidade);
         }
 
-        public ClienteJuridico Atualizar(ClienteJuridico entidade)
+        public bool Atualizar(ClienteJuridico entidade)
         {
-            return _clienteDAO.Atualizar(entidade);
+            return _repositorioCliente.Atualizar(entidade);
         }
 
-        public ClienteJuridico BuscarPorId(long id)
+        public ClienteJuridico PegarPorId(int id)
         {
-            throw new NotImplementedException();
+            return _repositorioCliente.PegarPorId(id);
         }
 
-        public IList<ClienteJuridico> BuscarTodos()
+        public IQueryable<ClienteJuridico> PegarTodos()
         {
-            return _clienteDAO.BuscarTodos();
+            return _repositorioCliente.PegarTodos();
         }
 
-        public void Deletar(ClienteJuridico entidade)
+        public bool Deletar(ClienteJuridico entidade)
         {
-            _clienteDAO.Deletar(entidade);
+           return _repositorioCliente.Deletar(entidade);
         }
     }
 }

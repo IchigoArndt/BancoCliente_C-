@@ -20,7 +20,7 @@ namespace bancoCliente.Apresentacao.Funcionalidades.C.Fisico
         {
             CadastroClienteFisico dialog = new CadastroClienteFisico();
 
-            dialog.carregaContaCombo(_contaServico.BuscarTodos().ToList());
+            dialog.carregaContaCombo(_contaServico.PegarTodos().ToList());
 
             DialogResult resultado = dialog.ShowDialog();
 
@@ -28,7 +28,7 @@ namespace bancoCliente.Apresentacao.Funcionalidades.C.Fisico
             {
                 try
                 {
-                    _clienteServico.Adicionar(dialog.Cliente);
+                    _clienteServico.Inserir(dialog.Cliente);
                     
                     //MessageBox.Show("Abriu a Tela !");
                 }
@@ -43,9 +43,9 @@ namespace bancoCliente.Apresentacao.Funcionalidades.C.Fisico
         public override void Atualizar()
         {
 
-            IList<ClienteFisico> cliente = _clienteServico.BuscarTodos();
+            IQueryable<ClienteFisico> cliente = _clienteServico.PegarTodos();
 
-            _clienteFisicoControl.PopularListagem(cliente);
+            _clienteFisicoControl.PopularListagem(cliente.ToList());
         }
 
         public override UserControl CarregarListagem()
@@ -53,7 +53,7 @@ namespace bancoCliente.Apresentacao.Funcionalidades.C.Fisico
             if(_clienteFisicoControl == null)
             {
                 _clienteFisicoControl = new CFisicoControl();
-                _clienteFisicoControl.PopularListagem(_clienteServico.BuscarTodos());
+                _clienteFisicoControl.PopularListagem(_clienteServico.PegarTodos().ToList());
             }
             return _clienteFisicoControl;
         }
@@ -64,7 +64,7 @@ namespace bancoCliente.Apresentacao.Funcionalidades.C.Fisico
             if(clienteSelecionado != null)
             {
                 CadastroClienteFisico dialog = new CadastroClienteFisico(clienteSelecionado);
-                dialog.carregaContaCombo(_contaServico.BuscarTodos().ToList());
+                dialog.carregaContaCombo(_contaServico.PegarTodos().ToList());
                 DialogResult result = dialog.ShowDialog();
                 if (result == DialogResult.OK)
                 {

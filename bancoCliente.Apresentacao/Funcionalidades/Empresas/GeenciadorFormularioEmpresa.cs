@@ -18,13 +18,13 @@ namespace bancoCliente.Apresentacao.Funcionalidades.Empresas
         public override void Adicionar()
         {
             CadastroEmpresa Empresa = new CadastroEmpresa();
-            Empresa.CarregaListaFuncionarioNãoCadastrado(_funcionarioServico.BuscarTodos().ToList());
+            Empresa.CarregaListaFuncionarioNãoCadastrado(_funcionarioServico.PegarTodos().ToList());
             DialogResult result = Empresa.ShowDialog();
             if (result == DialogResult.OK)
             {
                 try
                 {
-                    _empresaServico.Adicionar(Empresa.empresa);
+                    _empresaServico.Inserir(Empresa.empresa);
                 }
                 catch (Exception ex)
                 {
@@ -35,7 +35,7 @@ namespace bancoCliente.Apresentacao.Funcionalidades.Empresas
 
         public override void Atualizar()
         {
-            IList<Empresa> cliente = _empresaServico.BuscarTodos();
+            IList<Empresa> cliente = _empresaServico.PegarTodos().ToList();
 
             _empresaControl.PopularListagem(cliente);
         }
@@ -55,7 +55,7 @@ namespace bancoCliente.Apresentacao.Funcionalidades.Empresas
             if (clienteSelecionado != null)
             {
                 CadastroEmpresa dialog = new CadastroEmpresa(clienteSelecionado);
-                dialog.CarregaListaFuncionarioNãoCadastrado(_funcionarioServico.BuscarTodos().ToList());
+                dialog.CarregaListaFuncionarioNãoCadastrado(_funcionarioServico.PegarTodos().ToList());
                 DialogResult result = dialog.ShowDialog();
                 if (result == DialogResult.OK)
                 {

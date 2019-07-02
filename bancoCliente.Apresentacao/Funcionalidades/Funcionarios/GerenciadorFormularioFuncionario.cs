@@ -22,7 +22,7 @@ namespace bancoCliente.Apresentacao.Funcionalidades.Funcionarios
             {
                 try
                 {
-                    _funcServico.Adicionar(Conta.Func);
+                    _funcServico.Inserir(Conta.Func);
                 }
                 catch (Exception ex)
                 {
@@ -34,7 +34,7 @@ namespace bancoCliente.Apresentacao.Funcionalidades.Funcionarios
 
         public override void Atualizar()
         {
-            IList<Funcionario> cliente = _funcServico.BuscarTodos();
+            IList<Funcionario> cliente = _funcServico.PegarTodos().ToList();
 
             _funControl.PopularListagem(cliente);
         }

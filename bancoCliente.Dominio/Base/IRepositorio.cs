@@ -1,13 +1,12 @@
-﻿using bancoCliente.Dominio.Base;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BancoCliente.Servico
+namespace bancoCliente.Dominio.Base
 {
-    public interface IServico<T>where T:Entidade
+   public interface IRepositorio<T>where T: Entidade
     {
         T Inserir(T entidade);
         bool Atualizar(T entidade);

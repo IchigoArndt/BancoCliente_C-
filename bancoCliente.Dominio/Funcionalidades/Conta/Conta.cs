@@ -22,7 +22,9 @@ namespace bancoCliente.Dominio.Funcionalidades.Conta
            "Conta Digital"
         };
 
-        //private int _id;
+        public int Id { get; set; }
+
+        //public int idConta;
         //private float _taxaManutencao;
         //private string _agencia;
         //private int _tipoConta;

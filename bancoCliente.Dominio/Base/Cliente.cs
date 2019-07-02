@@ -8,9 +8,9 @@ namespace bancoCliente.Dominio.Base
 {
     public abstract class Cliente : Pessoa
     {
-        private float limite;
-        private bool direitoCheque;
-        private bool cartaoCredito;
+        public float limite;
+        public bool direitoCheque;
+        public bool cartaoCredito;
         #region Geters and Seters
         public float getLimite()
         {

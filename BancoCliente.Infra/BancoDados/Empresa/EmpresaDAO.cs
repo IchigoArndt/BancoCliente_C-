@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BancoempresaDominio.Infra.BancoDados.Empresas
 {
-    public class EmpresaDAO : IDAO<Empresa>
+   /* public class EmpresaDAO : IDAO<Empresa>
     {
         public static List<Empresa> Empresas;
         public static Empresa empresa = new Empresa();
@@ -68,4 +68,5 @@ namespace BancoempresaDominio.Infra.BancoDados.Empresas
         }
 
     }
+    */
 }

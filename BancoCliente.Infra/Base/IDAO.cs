@@ -11,8 +11,7 @@ namespace BancoCliente.Infra.Base
     {
         T Adicionar(T entidade);
         T Atualizar(T entidade);
-        void Deletar(T entidade);
-        IList<T> BuscarTodos();
-        T BuscarPorId(long id);
+        IList<T> ObterTodosItens();
+        int Excluir(int id);
     }
 }

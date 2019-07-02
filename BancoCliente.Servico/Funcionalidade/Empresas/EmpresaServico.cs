@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using bancoCliente.Dominio.Funcionalidades.Empresas;
+using bancoCliente.Dominio.Funcionalidades.IEmpresas;
 using BancoempresaDominio.Infra.BancoDados.Empresas;
 
 namespace BancoCliente.Servico.Funcionalidade.Empresas
@@ -13,29 +14,31 @@ namespace BancoCliente.Servico.Funcionalidade.Empresas
 
         EmpresaDAO _empresa = new EmpresaDAO();
 
-        public Empresa Adicionar(Empresa entidade)
+        private readonly IEmpresa _repositorioEmpresa;
+
+        public Empresa Inserir(Empresa entidade)
         {
-           return _empresa.Adicionar(entidade);
+           return _repositorioEmpresa.Inserir(entidade);
         }
 
-        public Empresa Atualizar(Empresa entidade)
+        public bool Atualizar(Empresa entidade)
         {
-            return _empresa.Atualizar(entidade);
+            return _repositorioEmpresa.Atualizar(entidade);
         }
 
-        public Empresa BuscarPorId(long id)
+        public Empresa PegarPorId(int id)
         {
-            throw new NotImplementedException();
+            return _repositorioEmpresa.PegarPorId(id);
         }
 
-        public IList<Empresa> BuscarTodos()
+        public IQueryable<Empresa> PegarTodos()
         {
-            return _empresa.BuscarTodos();
+            return _repositorioEmpresa.PegarTodos();
         }
 
-        public void Deletar(Empresa entidade)
+        public bool Deletar(Empresa entidade)
         {
-            _empresa.Deletar(entidade);
+            return _repositorioEmpresa.Deletar(entidade);
         }
     }
 }

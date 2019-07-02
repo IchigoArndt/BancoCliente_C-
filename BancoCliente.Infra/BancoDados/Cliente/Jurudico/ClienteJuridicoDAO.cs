@@ -2,6 +2,7 @@
 using BancoCliente.Infra.Base;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,62 +11,104 @@ namespace BancoCliente.Infra.BancoDados.Cliente.Jurudico
 {
     public class ClienteJuridicoDAO : IDAO<ClienteJuridico> 
     {
-        public static List<ClienteJuridico> ClientesJuridicos;
+        #region Queries
+        private string Insert = @"INSERT INTO TBClienteJuridico (Id,Nome,Email,DataNasc,Limite,Cheque,Cartao,CNPJ,IdConta,IdEmpresa) 
+                                  VALUES (@id,@nome,@email,@data,@limite,@cheque,@cartao,@cnpj,@idConta,@idEmpresa)";
+        private string GetAll = @"SELECT * FROM TBClienteJuridico ORDER BY Id";
+        private string GetById = @"SELECT * FROM TBClienteJuridico WHERE Id = @id";
+        private string Delete = @"DELETE FROM TBClienteJuridico WHERE id = @id";
+        private string Update = @"UPDATE TBClienteJuridico SET 
+                                  Nome = @nome,
+                                  Email = @email,
+                                  DataNasc = @data,
+                                  Limite = @limite,
+                                  Cheque = @cheque,
+                                  Cartao = @cartao,
+                                  CNPJ = @cnpj,
+                                  IdConta = @idConta,
+                                  IdEmpresa = @idEmpresa";
+        private const string GetLastOne = @"SELECT top(1) * FROM TBClienteJuridico ORDER BY Id DESC";
+        #endregion
 
-        public ClienteJuridico Adicionar(ClienteJuridico entidade)
+        public ClienteJuridico Adicionar(ClienteJuridico ClienteJuridico)
         {
-            ClientesJuridicos = BuscarTodos().ToList();
-            ClienteJuridico cliente = ClientesJuridicos.Last();
-            entidade.id = cliente.id + 1;
-            ClientesJuridicos.Add(entidade);
-            return entidade;
+            DB.Add(Insert, GetParam(ClienteJuridico));
+
+            long id = ObterUltimoId();
+
+            ClienteJuridico.Id = id;
+
+            return ClienteJuridico;
         }
 
-        public ClienteJuridico Atualizar(ClienteJuridico entidade)
+        public long ObterUltimoId()
         {
-            ClienteJuridico cliente = ClientesJuridicos.Find(C => C.id == entidade.id);
-            ClientesJuridicos.Remove(cliente);
-            cliente.dataNasc = entidade.dataNasc;
-            cliente.email = entidade.email;
-            cliente.endereco = entidade.endereco;
-            cliente.nome = entidade.nome;
-            cliente.telefone = entidade.telefone;
-            cliente.setCartaoCredito(entidade.isCartaoCredito());
-            cliente.setDireitoCheque(entidade.isDireitoCheque());
-            cliente.setCnpj(entidade.getCnpj());
-            cliente.setLimite(entidade.getLimite());
-            cliente.setId(entidade.getId());
-            cliente.setConta(entidade.getConta());
-            /////////////////////////////
-            ClientesJuridicos.Add(cliente);
-            ////////////////////////////
-            return cliente;
-        }
+            long id = 0;
+            IList<ClienteJuridico> ClienteJuridicos = DB.GetAll(GetLastOne, Converter);
 
-        public ClienteJuridico BuscarPorId(long id)
-        {
-            return ClientesJuridicos.Find(C => C.id == id);
-        }
-
-        public IList<ClienteJuridico> BuscarTodos()
-        {
-            if (ClientesJuridicos == null)
+            foreach (var item in ClienteJuridicos)
             {
-                ClientesJuridicos = RetornaClientes();
-
-                return ClientesJuridicos;
+                id = item.Id;
             }
-            else
-                return ClientesJuridicos;
+
+            return id;
         }
 
-        public void Deletar(ClienteJuridico entidade)
+        public ClienteJuridico Atualizar(ClienteJuridico ClienteJuridico)
         {
-            ClientesJuridicos.Remove(entidade);
+            DB.Update(Update, GetParam(ClienteJuridico));
+
+            return ClienteJuridico;
         }
-        public List<ClienteJuridico> RetornaClientes()
+
+        public int Excluir(int ClienteJuridicoId)
         {
-            return DadosBase.retornaClientesJuridicos();
+            var dic = new Dictionary<string, object>();
+            dic.Add("Id", ClienteJuridicoId);
+
+            DB.Delete(Delete, dic);
+
+            return ClienteJuridicoId;
+        }
+
+
+        public IList<ClienteJuridico> ObterTodosItens()
+        {
+            return DB.GetAll(GetAll, Converter);
+        }
+
+        private static ClienteJuridico Converter(IDataReader _reader)
+        {
+            ClienteJuridico ClienteJuridico = new ClienteJuridico();
+
+            ClienteJuridico.Id = Convert.ToInt32(_reader["Id"]);
+            ClienteJuridico.nome = Convert.ToString(_reader["Nome"]);
+            ClienteJuridico.email = Convert.ToString(_reader["Email"]);
+            ClienteJuridico.dataNasc = Convert.ToDateTime(_reader["DataNasc"]);
+            ClienteJuridico.limite = float.Parse(Convert.ToString(_reader["Limite"]));
+            ClienteJuridico.direitoCheque = Convert.ToBoolean(_reader["Cheque"]);
+            ClienteJuridico.cartaoCredito = Convert.ToBoolean(_reader["Cartao"]);
+            ClienteJuridico.cnpj = Convert.ToString(_reader["CNPJ"]);
+            ClienteJuridico.IdConta = Convert.ToInt32(_reader["IdConta"]);
+            ClienteJuridico.IdEmpresa = Convert.ToInt32(_reader["IdEmpresa"]);
+
+            return ClienteJuridico;
+        }
+
+        public Dictionary<string, object> GetParam(ClienteJuridico ClienteJuridico)
+        {
+            var dic = new Dictionary<string, object>();
+            dic.Add("Id", ClienteJuridico.Id);
+            dic.Add("Nome", ClienteJuridico.nome);
+            dic.Add("Email", ClienteJuridico.email);
+            dic.Add("Limite", ClienteJuridico.limite);
+            dic.Add("Cheque", ClienteJuridico.direitoCheque);
+            dic.Add("Cartao", ClienteJuridico.cartaoCredito);
+            dic.Add("CNPJ", ClienteJuridico.cnpj);
+            dic.Add("IdConta", ClienteJuridico.IdConta);
+            dic.Add("IdEmpresa", ClienteJuridico.IdEmpresa);
+
+            return dic;
         }
     }
 }

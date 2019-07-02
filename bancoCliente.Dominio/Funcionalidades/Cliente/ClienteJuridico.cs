@@ -11,7 +11,10 @@ namespace bancoCliente.Dominio.Funcionalidades.Clientes
 {
     public class ClienteJuridico : Cliente
     {
-        public ContaDominio conta;
+        public int IdConta;
+        public int IdEmpresa;
+        public virtual ContaDominio conta { get; set; }
+        public virtual Empresa empresa { get; set; }
 
         public void setConta(ContaDominio Conta)
         {
@@ -34,7 +37,7 @@ namespace bancoCliente.Dominio.Funcionalidades.Clientes
             throw new NotImplementedException();
         }
 
-        private string cnpj;
+        public string cnpj;
 
         public string getCnpj()
         {
@@ -46,10 +49,6 @@ namespace bancoCliente.Dominio.Funcionalidades.Clientes
             this.cnpj = cnpj;
         }
 
-        public Empresa empresa
-        {
-            get;set;
-        }
 
         public override string ToString()
         {

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BancoCliente.Infra.BancoDados.Conta
 {
-    public class ContaDAO : IDAO<ContaDominio>
+   /* public class ContaDAO : IDAO<ContaDominio>
     {
         public static List<ContaDominio> Contas;
         public static ContaDominio conta = new ContaDominio();
@@ -63,4 +63,5 @@ namespace BancoCliente.Infra.BancoDados.Conta
         }
 
     }
+    */
 }

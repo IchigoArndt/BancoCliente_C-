@@ -22,7 +22,7 @@ namespace bancoCliente.Apresentacao.Funcionalidades.Contas
             {
                 try
                 {
-                    _contaServico.Adicionar(Conta.conta);
+                    _contaServico.Inserir(Conta.conta);
                 }
                 catch (Exception ex)
                 {
@@ -35,7 +35,7 @@ namespace bancoCliente.Apresentacao.Funcionalidades.Contas
 
         public override void Atualizar()
         {
-            IList<ContaDominio> cliente = _contaServico.BuscarTodos();
+            IList<ContaDominio> cliente = _contaServico.PegarTodos().ToList();
 
             _contaControl.PopularListagem(cliente);
         }
@@ -46,7 +46,7 @@ namespace bancoCliente.Apresentacao.Funcionalidades.Contas
             {
                 _contaControl = new ContaControl();
 
-                _contaControl.PopularListagem(_contaServico.BuscarTodos());
+                _contaControl.PopularListagem(_contaServico.PegarTodos().ToList());
             }
             return _contaControl;
         }

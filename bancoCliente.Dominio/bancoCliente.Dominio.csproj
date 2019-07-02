@@ -31,9 +31,29 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentAssertions, Version=5.7.0.0, Culture=neutral, PublicKeyToken=33f2691a05b67b6a, processorArchitecture=MSIL">
+      <HintPath>..\packages\FluentAssertions.5.7.0\lib\net45\FluentAssertions.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentValidation, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7de548da2fbae0f0, processorArchitecture=MSIL">
+      <HintPath>..\packages\FluentValidation.8.4.0\lib\net45\FluentValidation.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Annotations, Version=4.2.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ComponentModel.Annotations.4.4.1\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Numerics" />
+    <Reference Include="System.ValueTuple, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.4.0\lib\net461\System.ValueTuple.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -45,18 +65,25 @@
     <Compile Include="Base\Cliente.cs" />
     <Compile Include="Base\Endreco.cs" />
     <Compile Include="Base\Entidade.cs" />
+    <Compile Include="Base\IRepositorio.cs" />
     <Compile Include="Base\Pessoa.cs" />
     <Compile Include="Enums\EnumUfs.cs" />
     <Compile Include="Funcionalidades\Cliente\ClienteFisico.cs" />
     <Compile Include="Funcionalidades\Cliente\ClienteJuridico.cs" />
+    <Compile Include="Funcionalidades\Cliente\IClienteFisico.cs" />
+    <Compile Include="Funcionalidades\Cliente\IClienteJuridico.cs" />
     <Compile Include="Funcionalidades\Conta\Conta.cs" />
+    <Compile Include="Funcionalidades\Conta\IConta.cs" />
     <Compile Include="Funcionalidades\Depositos\Deposito.cs" />
     <Compile Include="Funcionalidades\Empresa\Empresa.cs" />
+    <Compile Include="Funcionalidades\Empresa\IEmpresa.cs" />
     <Compile Include="Funcionalidades\Funcionario\Funcionario.cs" />
+    <Compile Include="Funcionalidades\Funcionario\IFuncionario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -10,10 +10,11 @@ namespace bancoCliente.Dominio.Funcionalidades.Clientes
 {
     public class ClienteFisico : Cliente
     {
-        private string cpf;
-        private int quantidadeLimite;
-        private float limitePagamento;
-        private ContaDominio conta;
+        public string cpf;
+        public int quantidadeLimite;
+        public float limitePagamento;
+        public virtual ContaDominio conta { get; set; }
+        public int IdConta { get; set; }
         #region Geters and Seters
         
         public ClienteFisico()

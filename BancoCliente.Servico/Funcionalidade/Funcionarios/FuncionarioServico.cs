@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using bancoCliente.Dominio.Funcionalidades.Funcionarios;
+using bancoCliente.Dominio.Funcionalidades.IFuncionarios;
 using BancoCliente.Infra.BancoDados.Funcionarios;
 
 namespace BancoCliente.Servico.Funcionalidade.Funcionarios
@@ -12,29 +13,31 @@ namespace BancoCliente.Servico.Funcionalidade.Funcionarios
     {
         FuncionarioDAO _funcionario = new FuncionarioDAO();
 
-        public Funcionario Adicionar(Funcionario entidade)
+        private readonly IFuncionario _repositorioEmpresa;
+
+        public Funcionario Inserir(Funcionario entidade)
         {
-            return _funcionario.Adicionar(entidade);
+            return _repositorioEmpresa.Inserir(entidade);
         }
 
-        public Funcionario Atualizar(Funcionario entidade)
+        public bool Atualizar(Funcionario entidade)
         {
-            return _funcionario.Atualizar(entidade);
+            return _repositorioEmpresa.Atualizar(entidade);
         }
 
-        public Funcionario BuscarPorId(long id)
+        public Funcionario PegarPorId(int id)
         {
-            throw new NotImplementedException();
+            return _repositorioEmpresa.PegarPorId(id);
         }
 
-        public IList<Funcionario> BuscarTodos()
+        public IQueryable<Funcionario> PegarTodos()
         {
-            return _funcionario.BuscarTodos();
+            return _repositorioEmpresa.PegarTodos();
         }
 
-        public void Deletar(Funcionario entidade)
+        public bool Deletar(Funcionario entidade)
         {
-            _funcionario.Deletar(entidade);
+            return _repositorioEmpresa.Deletar(entidade);
         }
     }
 }

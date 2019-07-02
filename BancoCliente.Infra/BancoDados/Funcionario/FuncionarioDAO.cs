@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace BancoCliente.Infra.BancoDados.Funcionarios
 {
+    /*
     public class FuncionarioDAO : IDAO<Funcionario>
     {
         public static List<Funcionario> Funcionarios;
@@ -69,4 +70,5 @@ namespace BancoCliente.Infra.BancoDados.Funcionarios
         }
 
     }
+    */
 }
