@@ -2,66 +2,97 @@
 using BancoCliente.Infra.Base;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace BancoCliente.Infra.BancoDados.Conta
 {
-   /*public class ContaDAO : IDAO<ContaDominio>
+   public class ContaDAO : IDAO<ContaDominio>
     {
-        public static List<ContaDominio> Contas;
-        public static ContaDominio conta = new ContaDominio();
+        #region Queries
+        private string Insert = @"INSERT INTO TBConta (Id,Agencia,TaxaManutencao,TipoConta) 
+                                  VALUES (@id,@agencia,@TaxaManutencao,@tipoConta)";
+        private string GetAll = @"SELECT * FROM TBConta ORDER BY Id";
+        private string GetById = @"SELECT * FROM TBConta WHERE Id = @id";
+        private string Delete = @"DELETE FROM TBConta WHERE id = @id";
+        private string Update = @"UPDATE TBConta SET 
+                                  Agencia = @agencia,
+                                  TaxaManutencao = @TaxaManutencao,
+                                  tipoConta = @tipoConta";
+        private const string GetLastOne = @"SELECT top(1) * FROM TBConta ORDER BY Id DESC";
+        #endregion
 
-        public ContaDominio Adicionar(ContaDominio entidade)
+        public ContaDominio Adicionar(ContaDominio ContaDominio)
         {
-            Contas = BuscarTodos().ToList();
-            ContaDominio conta = Contas.Last();
-            entidade.Id = conta.Id + 1;
-            Contas.Add(entidade);
-            return entidade;
+            DB.Add(Insert, GetParam(ContaDominio));
+
+            int id = ObterUltimoId();
+
+            ContaDominio.Id = id;
+
+            return ContaDominio;
         }
 
-        public ContaDominio Atualizar(ContaDominio entidade)
+        public int ObterUltimoId()
         {
-            ContaDominio conta = Contas.Find(C => C.Id == entidade.Id);
-            Contas.Remove(conta);
-            conta.Agencia = entidade.Agencia;
-            conta.Id = entidade.Id;
-            conta.taxaManutencao = entidade.taxaManutencao;
-            /////////////////////////////
-            Contas.Add(conta);
-            ////////////////////////////
-            return conta;
-        }
+            int id = 0;
+            IList<ContaDominio> ContaDominios = DB.GetAll(GetLastOne, Converter);
 
-        public ContaDominio BuscarPorId(long id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IList<ContaDominio> BuscarTodos()
-        {
-            if (Contas == null)
+            foreach (var item in ContaDominios)
             {
-                Contas = RetornaContas();
-
-                return Contas;
+                id = item.Id;
             }
-            else
-                return Contas;
+
+            return id;
         }
 
-        public void Deletar(ContaDominio entidade)
+        public ContaDominio Atualizar(ContaDominio ContaDominio)
         {
-            Contas.Remove(entidade);
+            DB.Update(Update, GetParam(ContaDominio));
+
+            return ContaDominio;
         }
 
-        public List<ContaDominio> RetornaContas()
+        public int Excluir(int ContaDominioId)
         {
-            return DadosBase.retornaContas();
+            var dic = new Dictionary<string, object>();
+            dic.Add("Id", ContaDominioId);
+
+            DB.Delete(Delete, dic);
+
+            return ContaDominioId;
         }
 
+
+        public IList<ContaDominio> ObterTodosItens()
+        {
+            return DB.GetAll(GetAll, Converter);
+        }
+
+        private static ContaDominio Converter(IDataReader _reader)
+        {
+            ContaDominio ContaDominio = new ContaDominio();
+
+            ContaDominio.Id = Convert.ToInt32(_reader["Id"]);
+            ContaDominio.Agencia = Convert.ToString(_reader["Agencia"]);
+            ContaDominio.taxaManutencao = float.Parse(Convert.ToString(_reader["TaxaManutencao"]));
+            ContaDominio.TipoConta = Convert.ToInt16(_reader["TipoConta"]);
+
+            return ContaDominio;
+        }
+
+        public Dictionary<string, object> GetParam(ContaDominio ContaDominio)
+        {
+            var dic = new Dictionary<string, object>();
+            dic.Add("Id", ContaDominio.Id);
+            dic.Add("Agencia", ContaDominio.Agencia);
+            dic.Add("TaxaManutencao", ContaDominio.taxaManutencao);
+            dic.Add("TipoConta", ContaDominio.TipoConta);
+            
+            return dic;
+        }
     }
-    */
+    
 }

@@ -9,36 +9,35 @@ using BancoCliente.Infra.BancoDados.Conta;
 
 namespace BancoCliente.Servico.Funcionalidade.Contas
 {
-    public class ContaServico : IContaServico
+    public class ContaServico : ContaDAO
     {
 
-        ContaDAO _conta = new ContaDAO();
-
-        private readonly IConta _repositorioConta;
+        ContaDAO _repositorioCliente = new ContaDAO();
 
         public ContaDominio Inserir(ContaDominio entidade)
         {
-           return _repositorioConta.Inserir(entidade);
+            return _repositorioCliente.Adicionar(entidade);
         }
 
-        public bool Atualizar(ContaDominio entidade)
+        public ContaDominio Atualizar(ContaDominio entidade)
         {
-            return _repositorioConta.Atualizar(entidade);
+            return _repositorioCliente.Atualizar(entidade);
         }
 
-        public ContaDominio PegarPorId(int id)
+        public long PegarPorId(int id)
         {
-            return _repositorioConta.PegarPorId(id);
+            return _repositorioCliente.ObterUltimoId();
         }
 
-        public IQueryable<ContaDominio> PegarTodos()
+        public int Deletar(ContaDominio entidade)
         {
-            return _repositorioConta.PegarTodos();
+            return _repositorioCliente.Excluir(entidade.Id);
         }
 
-        public bool Deletar(ContaDominio entidade)
+        public IList<ContaDominio> PegarTodos()
         {
-            return _repositorioConta.Deletar(entidade);
+            return _repositorioCliente.ObterTodosItens();
         }
+
     }
 }

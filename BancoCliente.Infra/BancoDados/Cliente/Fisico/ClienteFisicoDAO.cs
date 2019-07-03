@@ -13,7 +13,7 @@ namespace BancoCliente.Infra.BancoDados.Cliente.Fisico
     {
         #region Queries
         private string Insert = @"INSERT INTO TBClienteFisico (Id,Nome,Email,DataNasc,Limite,Cheque,Cartao,CPF,LimitePagamento,QuantidadePagamento,IdConta) 
-                                  VALUES (@id,@nome,@email,@data,@limite,@cheque,@cartao,@cpf,@limiteP,@quantidadeP,@idConta)";
+                                  VALUES (@id,@nome,@email,@dataNasc,@limite,@cheque,@cartao,@cpf,@limitePaga,@quantidadePaga,@idConta)";
         private string GetAll = @"SELECT * FROM TBClienteFisico ORDER BY Id";
         private string GetById = @"SELECT * FROM TBClienteFisico WHERE Id = @id";
         private string Delete = @"DELETE FROM TBClienteFisico WHERE id = @id";
@@ -30,6 +30,8 @@ namespace BancoCliente.Infra.BancoDados.Cliente.Fisico
                                   IdConta = @idConta";
         private const string GetLastOne = @"SELECT top(1) * FROM TBClienteFisico ORDER BY Id DESC";
         #endregion
+
+
 
         public ClienteFisico Adicionar(ClienteFisico ClienteFisico)
         {
@@ -103,6 +105,7 @@ namespace BancoCliente.Infra.BancoDados.Cliente.Fisico
             dic.Add("Id", ClienteFisico.Id);
             dic.Add("Nome", ClienteFisico.nome);
             dic.Add("Email", ClienteFisico.email);
+            dic.Add("DataNasc", ClienteFisico.dataNasc);
             dic.Add("Limite", ClienteFisico.limite);
             dic.Add("Cheque", ClienteFisico.direitoCheque);
             dic.Add("Cartao", ClienteFisico.cartaoCredito);

@@ -9,35 +9,33 @@ using BancoCliente.Infra.BancoDados.Funcionarios;
 
 namespace BancoCliente.Servico.Funcionalidade.Funcionarios
 {
-    public class FuncionarioServico : IFuncionarioServico
+    public class FuncionarioServico : FuncionarioDAO
     {
-        FuncionarioDAO _funcionario = new FuncionarioDAO();
-
-        private readonly IFuncionario _repositorioEmpresa;
+        FuncionarioDAO _repositorioCliente = new FuncionarioDAO();
 
         public Funcionario Inserir(Funcionario entidade)
         {
-            return _repositorioEmpresa.Inserir(entidade);
+            return _repositorioCliente.Adicionar(entidade);
         }
 
-        public bool Atualizar(Funcionario entidade)
+        public Funcionario Atualizar(Funcionario entidade)
         {
-            return _repositorioEmpresa.Atualizar(entidade);
+            return _repositorioCliente.Atualizar(entidade);
         }
 
-        public Funcionario PegarPorId(int id)
+        public long PegarPorId(int id)
         {
-            return _repositorioEmpresa.PegarPorId(id);
+            return _repositorioCliente.ObterUltimoId();
         }
 
-        public IQueryable<Funcionario> PegarTodos()
+        public int Deletar(Funcionario entidade)
         {
-            return _repositorioEmpresa.PegarTodos();
+            return _repositorioCliente.Excluir(entidade.id);
         }
 
-        public bool Deletar(Funcionario entidade)
+        public IList<Funcionario> PegarTodos()
         {
-            return _repositorioEmpresa.Deletar(entidade);
+            return _repositorioCliente.ObterTodosItens();
         }
     }
 }

@@ -21,7 +21,7 @@ namespace bancoCliente.Apresentacao.Funcionalidades.C.Fisico
         {
             CadastroClienteFisico dialog = new CadastroClienteFisico();
 
-            dialog.carregaContaCombo(_contaServico.PegarTodos().ToList());
+            dialog.carregaContaCombo(_contaServico.PegarTodos());
 
             DialogResult resultado = dialog.ShowDialog();
 
@@ -48,7 +48,7 @@ namespace bancoCliente.Apresentacao.Funcionalidades.C.Fisico
         public override void Atualizar()
         {
 
-            IQueryable<ClienteFisico> cliente = _clienteServico.PegarTodos();
+           IList<ClienteFisico> cliente = _clienteServico.PegarTodos();
 
             _clienteFisicoControl.PopularListagem(cliente.ToList());
         }

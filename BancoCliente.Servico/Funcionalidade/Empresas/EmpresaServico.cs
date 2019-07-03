@@ -9,36 +9,34 @@ using BancoempresaDominio.Infra.BancoDados.Empresas;
 
 namespace BancoCliente.Servico.Funcionalidade.Empresas
 {
-    public class EmpresaServico : IEmpresaServico
+    public class EmpresaServico : EmpresaDAO
     {
 
-        EmpresaDAO _empresa = new EmpresaDAO();
-
-        private readonly IEmpresa _repositorioEmpresa;
+        EmpresaDAO _repositorioCliente = new EmpresaDAO();
 
         public Empresa Inserir(Empresa entidade)
         {
-           return _repositorioEmpresa.Inserir(entidade);
+            return _repositorioCliente.Adicionar(entidade);
         }
 
-        public bool Atualizar(Empresa entidade)
+        public Empresa Atualizar(Empresa entidade)
         {
-            return _repositorioEmpresa.Atualizar(entidade);
+            return _repositorioCliente.Atualizar(entidade);
         }
 
-        public Empresa PegarPorId(int id)
+        public long PegarPorId(int id)
         {
-            return _repositorioEmpresa.PegarPorId(id);
+            return _repositorioCliente.ObterUltimoId();
         }
 
-        public IQueryable<Empresa> PegarTodos()
+        public int Deletar(Empresa entidade)
         {
-            return _repositorioEmpresa.PegarTodos();
+            return _repositorioCliente.Excluir(entidade.Id);
         }
 
-        public bool Deletar(Empresa entidade)
+        public IList<Empresa> PegarTodos()
         {
-            return _repositorioEmpresa.Deletar(entidade);
+            return _repositorioCliente.ObterTodosItens();
         }
     }
 }

@@ -6,42 +6,37 @@ using System.Threading.Tasks;
 using bancoCliente.Dominio.Funcionalidades.Clientes;
 using bancoCliente.Dominio.Funcionalidades.IClienteFisico;
 using BancoCliente.Infra.BancoDados.Cliente.Fisico;
-using BancoCliente.Infra.Contexto;
-using BancoCliente.Infra.Funcionalidades.ClienteFisicosReposiorios;
 
 namespace BancoCliente.Servico.Funcionalidade.Clientes.Fisico
 {
-    public class ClienteFisicoServico : IClienteFisicoServico
+    public class ClienteFisicoServico : ClienteFisicoDAO
     {
-        //ClienteFisicoDAO _repositorioCliente = new ClienteFisicoDAO();
-
-       public static BancoClienteContexto _contexto = new BancoClienteContexto();
-
-        private readonly ClienteFisicoRepositorio _repositorioCliente = new ClienteFisicoRepositorio(_contexto) ;
+        ClienteFisicoDAO _repositorioCliente = new ClienteFisicoDAO();
 
         public ClienteFisico Inserir (ClienteFisico entidade)
         {
-            return _repositorioCliente.Inserir(entidade);
+            return _repositorioCliente.Adicionar(entidade);
         }
 
-        public bool Atualizar(ClienteFisico entidade)
+        public ClienteFisico Atualizar(ClienteFisico entidade)
         {
             return _repositorioCliente.Atualizar(entidade);
         }
 
-        public ClienteFisico PegarPorId(int id)
+        public long PegarPorId(int id)
         {
-            return _repositorioCliente.PegarPorId(id);
+            return _repositorioCliente.ObterUltimoId();
         }
 
-        public bool Deletar(ClienteFisico entidade)
+        public int Deletar(ClienteFisico entidade)
         {
-            return _repositorioCliente.Deletar(entidade.id);
+            return _repositorioCliente.Excluir(entidade.id);
         }
 
-        public IQueryable<ClienteFisico> PegarTodos()
+        public IList<ClienteFisico> PegarTodos()
         {
-            return _repositorioCliente.PegarTodos();
+            return _repositorioCliente.ObterTodosItens();
         }
+       
     }
 }

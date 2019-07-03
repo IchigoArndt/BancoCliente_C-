@@ -30,7 +30,7 @@ namespace bancoCliente.Apresentacao.Funcionalidades.C.Fisico
             Cliente = cliente;
         }
 
-        public void carregaContaCombo(List<ContaDominio> contas)
+        public void carregaContaCombo(IList<ContaDominio> contas)
         {
                 cmbConta.Items.Clear();
                 foreach (var item in contas)

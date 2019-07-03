@@ -9,36 +9,34 @@ using BancoCliente.Infra.BancoDados.Cliente.Jurudico;
 
 namespace BancoCliente.Servico.Funcionalidade.Clientes.Jurudico
 {
-    public class ClienteJuridicoServico : IClienteJuridicoServico
+    public class ClienteJuridicoServico : ClienteJuridicoDAO
     {
+        ClienteJuridicoDAO _repositorioCliente = new ClienteJuridicoDAO();
 
-        ClienteJuridicoDAO _clienteDAO = new ClienteJuridicoDAO();
-
-        private readonly IClienteJuridico _repositorioCliente;
-
-        public ClienteJuridico Inserir (ClienteJuridico entidade)
+        public ClienteJuridico Inserir(ClienteJuridico entidade)
         {
-            return _repositorioCliente.Inserir(entidade);
+            return _repositorioCliente.Adicionar(entidade);
         }
 
-        public bool Atualizar(ClienteJuridico entidade)
+        public ClienteJuridico Atualizar(ClienteJuridico entidade)
         {
             return _repositorioCliente.Atualizar(entidade);
         }
 
-        public ClienteJuridico PegarPorId(int id)
+        public long PegarPorId(int id)
         {
-            return _repositorioCliente.PegarPorId(id);
+            return _repositorioCliente.ObterUltimoId();
         }
 
-        public IQueryable<ClienteJuridico> PegarTodos()
+        public int Deletar(ClienteJuridico entidade)
         {
-            return _repositorioCliente.PegarTodos();
+            return _repositorioCliente.Excluir(entidade.id);
         }
 
-        public bool Deletar(ClienteJuridico entidade)
+        public IList<ClienteJuridico> PegarTodos()
         {
-           return _repositorioCliente.Deletar(entidade);
+            return _repositorioCliente.ObterTodosItens();
         }
+
     }
 }
