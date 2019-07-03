@@ -67,6 +67,7 @@
     <Compile Include="Funcionalidade\Clientes\Fisico\IClienteFisicoServico.cs" />
     <Compile Include="Base\IServico.cs" />
     <Compile Include="Funcionalidade\Clientes\Jurudico\ClienteJuridicoServico.cs" />
+    <Compile Include="Funcionalidade\Clientes\Jurudico\ClienteJuridicoValidacao.cs" />
     <Compile Include="Funcionalidade\Clientes\Jurudico\IClienteJuridicoServico.cs" />
     <Compile Include="Funcionalidade\Contas\ContaServico.cs" />
     <Compile Include="Funcionalidade\Contas\IContaServico.cs" />

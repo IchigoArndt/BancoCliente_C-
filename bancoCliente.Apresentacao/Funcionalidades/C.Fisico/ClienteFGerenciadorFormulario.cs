@@ -27,20 +27,22 @@ namespace bancoCliente.Apresentacao.Funcionalidades.C.Fisico
 
             if (resultado == DialogResult.OK)
             {
-                try
-                {
-                    if (clienteFisicoValidacao == null)
-                        clienteFisicoValidacao = new ClienteFisicoValidacao(dialog.Cliente);
-                    //Final if
-                   
-                    _clienteServico.Inserir(dialog.Cliente);
-                    
-                    //MessageBox.Show("Abriu a Tela !");
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
+                    clienteFisicoValidacao = new ClienteFisicoValidacao(dialog.Cliente);
+
+                    var validador = clienteFisicoValidacao.Validate();
+
+                    if (validador.IsValid)
+                    {
+                        try
+                       {
+                        _clienteServico.Inserir(dialog.Cliente);
+                       }
+                    catch (Exception ex)
+                       {
+                        MessageBox.Show(ex.Message);
+                       }
+              }
+               
             }
             Atualizar();
         }
@@ -73,7 +75,26 @@ namespace bancoCliente.Apresentacao.Funcionalidades.C.Fisico
                 DialogResult result = dialog.ShowDialog();
                 if (result == DialogResult.OK)
                 {
-                    _clienteServico.Atualizar(clienteSelecionado);
+                    clienteFisicoValidacao = new ClienteFisicoValidacao(clienteSelecionado);
+                    var validador = clienteFisicoValidacao.Validate();
+
+                    if (validador.IsValid)
+                    {
+                        try
+                        {
+                            _clienteServico.Atualizar(clienteSelecionado);
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message);
+                        }
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Alguns campos não estão válidos");
+                    }
+                    
                 }
 
             }

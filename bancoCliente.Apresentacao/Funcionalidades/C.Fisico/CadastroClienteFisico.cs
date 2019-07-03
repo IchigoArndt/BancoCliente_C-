@@ -148,6 +148,7 @@ namespace bancoCliente.Apresentacao.Funcionalidades.C.Fisico
                 _clienteServico.endereco.setCidade(utxtCidade.Text);
                 _clienteServico.endereco.setComplemento(utxtComplemento.Text);
                 _clienteServico.endereco.setUf((EnumUfs)ucmbUf.SelectedItem);
+
             }
             catch (Exception ex)
             {

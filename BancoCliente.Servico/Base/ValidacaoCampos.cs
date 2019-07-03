@@ -47,8 +47,6 @@ namespace BancoCliente.Servico.Base
                 //int anoMaximo = 2120;
                 if (DataNasc.Year <= anoMinino)
                     return isValid;
-                else if (DataNasc.Year >= DateTime.Now.Year)
-                    return isValid;
             }
             else
                 return isValid;
