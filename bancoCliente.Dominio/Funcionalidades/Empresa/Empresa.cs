@@ -11,19 +11,27 @@ namespace bancoCliente.Dominio.Funcionalidades.Empresas
 {
     public class Empresa : Entidade
     {
-      /*private static int _Id;
-        private string _razaoSocial;
-        private string _nomeFantasia;
-        private string _cnpj;
-        private DateTime _dataFund;
-        private string _telefone;
-        private string _email;
-        private Endereco _endereco;
-        private List<Funcionario> _listaFuncionario;
-      */
+        /*private static int _Id;
+          private string _razaoSocial;
+          private string _nomeFantasia;
+          private string _cnpj;
+          private DateTime _dataFund;
+          private string _telefone;
+          private string _email;
+          private Endereco _endereco;
+          private List<Funcionario> _listaFuncionario;
+        */
+        public Endereco Endereco;
 
         #region Getters and Setters
         //Geters
+
+       public Empresa()
+        {
+            Endereco = new Endereco();
+        }
+
+
         public string Telefone
         {
             get;set;
@@ -52,10 +60,9 @@ namespace bancoCliente.Dominio.Funcionalidades.Empresas
         {
             get; set;
         }
-        public Endereco Endereco
-        {
-            get; set;
-        }
+
+        
+
         public List<Funcionario> funcionarios
         {
             get; set;

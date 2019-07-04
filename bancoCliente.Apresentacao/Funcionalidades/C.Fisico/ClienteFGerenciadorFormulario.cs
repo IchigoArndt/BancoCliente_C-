@@ -41,7 +41,14 @@ namespace bancoCliente.Apresentacao.Funcionalidades.C.Fisico
                        {
                         MessageBox.Show(ex.Message);
                        }
-              }
+                }
+                else
+                {
+                    foreach (var item in validador.Errors)
+                    {
+                        MessageBox.Show(item.ErrorMessage);
+                    }
+                }
                
             }
             Atualizar();

@@ -12,22 +12,21 @@ namespace BancoCliente.Infra.BancoDados.Cliente.Fisico
     public class ClienteFisicoDAO : IDAO<ClienteFisico>
     {
         #region Queries
-        private string Insert = @"INSERT INTO TBClienteFisico (Id,Nome,Email,DataNasc,Limite,Cheque,Cartao,CPF,LimitePagamento,QuantidadePagamento,IdConta) 
-                                  VALUES (@id,@nome,@email,@dataNasc,@limite,@cheque,@cartao,@cpf,@limitePaga,@quantidadePaga,@idConta)";
+        private string Insert = @"INSERT INTO TBClienteFisico (Nome,Email,DataNasc,Limite,Cheque,Cartao,CPF,LimitePagamento,QuantidadePagamento) 
+                                  VALUES (@nome,@email,@dataNasc,@limite,@cheque,@cartao,@cpf,@limitePagamento,@quantidadePagamento)";
         private string GetAll = @"SELECT * FROM TBClienteFisico ORDER BY Id";
         private string GetById = @"SELECT * FROM TBClienteFisico WHERE Id = @id";
         private string Delete = @"DELETE FROM TBClienteFisico WHERE id = @id";
         private string Update = @"UPDATE TBClienteFisico SET 
                                   Nome = @nome,
                                   Email = @email,
-                                  DataNasc = @data,
+                                  DataNasc = @dataNasc,
                                   Limite = @limite,
                                   Cheque = @cheque,
                                   Cartao = @cartao,
                                   CPF = @cpf,
-                                  LimitePagamento = @limiteP,
-                                  QuantidadePagamento = @quantidadeP,
-                                  IdConta = @idConta";
+                                  LimitePagamento = @limitePagamento,
+                                  QuantidadePagamento = @quantidadePagamento";
         private const string GetLastOne = @"SELECT top(1) * FROM TBClienteFisico ORDER BY Id DESC";
         #endregion
 
@@ -94,7 +93,7 @@ namespace BancoCliente.Infra.BancoDados.Cliente.Fisico
             ClienteFisico.cpf = Convert.ToString(_reader["CPF"]);
             ClienteFisico.limitePagamento = float.Parse(Convert.ToString(_reader["LimitePagamento"]));
             ClienteFisico.quantidadeLimite = Convert.ToInt32(_reader["QuantidadePagamento"]);
-            ClienteFisico.IdConta = Convert.ToInt32(_reader["IdConta"]);
+            //ClienteFisico.IdConta = Convert.ToInt32(_reader["IdConta"]);
 
             return ClienteFisico;
         }
@@ -102,7 +101,6 @@ namespace BancoCliente.Infra.BancoDados.Cliente.Fisico
         public Dictionary<string, object> GetParam(ClienteFisico ClienteFisico)
         {
             var dic = new Dictionary<string, object>();
-            dic.Add("Id", ClienteFisico.Id);
             dic.Add("Nome", ClienteFisico.nome);
             dic.Add("Email", ClienteFisico.email);
             dic.Add("DataNasc", ClienteFisico.dataNasc);
@@ -112,7 +110,7 @@ namespace BancoCliente.Infra.BancoDados.Cliente.Fisico
             dic.Add("CPF", ClienteFisico.cpf);
             dic.Add("LimitePagamento", ClienteFisico.limitePagamento);
             dic.Add("QuantidadePagamento", ClienteFisico.quantidadeLimite);
-            dic.Add("IdConta", ClienteFisico.IdConta);
+            //dic.Add("IdConta", ClienteFisico.IdConta);
 
             return dic;
         }

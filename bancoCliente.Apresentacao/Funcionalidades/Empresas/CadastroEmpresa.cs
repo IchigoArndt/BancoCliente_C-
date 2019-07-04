@@ -163,8 +163,9 @@ namespace bancoCliente.Apresentacao.Funcionalidades.Empresas
                 _empresa.RazaoSocial = utxtRazao.Text;
                 _empresa.Email = utxtEmail.Text;
                 _empresa.Telefone = utxtTelefone.Text;
+                _empresa.DataFund = Convert.ToDateTime(dtFund.SelectedText.ToString());
                 _empresa.Cnpj = utxtCNPJ.Text;
-                _empresa.funcionarios = preencheListaFuncionario(true);
+                //_empresa.funcionarios = preencheListaFuncionario(true);
                 //Endereço
                 _empresa.Endereco.setLongradouro(utxtRua.Text);
                 _empresa.Endereco.setUf((EnumUfs)ucmbUf.SelectedItem);

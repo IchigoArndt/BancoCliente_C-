@@ -12,15 +12,15 @@ namespace BancoCliente.Infra.BancoDados.Conta
    public class ContaDAO : IDAO<ContaDominio>
     {
         #region Queries
-        private string Insert = @"INSERT INTO TBConta (Id,Agencia,TaxaManutencao,TipoConta) 
-                                  VALUES (@id,@agencia,@TaxaManutencao,@tipoConta)";
+        private string Insert = @"INSERT INTO TBConta (Agencia,TaxaManutencao,TipoConta) 
+                                  VALUES (@agencia,@TaxaManutencao,@tipoConta)";
         private string GetAll = @"SELECT * FROM TBConta ORDER BY Id";
         private string GetById = @"SELECT * FROM TBConta WHERE Id = @id";
         private string Delete = @"DELETE FROM TBConta WHERE id = @id";
         private string Update = @"UPDATE TBConta SET 
                                   Agencia = @agencia,
                                   TaxaManutencao = @TaxaManutencao,
-                                  tipoConta = @tipoConta";
+                                  tipoConta = @tipoConta where Id = @id";
         private const string GetLastOne = @"SELECT top(1) * FROM TBConta ORDER BY Id DESC";
         #endregion
 

@@ -52,7 +52,7 @@ namespace bancoCliente.Dominio.Funcionalidades.Clientes
 
         public override string ToString()
         {
-            return string.Format("ID: {0}" + " Nome: {1}" + " CNPJ: {2}", getId(), getNome(), getCnpj());
+            return string.Format("ID: {0}" + " Nome: {1}" + " CNPJ: {2}", Id, getNome(), getCnpj());
         }
 
     }

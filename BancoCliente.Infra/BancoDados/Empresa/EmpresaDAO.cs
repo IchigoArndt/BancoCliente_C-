@@ -12,8 +12,8 @@ namespace BancoempresaDominio.Infra.BancoDados.Empresas
      public class EmpresaDAO : IDAO<Empresa>
      {
          #region Queries
-         private string Insert = @"INSERT INTO TBEmpresa (Id,RazaoSocial,NomeFantasia,CNPJ,DataFundacao,Telefone,Email) 
-                                   VALUES (@id,@razaoSocial,@nomeFantasia,@cnpj,@dataFund,@telefone,@email)";
+         private string Insert = @"INSERT INTO TBEmpresa (RazaoSocial,NomeFantasia,CNPJ,DataFundacao,Telefone,Email) 
+                                   VALUES (@razaoSocial,@nomeFantasia,@cnpj,@dataFundacao,@telefone,@email)";
          private string GetAll = @"SELECT * FROM TBEmpresa ORDER BY Id";
          private string GetById = @"SELECT * FROM TBEmpresa WHERE Id = @id";
          private string Delete = @"DELETE FROM TBEmpresa WHERE id = @id";
@@ -21,9 +21,9 @@ namespace BancoempresaDominio.Infra.BancoDados.Empresas
                                    RazaoSocial = @razaoSocial,
                                    NomeFantasia = @nomeFantasia,
                                    CNPJ = @cnpj,
-                                   DataFundacao = @dataFund,
+                                   DataFundacao = @dataFundacao,
                                    Telefone = @telefone,
-                                   Email = @email";
+                                   Email = @email where Id = @id";
          private const string GetLastOne = @"SELECT top(1) * FROM TBEmpresa ORDER BY Id DESC";
          #endregion
 

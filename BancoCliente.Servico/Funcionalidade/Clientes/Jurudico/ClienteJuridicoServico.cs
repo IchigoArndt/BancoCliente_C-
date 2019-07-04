@@ -30,7 +30,8 @@ namespace BancoCliente.Servico.Funcionalidade.Clientes.Jurudico
 
         public int Deletar(ClienteJuridico entidade)
         {
-            return _repositorioCliente.Excluir(entidade.id);
+            var id = Convert.ToInt32(entidade.Id.ToString());
+            return _repositorioCliente.Excluir(id);
         }
 
         public IList<ClienteJuridico> PegarTodos()

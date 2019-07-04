@@ -12,21 +12,18 @@ namespace BancoCliente.Infra.BancoDados.Cliente.Jurudico
     public class ClienteJuridicoDAO : IDAO<ClienteJuridico> 
     {
         #region Queries
-        private string Insert = @"INSERT INTO TBClienteJuridico (Id,Nome,Email,DataNasc,Limite,Cheque,Cartao,CNPJ,IdConta,IdEmpresa) 
-                                  VALUES (@id,@nome,@email,@data,@limite,@cheque,@cartao,@cnpj,@idConta,@idEmpresa)";
+        private string Insert = @"INSERT INTO TBClienteJuridico (Nome,Email,Limite,Cheque,Cartao,CNPJ) 
+                                  VALUES (@nome,@email,@limite,@cheque,@cartao,@cnpj)";
         private string GetAll = @"SELECT * FROM TBClienteJuridico ORDER BY Id";
         private string GetById = @"SELECT * FROM TBClienteJuridico WHERE Id = @id";
         private string Delete = @"DELETE FROM TBClienteJuridico WHERE id = @id";
         private string Update = @"UPDATE TBClienteJuridico SET 
                                   Nome = @nome,
                                   Email = @email,
-                                  DataNasc = @data,
                                   Limite = @limite,
                                   Cheque = @cheque,
                                   Cartao = @cartao,
-                                  CNPJ = @cnpj,
-                                  IdConta = @idConta,
-                                  IdEmpresa = @idEmpresa";
+                                  CNPJ = @cnpj where Id = @id";
         private const string GetLastOne = @"SELECT top(1) * FROM TBClienteJuridico ORDER BY Id DESC";
         #endregion
 
@@ -84,13 +81,12 @@ namespace BancoCliente.Infra.BancoDados.Cliente.Jurudico
             ClienteJuridico.Id = Convert.ToInt32(_reader["Id"]);
             ClienteJuridico.nome = Convert.ToString(_reader["Nome"]);
             ClienteJuridico.email = Convert.ToString(_reader["Email"]);
-            ClienteJuridico.dataNasc = Convert.ToDateTime(_reader["DataNasc"]);
             ClienteJuridico.limite = float.Parse(Convert.ToString(_reader["Limite"]));
             ClienteJuridico.direitoCheque = Convert.ToBoolean(_reader["Cheque"]);
             ClienteJuridico.cartaoCredito = Convert.ToBoolean(_reader["Cartao"]);
             ClienteJuridico.cnpj = Convert.ToString(_reader["CNPJ"]);
-            ClienteJuridico.IdConta = Convert.ToInt32(_reader["IdConta"]);
-            ClienteJuridico.IdEmpresa = Convert.ToInt32(_reader["IdEmpresa"]);
+            //ClienteJuridico.IdConta = Convert.ToInt32(_reader["IdConta"]);
+            //ClienteJuridico.IdEmpresa = Convert.ToInt32(_reader["IdEmpresa"]);
 
             return ClienteJuridico;
         }
@@ -105,9 +101,9 @@ namespace BancoCliente.Infra.BancoDados.Cliente.Jurudico
             dic.Add("Cheque", ClienteJuridico.direitoCheque);
             dic.Add("Cartao", ClienteJuridico.cartaoCredito);
             dic.Add("CNPJ", ClienteJuridico.cnpj);
-            dic.Add("IdConta", ClienteJuridico.IdConta);
+            /*dic.Add("IdConta", ClienteJuridico.IdConta);
             dic.Add("IdEmpresa", ClienteJuridico.IdEmpresa);
-
+            */
             return dic;
         }
     }

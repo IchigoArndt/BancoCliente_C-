@@ -65,7 +65,7 @@ namespace bancoCliente.Dominio.Funcionalidades.Clientes
 
         public override string ToString()
         {
-            return string.Format("ID:{0}" +" CPF:{1}"+ "  Nome:{2}"+ "  ContaID:{3}" + " Descrição: {4}", id, getCpf(), nome, conta.Id,conta.RetornaDescricao());
+            return string.Format("ID:{0}" +" CPF:{1}"+ "  Nome:{2}"+ "  ContaID:{3}" + " Descrição: {4}", Id, getCpf(), nome, conta.Id,conta.RetornaDescricao());
         }
 
     }
