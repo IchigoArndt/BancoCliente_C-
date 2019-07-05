@@ -163,7 +163,7 @@ namespace bancoCliente.Apresentacao.Funcionalidades.Empresas
                 _empresa.RazaoSocial = utxtRazao.Text;
                 _empresa.Email = utxtEmail.Text;
                 _empresa.Telefone = utxtTelefone.Text;
-                _empresa.DataFund = Convert.ToDateTime(dtFund.SelectedText.ToString());
+                _empresa.DataFund = Convert.ToDateTime(dtFund.Value.ToString());
                 _empresa.Cnpj = utxtCNPJ.Text;
                 //_empresa.funcionarios = preencheListaFuncionario(true);
                 //Endereço
@@ -225,7 +225,7 @@ namespace bancoCliente.Apresentacao.Funcionalidades.Empresas
                 utxtTelefone.Text = Convert.ToString(_empresa.Telefone);
                 utxtCNPJ.Text = Convert.ToString(_empresa.Cnpj);
                 utxtID.Text = _empresa.Id.ToString();
-                preencheListaFuncionario();
+                //preencheListaFuncionario();
                 //Endereço
                 utxtBairro.Text = empresa.Endereco.getBairro();
                 utxtRua.Text = _empresa.Endereco.getLongradouro();

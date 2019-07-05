@@ -12,6 +12,7 @@ namespace bancoCliente.Dominio.Funcionalidades.Funcionarios
         //private string cpf;
         //private float salario;
         //private string cargo;
+        public int IdEndereco;
 
         public Funcionario()
         {

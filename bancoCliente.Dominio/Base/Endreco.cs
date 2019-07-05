@@ -7,16 +7,16 @@ using System.Threading.Tasks;
 
 namespace bancoCliente.Dominio.Base
 {
-    public class Endereco
+    public class Endereco : Entidade
     {
-        private int id;
-        private string logradouro;
-        private int numero;
-        private string complemento;
-        private string bairro;
-        private string cidade;
-        private EnumUfs enumUf;
-        private int uf;
+        public int id;
+        public string logradouro;
+        public int numero;
+        public string complemento;
+        public string bairro;
+        public string cidade;
+        public EnumUfs enumUf;
+        public int uf;
         #region
         public string getLongradouro()
         {
@@ -74,6 +74,11 @@ namespace bancoCliente.Dominio.Base
         public override string ToString()
         {
             return string.Format("Rua:" + this.logradouro + "\n" + "Numero" + numero + "\n" + "Bairro :" + this.bairro + "\n" + "Cidade :" + this.cidade + "\n" + "Complemento :" + this.complemento + "\n" + "UF :" + this.enumUf);
+        }
+
+        public override void Validar()
+        {
+            throw new NotImplementedException();
         }
     }
 }

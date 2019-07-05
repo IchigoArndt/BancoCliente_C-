@@ -13,6 +13,8 @@ namespace bancoCliente.Dominio.Funcionalidades.Clientes
         public string cpf;
         public int quantidadeLimite;
         public float limitePagamento;
+        public int IdEndereco; 
+
         public virtual ContaDominio conta { get; set; }
         public int IdConta { get; set; }
         #region Geters and Seters

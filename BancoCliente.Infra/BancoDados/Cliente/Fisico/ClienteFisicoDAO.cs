@@ -1,4 +1,5 @@
 ﻿using bancoCliente.Dominio.Funcionalidades.Clientes;
+using BancoCliente.Infra.BancoDados.Enderecos;
 using BancoCliente.Infra.Base;
 using System;
 using System.Collections.Generic;
@@ -11,9 +12,12 @@ namespace BancoCliente.Infra.BancoDados.Cliente.Fisico
 {
     public class ClienteFisicoDAO : IDAO<ClienteFisico>
     {
+
+        EnderecoDAO endereco = new EnderecoDAO();
+
         #region Queries
-        private string Insert = @"INSERT INTO TBClienteFisico (Nome,Email,DataNasc,Limite,Cheque,Cartao,CPF,LimitePagamento,QuantidadePagamento) 
-                                  VALUES (@nome,@email,@dataNasc,@limite,@cheque,@cartao,@cpf,@limitePagamento,@quantidadePagamento)";
+        private string Insert = @"INSERT INTO TBClienteFisico (Nome,Email,DataNasc,Limite,Cheque,Cartao,CPF,LimitePagamento,QuantidadePagamento,IdEndereco) 
+                                  VALUES (@nome,@email,@dataNasc,@limite,@cheque,@cartao,@cpf,@limitePagamento,@quantidadePagamento,@idEndereco)";
         private string GetAll = @"SELECT * FROM TBClienteFisico ORDER BY Id";
         private string GetById = @"SELECT * FROM TBClienteFisico WHERE Id = @id";
         private string Delete = @"DELETE FROM TBClienteFisico WHERE id = @id";
@@ -34,6 +38,12 @@ namespace BancoCliente.Infra.BancoDados.Cliente.Fisico
 
         public ClienteFisico Adicionar(ClienteFisico ClienteFisico)
         {
+            var end = endereco.Adicionar(ClienteFisico.endereco);
+
+            ClienteFisico.endereco = end;
+
+            ClienteFisico.IdEndereco = Convert.ToInt32(end.Id.ToString());
+
             DB.Add(Insert, GetParam(ClienteFisico));
 
             long id = ObterUltimoId();
@@ -58,6 +68,10 @@ namespace BancoCliente.Infra.BancoDados.Cliente.Fisico
 
         public ClienteFisico Atualizar(ClienteFisico ClienteFisico)
         {
+            var end = endereco.Atualizar(ClienteFisico.endereco);
+
+            ClienteFisico.endereco = end;
+
             DB.Update(Update, GetParam(ClienteFisico));
 
             return ClienteFisico;
@@ -72,11 +86,21 @@ namespace BancoCliente.Infra.BancoDados.Cliente.Fisico
 
             return ClienteFisicoId;
         }
+        
+        public void ExcluirEndereco(int id)
+        {
+            endereco.Excluir(id);
+        } 
 
        
         public IList<ClienteFisico> ObterTodosItens()
         {
-            return DB.GetAll(GetAll, Converter);
+            IList<ClienteFisico> clientes = DB.GetAll(GetAll, Converter);
+            foreach (var item in clientes)
+            {
+                item.endereco = endereco.PegarPorId(item.IdEndereco);
+            }
+            return clientes;
         }
 
         private static ClienteFisico Converter(IDataReader _reader)
@@ -93,6 +117,7 @@ namespace BancoCliente.Infra.BancoDados.Cliente.Fisico
             ClienteFisico.cpf = Convert.ToString(_reader["CPF"]);
             ClienteFisico.limitePagamento = float.Parse(Convert.ToString(_reader["LimitePagamento"]));
             ClienteFisico.quantidadeLimite = Convert.ToInt32(_reader["QuantidadePagamento"]);
+            ClienteFisico.IdEndereco = Convert.ToInt32(_reader["IdEndereco"]);
             //ClienteFisico.IdConta = Convert.ToInt32(_reader["IdConta"]);
 
             return ClienteFisico;
@@ -110,6 +135,7 @@ namespace BancoCliente.Infra.BancoDados.Cliente.Fisico
             dic.Add("CPF", ClienteFisico.cpf);
             dic.Add("LimitePagamento", ClienteFisico.limitePagamento);
             dic.Add("QuantidadePagamento", ClienteFisico.quantidadeLimite);
+            dic.Add("IdEndereco", ClienteFisico.IdEndereco);
             //dic.Add("IdConta", ClienteFisico.IdConta);
 
             return dic;

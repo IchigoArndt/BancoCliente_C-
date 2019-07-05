@@ -65,6 +65,7 @@
     <Compile Include="BancoDados\Cliente\Jurudico\ClienteJuridicoDAO.cs" />
     <Compile Include="BancoDados\Conta\ContaDAO.cs" />
     <Compile Include="BancoDados\Empresa\EmpresaDAO.cs" />
+    <Compile Include="BancoDados\Endereco\EnderecoDAO.cs" />
     <Compile Include="BancoDados\Funcionario\FuncionarioDAO.cs" />
     <Compile Include="Base\BD.cs" />
     <Compile Include="Base\DadosBase.cs" />

@@ -1,4 +1,5 @@
 ﻿using bancoCliente.Dominio.Funcionalidades.Clientes;
+using BancoCliente.Infra.BancoDados.Enderecos;
 using BancoCliente.Infra.Base;
 using System;
 using System.Collections.Generic;
@@ -11,9 +12,12 @@ namespace BancoCliente.Infra.BancoDados.Cliente.Jurudico
 {
     public class ClienteJuridicoDAO : IDAO<ClienteJuridico> 
     {
+
+        EnderecoDAO endereco = new EnderecoDAO();
+
         #region Queries
-        private string Insert = @"INSERT INTO TBClienteJuridico (Nome,Email,Limite,Cheque,Cartao,CNPJ) 
-                                  VALUES (@nome,@email,@limite,@cheque,@cartao,@cnpj)";
+        private string Insert = @"INSERT INTO TBClienteJuridico (Nome,Email,Limite,Cheque,Cartao,CNPJ,IdEndereco) 
+                                  VALUES (@nome,@email,@limite,@cheque,@cartao,@cnpj,@idEndereco)";
         private string GetAll = @"SELECT * FROM TBClienteJuridico ORDER BY Id";
         private string GetById = @"SELECT * FROM TBClienteJuridico WHERE Id = @id";
         private string Delete = @"DELETE FROM TBClienteJuridico WHERE id = @id";
@@ -29,6 +33,13 @@ namespace BancoCliente.Infra.BancoDados.Cliente.Jurudico
 
         public ClienteJuridico Adicionar(ClienteJuridico ClienteJuridico)
         {
+
+            var end = endereco.Adicionar(ClienteJuridico.endereco);
+
+            ClienteJuridico.endereco = end;
+
+            ClienteJuridico.IdEndereco = Convert.ToInt32(end.Id.ToString());
+
             DB.Add(Insert, GetParam(ClienteJuridico));
 
             long id = ObterUltimoId();
@@ -53,9 +64,18 @@ namespace BancoCliente.Infra.BancoDados.Cliente.Jurudico
 
         public ClienteJuridico Atualizar(ClienteJuridico ClienteJuridico)
         {
+            var end = endereco.Atualizar(ClienteJuridico.endereco);
+
+            ClienteJuridico.endereco = end;
+
             DB.Update(Update, GetParam(ClienteJuridico));
 
             return ClienteJuridico;
+        }
+
+        public void ExcluirEndereco(int id)
+        {
+            endereco.Excluir(id);
         }
 
         public int Excluir(int ClienteJuridicoId)
@@ -71,7 +91,12 @@ namespace BancoCliente.Infra.BancoDados.Cliente.Jurudico
 
         public IList<ClienteJuridico> ObterTodosItens()
         {
-            return DB.GetAll(GetAll, Converter);
+            IList<ClienteJuridico> clientes = DB.GetAll(GetAll, Converter);
+            foreach (var item in clientes)
+            {
+                item.endereco = endereco.PegarPorId(item.IdEndereco);
+            }
+            return clientes;
         }
 
         private static ClienteJuridico Converter(IDataReader _reader)
@@ -85,6 +110,7 @@ namespace BancoCliente.Infra.BancoDados.Cliente.Jurudico
             ClienteJuridico.direitoCheque = Convert.ToBoolean(_reader["Cheque"]);
             ClienteJuridico.cartaoCredito = Convert.ToBoolean(_reader["Cartao"]);
             ClienteJuridico.cnpj = Convert.ToString(_reader["CNPJ"]);
+            ClienteJuridico.IdEndereco = Convert.ToInt32(_reader["IdEndereco"]);
             //ClienteJuridico.IdConta = Convert.ToInt32(_reader["IdConta"]);
             //ClienteJuridico.IdEmpresa = Convert.ToInt32(_reader["IdEmpresa"]);
 
@@ -101,6 +127,7 @@ namespace BancoCliente.Infra.BancoDados.Cliente.Jurudico
             dic.Add("Cheque", ClienteJuridico.direitoCheque);
             dic.Add("Cartao", ClienteJuridico.cartaoCredito);
             dic.Add("CNPJ", ClienteJuridico.cnpj);
+            dic.Add("IdEndereco", ClienteJuridico.IdEndereco);
             /*dic.Add("IdConta", ClienteJuridico.IdConta);
             dic.Add("IdEmpresa", ClienteJuridico.IdEmpresa);
             */

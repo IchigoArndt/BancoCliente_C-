@@ -13,6 +13,7 @@ namespace bancoCliente.Dominio.Funcionalidades.Clientes
     {
         public int IdConta;
         public int IdEmpresa;
+        public int IdEndereco;
         public virtual ContaDominio conta { get; set; }
         public virtual Empresa empresa { get; set; }
 

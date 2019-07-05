@@ -31,7 +31,9 @@ namespace BancoCliente.Servico.Funcionalidade.Clientes.Fisico
         public int Deletar(ClienteFisico entidade)
         {
             int id = Convert.ToInt32(entidade.Id.ToString());
-            return _repositorioCliente.Excluir(id);
+            int retorno = _repositorioCliente.Excluir(id);
+            _repositorioCliente.ExcluirEndereco(entidade.IdEndereco);
+            return retorno;
         }
 
         public IList<ClienteFisico> PegarTodos()

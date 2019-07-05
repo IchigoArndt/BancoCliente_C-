@@ -18,19 +18,26 @@ namespace bancoCliente.Apresentacao.Funcionalidades.Empresas
         public override void Adicionar()
         {
             CadastroEmpresa Empresa = new CadastroEmpresa();
-            Empresa.CarregaListaFuncionarioNãoCadastrado(_funcionarioServico.PegarTodos().ToList());
-            DialogResult result = Empresa.ShowDialog();
-            if (result == DialogResult.OK)
+            var list = _funcionarioServico.PegarTodos().ToList();
+            if (list != null && list.Count != 0)
             {
-                try
+                Empresa.CarregaListaFuncionarioNãoCadastrado(_funcionarioServico.PegarTodos().ToList());
+                DialogResult result = Empresa.ShowDialog();
+                if (result == DialogResult.OK)
                 {
-                    _empresaServico.Inserir(Empresa.empresa);
+                    try
+                    {
+                        _empresaServico.Inserir(Empresa.empresa);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
-            }
+            } else
+            {
+                MessageBox.Show("Não há funcionarios cadastrados !");
+            }  
         }
 
         public override void Atualizar()

@@ -23,6 +23,8 @@ namespace bancoCliente.Dominio.Funcionalidades.Empresas
         */
         public Endereco Endereco;
 
+        public int IdEndereco = 1;
+
         #region Getters and Setters
         //Geters
 

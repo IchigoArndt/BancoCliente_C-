@@ -31,7 +31,10 @@ namespace BancoCliente.Servico.Funcionalidade.Empresas
 
         public int Deletar(Empresa entidade)
         {
-            return _repositorioCliente.Excluir(entidade.Id);
+            int id = Convert.ToInt32(entidade.Id.ToString());
+            int retorno = _repositorioCliente.Excluir(id);
+            _repositorioCliente.ExcluirEndereco(entidade.IdEndereco);
+            return retorno;
         }
 
         public IList<Empresa> PegarTodos()
